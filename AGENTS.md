@@ -107,15 +107,46 @@ Two submodules are present:
 
 ## VaultWare Branding in UI
 
-The default theme for Deconstructed is **Cyberpunk Cinder** (`cyberpunk-cinder`):
+### Design Philosophy
 
-| Token | Value |
-|---|---|
-| `background` | `#073642` |
-| `accent` | `#CB4B16` |
-| `text_primary` | `#F8FAFC` |
-| `text_secondary` | `#CBD5E1` |
+Deconstructed uses the **new VaultWares brand language** defined in `vault-themes/Brand/`. The visual identity emphasises:
 
-Use `VaultThemeManager.get_theme_by_slug('cyberpunk-cinder')` (or the JS port) for all token lookups.
+- **Light-first design** — warm, paper-toned backgrounds for long reading sessions during security research.
+- **Solarized palette** — derived from `codex-solarized-light-revisited.json` with VaultWares gold accent.
+- **Dark themes available** — Solarized Dark and Cyberpunk Cinder remain selectable for users who prefer darker UIs.
+- **Brand typography** — `"Segoe UI Semilight"`, `Inter`, `system-ui` (from `vault-themes/Brand/tokens.ts`).
+- **Tagline** — "Privacy first. Security in service." (from `vault-themes/Brand/brand.i18n.ts`).
+
+### Default Theme: Solarized Warm Light (`solarized-warm-light`)
+
+| Token | Value | Source |
+|---|---|---|
+| `background` | `#FDF6E3` | Solarized base3 |
+| `surface` | `#EEE8D5` | Solarized base2 |
+| `accent` | `#CC9B21` | VaultWares gold (`tokens.ts`) |
+| `textPrimary` | `#002B36` | Solarized base03 / ink |
+| `textSecondary` | `#657B83` | Solarized base00 |
+
+### Available Dark Themes
+
+| Theme | Slug | Accent |
+|---|---|---|
+| Solarized Dark | `solarized-dark` | `#B58900` (Solarized yellow) |
+| Cyberpunk Cinder | `cyberpunk-cinder` | `#CB4B16` (Solarized orange) |
+
+### Theme Usage
+
+All theme tokens are centralised in `src/renderer/theme.js`. Use the following API:
+
+```js
+import { getTheme, listThemes, DEFAULT_THEME_SLUG, FONT_FAMILY } from './theme.js';
+
+const theme = getTheme('solarized-warm-light');
+// theme.background, theme.accent, theme.textPrimary, etc.
+```
+
+- Never hardcode hex colour values — always reference a theme token.
+- The `VaultThemeManager` in `vault-themes/theme_manager.py` remains the Python source of truth; `src/renderer/theme.js` is the JS equivalent for this project.
+- When the user switches themes at runtime, the entire UI recolours via React state.
 
 The app name in all UI labels is **"Deconstructed"** — not "deconstructed-website-a-la-mode".
