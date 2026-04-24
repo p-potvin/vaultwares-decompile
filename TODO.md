@@ -23,6 +23,17 @@
 
 ---
 
+## Theme Migration — Solarized Warm Light
+
+- [x] Create `src/renderer/theme.js` with centralised theme tokens (Solarized Warm Light default, Solarized Dark, Cyberpunk Cinder)
+- [x] Update `src/renderer/App.jsx` to import from theme module; add theme switcher
+- [x] Update `src/main/index.js` BrowserWindow backgroundColor to `#FDF6E3`
+- [x] Update `AGENTS.md` VaultWare Branding section for new design philosophy
+- [x] Update `TODO.md` with theme migration items
+- [x] Add TASK-11 to `TASKS.md` for theme migration task spec
+
+---
+
 ## Phase 1 — Crawler Engine
 
 - [ ] **1.1** Set up `PlaywrightCrawler` in `src/crawler/crawler.js`

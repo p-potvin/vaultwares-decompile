@@ -590,4 +590,76 @@ Steps: checkout → setup-node 20 → npm ci → npm run build → electron-buil
 
 ---
 
-*All tasks above are independent enough to be executed in parallel once TASK-01 is complete. Assign TASK-01 first, then dispatch TASK-02 through TASK-10 simultaneously.*
+*All tasks above are independent enough to be executed in parallel once TASK-01 is complete. Assign TASK-01 first, then dispatch TASK-02 through TASK-11 simultaneously.*
+
+---
+
+## TASK-11 · Theme Migration — Solarized Warm Light Default
+
+**Agent role:** React / UI theming specialist  
+**Depends on:** TASK-01, TASK-06  
+**Outputs:** `src/renderer/theme.js` (new), `src/renderer/App.jsx` (modified), `src/main/index.js` (modified), `AGENTS.md` (modified)
+
+### Context
+
+The VaultWares brand has evolved. The new design philosophy (documented in `vault-themes/Brand/`) favours warm, paper-toned light themes for extended reading sessions during security research. The default theme must change from **Cyberpunk Cinder** (dark) to **Solarized Warm Light** (light).
+
+The vault-themes Brand directory provides these reference assets:
+- `codex-solarized-light-revisited.json` — Solarized Light colour scheme with VaultWares accents
+- `tokens.ts` — Brand colour primitives (gold `#CC9B21`, paper `#FDFCF7`, ink `#002B36`, cyan `#21B8CC`, green `#4ECC21`)
+- `tailwind.config.ts` — Extended palette including `vault.light: #FDF6E3`, `vault.base: #002B36`
+- `brand.i18n.ts` — Tagline: "Privacy first. Security in service."
+- Font stack: `"Segoe UI Semilight"`, `Inter`, `system-ui`
+
+### New theme module: `src/renderer/theme.js`
+
+A single-file theme registry that:
+1. Defines **Solarized Warm Light** as the default (`slug: 'solarized-warm-light'`)
+2. Includes **Solarized Dark** (`slug: 'solarized-dark'`) and **Cyberpunk Cinder** (`slug: 'cyberpunk-cinder'`) as alternatives
+3. Exports `getTheme(slug)`, `listThemes()`, `DEFAULT_THEME_SLUG`, `FONT_FAMILY`, `FONT_FAMILY_MONO`
+4. Each theme object has keys: `name`, `slug`, `mode`, `background`, `surface`, `surfaceElevated`, `textPrimary`, `textSecondary`, `accent`, `accentHover`, `borderSubtle`, `focusRing`, `success`, `warning`, `danger`
+
+### Token derivation for Solarized Warm Light
+
+| Token | Value | Source |
+|---|---|---|
+| `background` | `#FDF6E3` | Solarized base3 |
+| `surface` | `#EEE8D5` | Solarized base2 |
+| `surfaceElevated` | blend(base2, gold, 0.06) | Computed |
+| `textPrimary` | `#002B36` | Solarized base03 / ink |
+| `textSecondary` | `#657B83` | Solarized base00 |
+| `accent` | `#CC9B21` | VaultWares gold |
+| `accentHover` | `#B78C1E` | VaultWares gold muted |
+| `borderSubtle` | blend(base2, base01, 0.18) | Computed |
+| `focusRing` | blend(gold, base03, 0.15) | Computed |
+
+### Changes to `App.jsx`
+
+- Remove hardcoded `THEME` object
+- Import from `./theme.js`
+- Add `useState` for `activeThemeSlug`
+- Derive theme from `getTheme(activeThemeSlug)`
+- Add a theme switcher `<select>` in the header
+- Use `FONT_FAMILY` from theme module
+
+### Changes to `src/main/index.js`
+
+- Change `BrowserWindow.backgroundColor` from `'#073642'` to `'#FDF6E3'`
+
+### Changes to `AGENTS.md`
+
+- Rewrite "VaultWare Branding in UI" section to document:
+  - Light-first design philosophy
+  - Solarized palette + VaultWares gold accent
+  - Available dark themes
+  - `src/renderer/theme.js` as the JS source of truth
+  - Brand typography
+
+### Acceptance criteria
+
+- Default launch renders with Solarized Warm Light colours (cream background, dark text, gold accent)
+- Theme switcher dropdown in the header allows switching between all three themes
+- All views (Crawler, API Explorer, JS Deobfuscator) adapt to the selected theme
+- No hardcoded hex colour values in `App.jsx`
+- `AGENTS.md` documents the new theme philosophy and token values
+- The old Cyberpunk Cinder theme is still accessible via the switcher

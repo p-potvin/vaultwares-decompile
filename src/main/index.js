@@ -18,7 +18,7 @@ function createMainWindow() {
     minWidth: 1024,
     minHeight: 700,
     title: 'Deconstructed — VaultWares',
-    backgroundColor: '#073642', // Cyberpunk Cinder background
+    backgroundColor: '#FDF6E3', // Solarized Warm Light background (default theme)
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
