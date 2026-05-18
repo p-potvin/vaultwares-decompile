@@ -1,4 +1,4 @@
-// Deconstructed — Crawlee-based Site Spider
+// VaultWares Decompile — Crawlee-based Site Spider
 // Discovers routes and downloads JS assets from a target website.
 
 import { PlaywrightCrawler, RequestQueue } from 'crawlee';

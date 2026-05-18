@@ -1,4 +1,4 @@
-// Deconstructed — Local AI Model Client
+// VaultWares Decompile — Local AI Model Client
 // Connects to Ollama or a llama.cpp OpenAI-compatible server running locally.
 // NO external API calls are made — privacy is guaranteed.
 

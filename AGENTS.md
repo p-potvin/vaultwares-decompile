@@ -1,10 +1,10 @@
-# AGENTS.md — Deconstructed
+# AGENTS.md — VaultWares Decompile
 
 > For company-wide rules, read `vaultwares-docs/AGENTS.md` first.
 
 ## Project Identity
 
-**Deconstructed** is a VaultWares security-research desktop tool built with Electron (main process) and React (renderer). It crawls websites, maps APIs, deobfuscates JavaScript, and uses local AI to reconstruct human-readable code.
+**VaultWares Decompile** is a VaultWares security-research desktop tool built with Electron (main process) and React (renderer). It crawls websites, maps APIs, deobfuscates JavaScript, and uses local AI to reconstruct human-readable code.
 
 ---
 
@@ -109,7 +109,7 @@ Two submodules are present:
 
 ### Design Philosophy
 
-Deconstructed uses the **new VaultWares brand language** defined in `vault-themes/Brand/`. The visual identity emphasises:
+VaultWares Decompile uses the **new VaultWares brand language** defined in `vault-themes/Brand/`. The visual identity emphasises:
 
 - **Light-first design** — warm, paper-toned backgrounds for long reading sessions during security research.
 - **Solarized palette** — derived from `codex-solarized-light-revisited.json` with VaultWares gold accent.
@@ -149,7 +149,7 @@ const theme = getTheme('solarized-warm-light');
 - The `VaultThemeManager` in `vault-themes/theme_manager.py` remains the Python source of truth; `src/renderer/theme.js` is the JS equivalent for this project.
 - When the user switches themes at runtime, the entire UI recolours via React state.
 
-The app name in all UI labels is **"Deconstructed"** — not "deconstructed-website-a-la-mode".
+The app name in all UI labels is **"VaultWares Decompile"** — not "VaultWares Decompile-website-a-la-mode".
 
 <!-- VAULT-THEMES-SUBMODULE:START -->
 ## vault-themes Submodule

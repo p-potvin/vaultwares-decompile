@@ -1,4 +1,4 @@
-// Deconstructed — Centralized Theme Module
+// VaultWares Decompile — Centralized Theme Module
 // Derives all UI tokens from the vault-themes Brand assets.
 // Default theme is Solarized Warm Light; dark themes remain available.
 //
@@ -58,7 +58,7 @@ function blendHex(base, mix, ratio) {
 // ── Theme definitions ───────────────────────────────────────────────────────
 
 /**
- * Solarized Warm Light — the new default theme for Deconstructed.
+ * Solarized Warm Light — the new default theme for VaultWares Decompile.
  *
  * Warm, paper-toned background inspired by the Solarized Light palette with
  * VaultWares gold accent.  Optimised for extended reading sessions during

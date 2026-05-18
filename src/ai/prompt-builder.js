@@ -1,4 +1,4 @@
-// Deconstructed — AI Rename Prompt Builder
+// VaultWares Decompile — AI Rename Prompt Builder
 // Constructs prompts that instruct a local LLM to produce a JSON identifier rename map.
 
 const SYSTEM_PROMPT = `You are a JavaScript reverse-engineering assistant. Your only job is to analyse obfuscated JavaScript code and propose human-readable names for obfuscated identifiers.

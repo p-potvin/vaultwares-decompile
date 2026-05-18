@@ -1,5 +1,5 @@
 {
-  "name": "deconstructed",
+  "name": "vaultwares-decompile",
   "version": "0.1.0",
   "description": "VaultWares security research tool — API mapping, JS deobfuscation, and AI-powered code reconstruction",
   "type": "module",
@@ -52,8 +52,8 @@
     "wait-on": "^7.2.0"
   },
   "build": {
-    "appId": "com.vaultwares.deconstructed",
-    "productName": "Deconstructed",
+    "appId": "com.vaultwares.decompile",
+    "productName": "VaultWares Decompile",
     "directories": {
       "output": "dist",
       "buildResources": "build"

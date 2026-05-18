@@ -1,4 +1,4 @@
-// Deconstructed — IPC Handler Registry
+// VaultWares Decompile — IPC Handler Registry
 // All privileged Node.js operations are dispatched here from the main process.
 
 import { BrowserWindow } from 'electron';

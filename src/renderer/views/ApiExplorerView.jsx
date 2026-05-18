@@ -1,4 +1,4 @@
-// Deconstructed — API Explorer View
+// VaultWares Decompile — API Explorer View
 // Postman/Swagger-style panel for replaying intercepted API routes.
 
 import React, { useState } from 'react';

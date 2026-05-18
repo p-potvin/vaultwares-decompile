@@ -1,4 +1,4 @@
-// Deconstructed — JavaScript Beautifier
+// VaultWares Decompile — JavaScript Beautifier
 // First pass: normalise indentation and formatting using js-beautify + prettier.
 
 import beautifyLib from 'js-beautify';

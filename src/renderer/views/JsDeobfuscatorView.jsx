@@ -1,4 +1,4 @@
-// Deconstructed — JS Deobfuscator View
+// VaultWares Decompile — JS Deobfuscator View
 // Side-by-side original vs. beautified code viewer with AI rename panel.
 
 import React, { useState } from 'react';

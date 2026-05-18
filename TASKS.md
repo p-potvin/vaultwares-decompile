@@ -1,4 +1,4 @@
-# Deconstructed — Task Dispatch Guide for Sub-Agents
+# VaultWares Decompile — Task Dispatch Guide for Sub-Agents
 
 > This file enables parallel development by providing self-contained task specifications that can be dispatched to independent sub-agents without coordination overhead. Each task includes: context, interface contracts, acceptance criteria, and the exact files to create or modify.
 
@@ -133,7 +133,7 @@ export async function crawlSite(startUrl, options, onProgress) {}
 
 ### JS asset download rules
 
-- Store assets to `~/.deconstructed/sessions/<sessionId>/assets/`
+- Store assets to `~/.vaultwares-decompile/sessions/<sessionId>/assets/`
 - Filename: `<SHA256[:8]>_<original-filename>` (max 80 chars)
 - Skip assets smaller than 1 KB (likely inline stubs)
 - Skip assets where MIME type is not `application/javascript` or `text/javascript`
@@ -361,7 +361,7 @@ export async function listVaults() {}
 - Generate a fresh KEM keypair on each `writeVault` call.
 - Private key buffer must be zeroed immediately after `decapsulate` returns.
 - Shared secret buffer must be zeroed immediately after AES key derivation.
-- Vault directory: `~/.deconstructed/vault/` — create with `chmod 700`.
+- Vault directory: `~/.vaultwares-decompile/vault/` — create with `chmod 700`.
 - Each session is stored as `<sessionId>.vlt` (binary: KEM ciphertext header + AES ciphertext).
 
 ### Acceptance criteria
@@ -530,7 +530,7 @@ For the JS side, implement lightweight Redis pub/sub wrappers using `ioredis`:
 
 ```js
 // src/agents/manager.js
-export class DeconstructedManager {
+export class VaultWaresDecompileManager {
   constructor(redisUrl = 'redis://localhost:6379') {}
   async start() {}
   async assignCrawl(targetUrl, options) {} // dispatches to CrawlerAgent
@@ -542,7 +542,7 @@ export class DeconstructedManager {
 
 ### Acceptance criteria
 
-- `DeconstructedManager` starts without throwing when Redis is unavailable (graceful degradation).
+- `VaultWaresDecompileManager` starts without throwing when Redis is unavailable (graceful degradation).
 - When Redis is available, crawl tasks are published to the `tasks` channel.
 - `getTeamStatus()` returns at least `{ crawlerAgent, deobfuscatorAgent, aiRenamerAgent }` objects with status fields.
 
@@ -557,8 +557,8 @@ export class DeconstructedManager {
 ### electron-builder configuration
 
 ```yaml
-appId: com.vaultwares.deconstructed
-productName: Deconstructed
+appId: com.vaultwares.vaultwares-decompile
+productName: VaultWares Decompile
 directories:
   output: dist
   buildResources: build

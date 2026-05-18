@@ -1,4 +1,4 @@
-// Deconstructed — Webpack Bundle Splitter
+// VaultWares Decompile — Webpack Bundle Splitter
 // Extracts individual modules from a webpack IIFE bundle.
 
 import * as parser from '@babel/parser';

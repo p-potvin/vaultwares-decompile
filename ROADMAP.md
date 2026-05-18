@@ -1,4 +1,4 @@
-# Deconstructed — Development Roadmap
+# VaultWares Decompile — Development Roadmap
 
 > VaultWares | Privacy First · Security Second · Post-Quantum Ready
 
@@ -6,7 +6,7 @@
 
 ## Vision
 
-Deconstructed is a desktop security-research tool that exposes the gap between "obfuscated" and "secure". It crawls a target site, maps its API surface, downloads its JS bundles, and then uses local AI to reconstruct semantically meaningful source code — all without a single byte of data leaving the user's machine.
+VaultWares Decompile is a desktop security-research tool that exposes the gap between "obfuscated" and "secure". It crawls a target site, maps its API surface, downloads its JS bundles, and then uses local AI to reconstruct semantically meaningful source code — all without a single byte of data leaving the user's machine.
 
 ---
 
@@ -98,7 +98,7 @@ Deconstructed is a desktop security-research tool that exposes the gap between "
 |---|---|---|
 | 5.1 | ML-KEM (Kyber) KEM | Implement or bind `ml-kem` npm package for key encapsulation |
 | 5.2 | AES-256-GCM symmetric layer | Wrap Kyber-encapsulated symmetric key with AES-256-GCM for bulk encryption |
-| 5.3 | Encrypted session vault | `vault.js` — read/write encrypted JSON blobs to `~/.deconstructed/vault/` |
+| 5.3 | Encrypted session vault | `vault.js` — read/write encrypted JSON blobs to `~/.vaultwares-decompile/vault/` |
 | 5.4 | Key rotation | On each session start, generate a fresh KEM keypair; old sessions retain their own keys |
 | 5.5 | Memory hygiene | Sensitive buffers are zeroed after use using `Buffer.fill(0)` |
 | 5.6 | Vault UI | Settings panel showing vault status, key fingerprint, and manual clear option |

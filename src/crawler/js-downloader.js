@@ -1,4 +1,4 @@
-// Deconstructed — JS Asset Downloader
+// VaultWares Decompile — JS Asset Downloader
 // Downloads and stores minified JavaScript bundles from crawled pages.
 
 import { createHash } from 'crypto';
@@ -6,7 +6,7 @@ import { mkdir, writeFile } from 'fs/promises';
 import path from 'path';
 import os from 'os';
 
-const VAULT_DIR = path.join(os.homedir(), '.deconstructed', 'sessions');
+const VAULT_DIR = path.join(os.homedir(), '.vaultwares-decompile', 'sessions');
 const MIN_ASSET_SIZE_BYTES = 1024;
 const JS_MIME_TYPES = new Set(['application/javascript', 'text/javascript', 'application/x-javascript']);
 

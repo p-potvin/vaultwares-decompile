@@ -1,4 +1,4 @@
-// Deconstructed — Babel AST Transformer
+// VaultWares Decompile — Babel AST Transformer
 // Applies semantic transforms to deobfuscate JavaScript source code.
 
 import * as parser from '@babel/parser';

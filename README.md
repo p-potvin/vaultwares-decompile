@@ -1,4 +1,4 @@
-# Deconstructed — by VaultWares
+# VaultWares Decompile — by VaultWares
 
 > **A privacy-first security research tool for API mapping, JS deobfuscation, and intelligent code reconstruction.**
 
@@ -11,9 +11,9 @@
 
 ## What Is This?
 
-Many companies attempt to protect their frontend logic through minification, obfuscation, and webpack bundling. **Deconstructed** is a research tool that demonstrates how (un)effective those techniques actually are.
+Many companies attempt to protect their frontend logic through minification, obfuscation, and webpack bundling. **VaultWares Decompile** is a research tool that demonstrates how (un)effective those techniques actually are.
 
-Given a target URL, Deconstructed will:
+Given a target URL, VaultWares Decompile will:
 
 1. **Crawl & Map** — Use the [Crawlee](https://crawlee.dev/js/docs/quick-start) library to spider the site's routes, intercept all network requests, and build a live API map.
 2. **API Explorer** — Present every discovered route in a Swagger/Postman-style panel with HTTP headers and request payloads already prefilled, so you can test each endpoint without manual setup.
@@ -36,7 +36,7 @@ Given a target URL, Deconstructed will:
 ## Architecture Overview
 
 ```
-deconstructed/
+VaultWares Decompile/
 ├── src/
 │   ├── main/                   # Electron main process
 │   │   ├── index.js            # App entry point
@@ -88,8 +88,8 @@ deconstructed/
 
 ```bash
 # 1. Clone with submodules
-git clone --recurse-submodules https://github.com/p-potvin/deconstructed-website-a-la-mode
-cd deconstructed-website-a-la-mode
+git clone --recurse-submodules https://github.com/p-potvin/VaultWares Decompile-website-a-la-mode
+cd VaultWares Decompile-website-a-la-mode
 
 # 2. Install dependencies
 npm install
@@ -140,4 +140,4 @@ See [`TODO.md`](TODO.md) for the granular task checklist.
 
 ---
 
-*Deconstructed is a VaultWares research tool. It is intended for authorized security testing and educational use only.*
+*VaultWares Decompile is a VaultWares research tool. It is intended for authorized security testing and educational use only.*

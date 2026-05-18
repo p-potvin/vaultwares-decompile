@@ -1,4 +1,4 @@
-# Deconstructed — TODO
+# VaultWares Decompile — TODO
 
 > Tracked by LonelyManager · Sources: ROADMAP.md · Updated: 2026-04-20
 
@@ -54,7 +54,7 @@
   - [ ] Group routes by base path and HTTP method
 - [ ] **1.4** Build JS asset harvester in `src/crawler/js-downloader.js`
   - [ ] Detect `<script src>` tags and dynamically injected scripts
-  - [ ] Download and store to `~/.deconstructed/assets/<session-id>/`
+  - [ ] Download and store to `~/.vaultwares-decompile/assets/<session-id>/`
   - [ ] Compute and store SHA-256 fingerprint per asset
   - [ ] Detect and log webpack chunk naming patterns
 - [ ] **1.5** Implement crawl session persistence
@@ -192,7 +192,7 @@
   - [ ] `encrypt(plaintext, sharedSecret)` → `{ iv, ciphertext, authTag }`
   - [ ] `decrypt({ iv, ciphertext, authTag }, sharedSecret)` → `plaintext`
 - [ ] **5.3** Vault I/O in `src/crypto/vault.js`
-  - [ ] Session directory: `~/.deconstructed/vault/<session-id>/`
+  - [ ] Session directory: `~/.vaultwares-decompile/vault/<session-id>/`
   - [ ] `writeVault(sessionId, data)` — serialise, encrypt, write
   - [ ] `readVault(sessionId)` — read, decrypt, deserialise
   - [ ] `listVaults()` — return metadata for all saved sessions

@@ -1,4 +1,4 @@
-// Deconstructed — Context-Isolated Preload Script
+// VaultWares Decompile — Context-Isolated Preload Script
 // Exposes a safe, minimal API surface to the renderer via contextBridge.
 
 import { contextBridge, ipcRenderer } from 'electron';

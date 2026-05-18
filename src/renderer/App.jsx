@@ -1,4 +1,4 @@
-// Deconstructed — Root App Component
+// VaultWares Decompile — Root App Component
 // Theme tokens sourced from the centralized theme module.
 
 import React, { useState } from 'react';
@@ -91,7 +91,7 @@ export default function App() {
   return (
     <div style={styles.app}>
       <header style={styles.header}>
-        <span style={styles.logo}>⬡ DECONSTRUCTED</span>
+        <span style={styles.logo}>⬡ VaultWares Decompile</span>
         <nav style={styles.nav}>
           {VIEWS.map((view) => (
             <button

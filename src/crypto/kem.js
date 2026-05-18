@@ -1,4 +1,4 @@
-// Deconstructed — Post-Quantum Key Encapsulation Mechanism
+// VaultWares Decompile — Post-Quantum Key Encapsulation Mechanism
 // Uses ML-KEM (CRYSTALS-Kyber, NIST FIPS 203) for key encapsulation.
 // Symmetric encryption uses AES-256-GCM.
 

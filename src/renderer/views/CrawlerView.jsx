@@ -1,4 +1,4 @@
-// Deconstructed — Crawler View
+// VaultWares Decompile — Crawler View
 // Lets the user enter a target URL, start a crawl, and watch discovered routes appear in real time.
 
 import React, { useState, useEffect, useRef } from 'react';

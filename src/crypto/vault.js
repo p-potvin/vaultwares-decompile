@@ -1,6 +1,6 @@
-// Deconstructed — Encrypted Session Vault
+// VaultWares Decompile — Encrypted Session Vault
 // Stores crawl sessions encrypted with ML-KEM + AES-256-GCM.
-// Vault directory: ~/.deconstructed/vault/
+// Vault directory: ~/.vaultwares-decompile/vault/
 
 import { mkdir, writeFile, readFile, readdir, stat } from 'fs/promises';
 import path from 'path';
@@ -14,7 +14,7 @@ import {
   zeroBuffer,
 } from './kem.js';
 
-const VAULT_DIR = path.join(os.homedir(), '.deconstructed', 'vault');
+const VAULT_DIR = path.join(os.homedir(), '.vaultwares-decompile', 'vault');
 const VAULT_EXTENSION = '.vlt';
 
 // Byte layout of a .vlt file:

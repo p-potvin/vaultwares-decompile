@@ -1,4 +1,4 @@
-// Deconstructed — Network Request Interceptor
+// VaultWares Decompile — Network Request Interceptor
 // Captures XHR and fetch calls made by crawled pages.
 
 const SENSITIVE_HEADER_PATTERN = /^(authorization|cookie|x-api-key|x-auth-token|x-session)/i;

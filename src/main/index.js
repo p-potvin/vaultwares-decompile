@@ -1,4 +1,4 @@
-// Deconstructed — Electron Main Process Entry Point
+// VaultWares Decompile — Electron Main Process Entry Point
 // VaultWares | Privacy First · Security Second · Post-Quantum Ready
 
 import { app, BrowserWindow, ipcMain, shell } from 'electron';
@@ -17,7 +17,7 @@ function createMainWindow() {
     height: 800,
     minWidth: 1024,
     minHeight: 700,
-    title: 'Deconstructed — VaultWares',
+    title: 'VaultWares Decompile',
     backgroundColor: '#FDF6E3', // Solarized Warm Light background (default theme)
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

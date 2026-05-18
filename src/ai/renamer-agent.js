@@ -1,4 +1,4 @@
-// Deconstructed — AI Rename Agent
+// VaultWares Decompile — AI Rename Agent
 // Orchestrates chunked AI analysis and applies rename proposals via Babel.
 
 import * as parser from '@babel/parser';
