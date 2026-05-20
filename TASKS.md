@@ -505,20 +505,20 @@ const [progress, setProgress] = useState({ pages: 0, routes: 0, assets: 0 });
 
 ## TASK-09 · Agent Integration Layer
 
-**Agent role:** vaultwares-agentciation / Redis multi-agent specialist  
+**Agent role:** vaultwares-adk / Redis multi-agent specialist  
 **Depends on:** TASK-01, TASK-02, TASK-04  
 **Outputs:** `src/agents/crawler-agent.js`, `src/agents/deobfuscator-agent.js`, `src/agents/ai-renamer-agent.js`, `src/agents/manager.js`
 
 ### Context
 
-All long-running processing tasks (crawl, deobfuscate, AI rename) are wrapped as agents using the `vaultwares-agentciation` framework. Agents report heartbeats and status to Redis. `LonelyManager` monitors them and restarts on failure.
+All long-running processing tasks (crawl, deobfuscate, AI rename) are wrapped as agents using the `vaultwares-adk` framework. Agents report heartbeats and status to Redis. `LonelyManager` monitors them and restarts on failure.
 
-The submodule is at `vaultwares-agentciation/`. Import via:
+The submodule is at `vaultwares-adk/`. Import via:
 ```js
 import path from 'path';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-const submodulePath = path.resolve('vaultwares-agentciation');
+const submodulePath = path.resolve('vaultwares-adk');
 // Use dynamic import after adding submodule root to sys.path equivalent
 ```
 
@@ -602,9 +602,9 @@ Steps: checkout → setup-node 20 → npm ci → npm run build → electron-buil
 
 ### Context
 
-The VaultWares brand has evolved. The new design philosophy (documented in `vault-themes/Brand/`) favours warm, paper-toned light themes for extended reading sessions during security research. The default theme must change from **Cyberpunk Cinder** (dark) to **Solarized Warm Light** (light).
+The VaultWares brand has evolved. The new design philosophy (documented in `vaultwares-themes/Brand/`) favours warm, paper-toned light themes for extended reading sessions during security research. The default theme must change from **Cyberpunk Cinder** (dark) to **Solarized Warm Light** (light).
 
-The vault-themes Brand directory provides these reference assets:
+The vaultwares-themes Brand directory provides these reference assets:
 - `codex-solarized-light-revisited.json` — Solarized Light colour scheme with VaultWares accents
 - `tokens.ts` — Brand colour primitives (gold `#CC9B21`, paper `#FDFCF7`, ink `#002B36`, cyan `#21B8CC`, green `#4ECC21`)
 - `tailwind.config.ts` — Extended palette including `vault.light: #FDF6E3`, `vault.base: #002B36`

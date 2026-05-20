@@ -29,7 +29,7 @@ Given a target URL, VaultWares Decompile will:
 | 🔒 **Privacy First** | All crawling, analysis, and AI inference run locally. Nothing leaves your machine. |
 | 🛡️ **Security Second** | Encryption is applied where necessary; it does not slow down the primary workflow. |
 | ⚛️ **Post-Quantum Cryptography** | Sensitive data (session tokens, local vault keys) use KEM-based key encapsulation — ready for a post-quantum world. |
-| 🤖 **Agentic Architecture** | Internal processing pipelines are built on the `vaultwares-agentciation` multi-agent framework — observable, restartable, and auditable. |
+| 🤖 **Agentic Architecture** | Internal processing pipelines are built on the `vaultwares-adk` multi-agent framework — observable, restartable, and auditable. |
 
 ---
 
@@ -68,12 +68,12 @@ VaultWares Decompile/
 │   │       ├── RouteCard.jsx
 │   │       ├── RequestEditor.jsx
 │   │       └── CodeViewer.jsx
-│   └── agents/                 # vaultwares-agentciation integration
+│   └── agents/                 # vaultwares-adk integration
 │       ├── crawler-agent.js
 │       ├── deobfuscator-agent.js
 │       └── ai-renamer-agent.js
-├── vault-themes/               # Git submodule — VaultWare visual theme system
-├── vaultwares-agentciation/    # Git submodule — Multi-agent coordination framework
+├── vaultwares-themes/               # Git submodule — VaultWare visual theme system
+├── vaultwares-adk/    # Git submodule — Multi-agent coordination framework
 ├── ROADMAP.md
 ├── TODO.md
 ├── TASKS.md
@@ -110,7 +110,7 @@ npm start
 | Crawlee | ≥ 3 | Web crawler / route mapper |
 | Playwright | ≥ 1.44 | Browser automation (via Crawlee) |
 | Ollama (optional) | latest | Local AI inference for code renaming |
-| Redis | ≥ 7 | Agent coordination (vaultwares-agentciation) |
+| Redis | ≥ 7 | Agent coordination (vaultwares-adk) |
 
 ---
 
@@ -127,8 +127,8 @@ npm start
 
 | Submodule | Purpose |
 |---|---|
-| [`vault-themes`](https://github.com/p-potvin/vault-themes) | VaultWare theme tokens, contrast checker, and Figma-to-code rules |
-| [`vaultwares-agentciation`](https://github.com/p-potvin/vaultwares-agentciation) | Multi-agent coordination via Redis — heartbeat, status, task dispatch |
+| [`vaultwares-themes`](https://github.com/p-potvin/vaultwares-themes) | VaultWare theme tokens, contrast checker, and Figma-to-code rules |
+| [`vaultwares-adk`](https://github.com/p-potvin/vaultwares-adk) | Multi-agent coordination via Redis — heartbeat, status, task dispatch |
 
 ---
 

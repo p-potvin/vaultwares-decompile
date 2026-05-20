@@ -1,15 +1,15 @@
 <!-- VAULT-THEMES-SUBMODULE:START -->
 ## Vault Themes Submodule Rules
 
-If this repository includes the `vault-themes` submodule, you MUST read the following files before making changes related to UI, branding, design systems, token usage, shared components, authentication UX, encrypted client-to-client communication, or Figma-derived implementation:
+If this repository includes the `vaultwares-themes` submodule, you MUST read the following files before making changes related to UI, branding, design systems, token usage, shared components, authentication UX, encrypted client-to-client communication, or Figma-derived implementation:
 
-- `vault-themes/AGENTS.md`
-- `vault-themes/.github/STYLE.md`
-- `vault-themes/.github/INSTRUCTIONS.md`
+- `vaultwares-themes/AGENTS.md`
+- `vaultwares-themes/.github/STYLE.md`
+- `vaultwares-themes/.github/INSTRUCTIONS.md`
 
 When theme token roles, contrast helpers, or executable theme governance matter, also inspect:
 
-- `vault-themes/theme_manager.py`
+- `vaultwares-themes/theme_manager.py`
 
 Treat these files as the shared VaultWares source of truth. Re-check them whenever the submodule changes or when a task touches cross-repo product rules.
 <!-- VAULT-THEMES-SUBMODULE:END -->
@@ -19,7 +19,7 @@ Treat these files as the shared VaultWares source of truth. Re-check them whenev
 
 ## Overview
 
-The VaultWares Theming Skill provides agents and developers with a unified, framework-agnostic interface for applying, inspecting, and enforcing VaultWares design tokens and theming rules across any project. It abstracts the theme source of truth (`vault-themes/theme_manager.py`, `Brand/tokens.ts`, `VaultWares.Brand.xaml`) and provides usage patterns for Qt/PySide6, React/Tailwind, and WinUI3/XAML.
+The VaultWares Theming Skill provides agents and developers with a unified, framework-agnostic interface for applying, inspecting, and enforcing VaultWares design tokens and theming rules across any project. It abstracts the theme source of truth (`vaultwares-themes/theme_manager.py`, `Brand/tokens.ts`, `VaultWares.Brand.xaml`) and provides usage patterns for Qt/PySide6, React/Tailwind, and WinUI3/XAML.
 
 ## Capabilities
 - List all available VaultWares themes (name, accent, surface, style family)

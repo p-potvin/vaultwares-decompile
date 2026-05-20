@@ -6,8 +6,8 @@
 
 ## Phase 0 — Project Scaffold
 
-- [x] Add `vault-themes` as git submodule
-- [x] Add `vaultwares-agentciation` as git submodule
+- [x] Add `vaultwares-themes` as git submodule
+- [x] Add `vaultwares-adk` as git submodule
 - [x] Write `ROADMAP.md`
 - [x] Write `TODO.md`
 - [x] Write `TASKS.md`
@@ -69,7 +69,7 @@
   - [ ] Emit `crawl:complete` with summary stats
   - [ ] Emit `crawl:error` with error details and partial results
 - [ ] **1.7** `CrawlerAgent` class in `src/agents/crawler-agent.js`
-  - [ ] Extend `ExtrovertAgent` from `vaultwares-agentciation`
+  - [ ] Extend `ExtrovertAgent` from `vaultwares-adk`
   - [ ] Register `start_crawl` and `stop_crawl` task handlers
   - [ ] Broadcast status updates every 30 seconds during active crawl
 
@@ -100,8 +100,8 @@
 - [ ] **2.6** Postman collection exporter
   - [ ] Build `postman_collection.json` (v2.1 schema) from route map
   - [ ] Write to user-selected file path
-- [ ] **2.7** Apply `vault-themes` tokens throughout API Explorer UI
-  - [ ] Import theme token helper from `vault-themes/theme_manager.py` JS port
+- [ ] **2.7** Apply `vaultwares-themes` tokens throughout API Explorer UI
+  - [ ] Import theme token helper from `vaultwares-themes/theme_manager.py` JS port
   - [ ] No hardcoded colour values in any component
 
 ---
@@ -236,7 +236,7 @@
 - [ ] **6.6** Accessibility
   - [ ] Run `axe-core` audit on all views
   - [ ] Fix all critical / serious violations
-  - [ ] Verify contrast ratios using `vault-themes` `check_contrast` helper
+  - [ ] Verify contrast ratios using `vaultwares-themes` `check_contrast` helper
 - [ ] **6.7** Packaging
   - [ ] `electron-builder` config for macOS (`.dmg` + code signing)
   - [ ] `electron-builder` config for Windows (`.exe` NSIS installer)

@@ -17,7 +17,7 @@ VaultWares Decompile is a desktop security-research tool that exposes the gap be
 | # | Deliverable | Description |
 |---|---|---|
 | 0.1 | Repository structure | `src/` directories for main, renderer, crawler, deobfuscator, ai, crypto, agents |
-| 0.2 | Submodules wired | `vault-themes` and `vaultwares-agentciation` present and initialised |
+| 0.2 | Submodules wired | `vaultwares-themes` and `vaultwares-adk` present and initialised |
 | 0.3 | `package.json` | Electron 30 + Crawlee 3 + Playwright + Babel + Prettier dependencies |
 | 0.4 | `.env.example` | All required runtime configuration keys documented |
 | 0.5 | `ROADMAP.md`, `TODO.md`, `TASKS.md`, `AGENTS.md` | This document and companion planning files |
@@ -53,7 +53,7 @@ VaultWares Decompile is a desktop security-research tool that exposes the gap be
 | 2.4 | Live request replay | Sends the request through the Electron main process (bypassing CORS) and displays the response |
 | 2.5 | Export to OpenAPI 3.0 | One-click export of the full API map as an `openapi.yaml` file |
 | 2.6 | Export to Postman Collection | One-click export as `postman_collection.json` |
-| 2.7 | VaultWare theme tokens | All colours come from `vault-themes/theme_manager.py`-equivalent JS tokens; no hardcoded values |
+| 2.7 | VaultWare theme tokens | All colours come from `vaultwares-themes/theme_manager.py`-equivalent JS tokens; no hardcoded values |
 
 ---
 
@@ -116,7 +116,7 @@ VaultWares Decompile is a desktop security-research tool that exposes the gap be
 | 6.3 | Auto-update | `electron-updater` integration for silent background updates |
 | 6.4 | Onboarding wizard | First-run wizard: enter target URL, check Ollama availability, select VaultWare theme |
 | 6.5 | Keyboard shortcuts | Full keyboard navigation; crawl, replay request, export — all accessible without mouse |
-| 6.6 | Accessibility | WCAG AA contrast targets enforced via `vault-themes` contrast checker |
+| 6.6 | Accessibility | WCAG AA contrast targets enforced via `vaultwares-themes` contrast checker |
 | 6.7 | Packaging | `electron-builder` produces `.dmg`, `.exe`, and `.AppImage` distributable artifacts |
 
 ---

@@ -14,12 +14,12 @@ Two submodules are present:
 
 | Path | Purpose |
 |---|---|
-| `vault-themes/` | VaultWare theme tokens, contrast checker, `VaultThemeManager` |
-| `vaultwares-agentciation/` | Multi-agent coordination framework (Redis, heartbeat, task dispatch) |
+| `vaultwares-themes/` | VaultWare theme tokens, contrast checker, `VaultThemeManager` |
+| `vaultwares-adk/` | Multi-agent coordination framework (Redis, heartbeat, task dispatch) |
 
 - **Never modify files inside submodule directories.** Treat them as read-only dependencies.
 - When importing theme tokens, use the JavaScript equivalent of `VaultThemeManager.export_theme_tokens()`.
-- When adding agent functionality, extend `ExtrovertAgent` from `vaultwares-agentciation`.
+- When adding agent functionality, extend `ExtrovertAgent` from `vaultwares-adk`.
 
 ---
 
@@ -61,7 +61,7 @@ Two submodules are present:
 
 ### UI / React
 
-- All colours must use theme tokens from `vault-themes`. No hardcoded hex values.
+- All colours must use theme tokens from `vaultwares-themes`. No hardcoded hex values.
 - Component files: `PascalCase.jsx`.
 - Utility/hook files: `camelCase.js`.
 - Use functional components with hooks only (no class components).
@@ -101,7 +101,7 @@ Two submodules are present:
 2. **Only modify files listed in the task's `Outputs` section.** Do not modify shared files unless the task explicitly says so.
 3. **Run `npm test` before committing.** All existing tests must pass.
 4. **Check off completed tasks in `TODO.md`** as part of your commit.
-5. **Broadcast status** via the `vaultwares-agentciation` framework if you are running as an autonomous agent (Redis must be available).
+5. **Broadcast status** via the `vaultwares-adk` framework if you are running as an autonomous agent (Redis must be available).
 
 ---
 
@@ -109,13 +109,13 @@ Two submodules are present:
 
 ### Design Philosophy
 
-VaultWares Decompile uses the **new VaultWares brand language** defined in `vault-themes/Brand/`. The visual identity emphasises:
+VaultWares Decompile uses the **new VaultWares brand language** defined in `vaultwares-themes/Brand/`. The visual identity emphasises:
 
 - **Light-first design** — warm, paper-toned backgrounds for long reading sessions during security research.
 - **Solarized palette** — derived from `codex-solarized-light-revisited.json` with VaultWares gold accent.
 - **Dark themes available** — Solarized Dark and Cyberpunk Cinder remain selectable for users who prefer darker UIs.
-- **Brand typography** — `"Segoe UI Semilight"`, `Inter`, `system-ui` (from `vault-themes/Brand/tokens.ts`).
-- **Tagline** — "Privacy first. Security in service." (from `vault-themes/Brand/brand.i18n.ts`).
+- **Brand typography** — `"Segoe UI Semilight"`, `Inter`, `system-ui` (from `vaultwares-themes/Brand/tokens.ts`).
+- **Tagline** — "Privacy first. Security in service." (from `vaultwares-themes/Brand/brand.i18n.ts`).
 
 ### Default Theme: Solarized Warm Light (`solarized-warm-light`)
 
@@ -146,17 +146,17 @@ const theme = getTheme('solarized-warm-light');
 ```
 
 - Never hardcode hex colour values — always reference a theme token.
-- The `VaultThemeManager` in `vault-themes/theme_manager.py` remains the Python source of truth; `src/renderer/theme.js` is the JS equivalent for this project.
+- The `VaultThemeManager` in `vaultwares-themes/theme_manager.py` remains the Python source of truth; `src/renderer/theme.js` is the JS equivalent for this project.
 - When the user switches themes at runtime, the entire UI recolours via React state.
 
 The app name in all UI labels is **"VaultWares Decompile"** — not "VaultWares Decompile-website-a-la-mode".
 
 <!-- VAULT-THEMES-SUBMODULE:START -->
-## vault-themes Submodule
+## vaultwares-themes Submodule
 
 Before UI, branding, or token work, read:
-- `vault-themes/AGENTS.md`
-- `vault-themes/CONTEXT.md`
+- `vaultwares-themes/AGENTS.md`
+- `vaultwares-themes/CONTEXT.md`
 <!-- VAULT-THEMES-SUBMODULE:END -->
 
-# TODO: implement new theme-manager from vault-themes
+# TODO: implement new theme-manager from vaultwares-themes
