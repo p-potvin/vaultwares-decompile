@@ -1,6 +1,10 @@
-# VaultWares Decompile — by VaultWares
+# Decompile — by VaultWares
 
-> **A privacy-first security research tool for API mapping, JS deobfuscation, and intelligent code reconstruction.**
+> **A security research tool for Web Apps owners testing the robustness of their obfuscation algorithms.**
+## Quick step-by-step:
+1. API mapping: initial crawling of the domain leading into path reconstruction and standard OpenAPI docs generation. **Allows for a deep understanding of the product without ever accessing internal systems**
+2. JS de-obfuscation: reconstructing Webpack chunks, reversing common encoding patterns, beautifying/un-minifying scripts. **Reproduces the product's front-facing assets to allow for easier vulnerability discovery**
+JIT semantic code generation. The *magic* step. **Converts logic into clear natural language, broadening your audit horizon by bringing non-technical team members directly into the security review process.**
 
 ![VaultWares](https://img.shields.io/badge/VaultWares-Privacy%20First-CB4B16?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-073642?style=flat-square)
