@@ -90,21 +90,6 @@ VaultWares Decompile is a desktop security-research tool that exposes the gap be
 
 ---
 
-## Phase 5 — Post-Quantum Vault
-
-**Goal:** Encrypt all sensitive session data (headers, tokens, intercepted payloads) using PQC key encapsulation.
-
-| # | Deliverable | Description |
-|---|---|---|
-| 5.1 | ML-KEM (Kyber) KEM | Implement or bind `ml-kem` npm package for key encapsulation |
-| 5.2 | AES-256-GCM symmetric layer | Wrap Kyber-encapsulated symmetric key with AES-256-GCM for bulk encryption |
-| 5.3 | Encrypted session vault | `vault.js` — read/write encrypted JSON blobs to `~/.vaultwares-decompile/vault/` |
-| 5.4 | Key rotation | On each session start, generate a fresh KEM keypair; old sessions retain their own keys |
-| 5.5 | Memory hygiene | Sensitive buffers are zeroed after use using `Buffer.fill(0)` |
-| 5.6 | Vault UI | Settings panel showing vault status, key fingerprint, and manual clear option |
-
----
-
 ## Phase 6 — Electron Shell & UX Polish
 
 **Goal:** Deliver a complete, branded Electron desktop app with excellent UX.
