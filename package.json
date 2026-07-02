@@ -1,6 +1,6 @@
 {
   "name": "vaultwares-decompile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "VaultWares security research tool — API mapping, JS deobfuscation, and AI-powered code reconstruction",
   "type": "module",
   "main": "src/main/index.js",
