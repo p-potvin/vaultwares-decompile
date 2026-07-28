@@ -13,11 +13,12 @@
  * @property {string} sessionId  - UUID for this crawl session
  * @property {number} pagesVisited
  * @property {number} durationMs
+ * @property {string} targetUrl
  */
 
 /**
  * @typedef {Object} CrawlProgressEvent
- * @property {'route_found'|'asset_downloaded'|'page_crawled'|'error'} type
+ * @property {'route_found'|'asset_downloaded'|'page_crawled'|'error'|'complete'} type
  * @property {*} payload
  */
 
