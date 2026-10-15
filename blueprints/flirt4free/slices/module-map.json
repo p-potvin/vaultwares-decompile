@@ -1,0 +1,3852 @@
+[
+  {
+    "id": "inline_1.js:piiScrub",
+    "name": "piiScrub",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_1.js",
+    "start_line": 21,
+    "end_line": 47,
+    "exported_symbols": [
+      "piiScrub"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `piiScrub` (26 lines)",
+    "signature_or_pseudo": "function piiScrub(inputURL)",
+    "code_excerpt": "{\n\n         var emailRegex =\n         /(([^\\/&<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^\\/&<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))(\\%2540|\\%40|@)((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/i,\n         replaceStr = '[REDACTED EMAIL]',\n         urlParts = inputURL.split('?'),\n         pathnameParts = urlParts.length > 0 ? urlParts[0].split('/') : [],\n         searchParts = urlParts.length > 1 ? urlParts[1].split('&') : [];\n\n         for (var i = 0; i < pathnameParts.length; i++) {\n            pathnameParts[i] = pathnameParts[i].replace(emailRegex, replaceStr);\n         }\n\n         for (var j = 0; j < searchParts.length; j++) {\n\n            var keyValuePair = searchParts[j].split('=');\n\n            if (keyValuePair.length === 2) {\n               searchParts[j] = keyValuePair[0] + '=' +\n               keyValuePair[1].replace(emailRegex, replaceStr);\n            }\n         }\n\n         return pathnameParts.join('/') + (searchParts.length > 0 ? '?' + searchParts.join('&') :\n         \"\");\n         }",
+    "cluster_id": "cluster_inline_1"
+  },
+  {
+    "id": "inline_10.js:hideOrDisplayPassword",
+    "name": "hideOrDisplayPassword",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_10.js",
+    "start_line": 42,
+    "end_line": 76,
+    "exported_symbols": [
+      "hideOrDisplayPassword"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.71999997,
+    "summary": "Proprietary routine `hideOrDisplayPassword` (34 lines)",
+    "signature_or_pseudo": "function hideOrDisplayPassword()",
+    "code_excerpt": "function hideOrDisplayPassword() {\n                \n                var passwordFields = DOM.getElementsByClassName('registration-field-password');\n                var singlePasswordField = DOM.getElementById('new_password');\n                var hideShowPasswordTextEls = DOM.getElementsByClassName('hide-show-password-text');\n                var passwordVisibilityIcons = DOM.getElementsByClassName('password-visibility-icon');\n\n                if(singlePasswordField && singlePasswordField && !singlePasswordField.classList.contains('registration-field-password')) {\n                    passwordFields = [...passwordFields, singlePasswordField];\n                }\n\n                passwordFields.forEach(function(passwordField){\n                    \n                    if(!passwordField) return;\n                    \n                    if (passwordField.type === \"password\") {\n\n                        passwordField.type = \"text\";\n                        \n                        hideShowPasswordTextEls.forEach(function(el){\n                            el.innerHTML = 'Hide Password';\n                        });\n                        \n                        passwordVisibilityIcons.forEach(function(el){\n                            el.classList.add('showpass-eye');\n                        });\n\n\n                    } else {\n\n// ... [truncated]",
+    "cluster_id": "cluster_inline_10"
+  },
+  {
+    "id": "inline_35.js:setUTMCookies",
+    "name": "setUTMCookies",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_35.js",
+    "start_line": 22,
+    "end_line": 63,
+    "exported_symbols": [
+      "setUTMCookies"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.65,
+    "summary": "Proprietary routine `setUTMCookies` (41 lines)",
+    "signature_or_pseudo": "function setUTMCookies()",
+    "code_excerpt": "function setUTMCookies() {\n\n            //\tIf there are params in the url string, put them into an object with their values\n            //\tand see if they're utm params\n\n            var urlParamsString = location.search;\n\n            if (urlParamsString != '') {\n\n                var arr1 = urlParamsString.slice(1).split('&');\n\n                var utmObject = {};\n\n                for (var t = 0; t < arr1.length; t++) {\n\n                    var keyVal = arr1[t].split('=');\n\n                    utmObject[keyVal[0]] = keyVal[1];\n                }\n\n                //\tIf the particular cookie hasn't been set yet and exists in the URL, set it for 1 yr\n\n                if (utmObject['utm_source'] && !Cookie.get('utm_source')) {\n\n                    Cookie.set('utm_source', utmObject['utm_source'], 1000 * 60 * 60 * 24 * 365);\n                }\n\n                if (utmObject['utm_medium'] && !Cookie.get('utm_medium')) {\n\n                    Cookie.set('utm_medium', utmObject['utm_medium'], 1000 * 60 * 60 * 24 * 365);\n// ... [truncated]",
+    "cluster_id": "cluster_inline_35"
+  },
+  {
+    "id": "inline_35.js:piiScrub",
+    "name": "piiScrub",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_35.js",
+    "start_line": 76,
+    "end_line": 102,
+    "exported_symbols": [
+      "piiScrub"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.65,
+    "summary": "Proprietary routine `piiScrub` (26 lines)",
+    "signature_or_pseudo": "function piiScrub(inputURL)",
+    "code_excerpt": "{\n\n            var emailRegex =\n                /(([^\\/&<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^\\/&<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))(\\%2540|\\%40|@)((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/i,\n                replaceStr = '[REDACTED EMAIL]',\n                urlParts = inputURL.split('?'),\n                pathnameParts = urlParts.length > 0 ? urlParts[0].split('/') : [],\n                searchParts = urlParts.length > 1 ? urlParts[1].split('&') : [];\n\n            for (var i = 0; i < pathnameParts.length; i++) {\n                pathnameParts[i] = pathnameParts[i].replace(emailRegex, replaceStr);\n            }\n\n            for (var j = 0; j < searchParts.length; j++) {\n\n                var keyValuePair = searchParts[j].split('=');\n\n                if (keyValuePair.length === 2) {\n                    searchParts[j] = keyValuePair[0] + '=' +\n                        keyValuePair[1].replace(emailRegex, replaceStr);\n                }\n            }\n\n            return pathnameParts.join('/') + (searchParts.length > 0 ? '?' + searchParts.join('&') :\n                \"\");\n        }",
+    "cluster_id": "cluster_inline_35"
+  },
+  {
+    "id": "inline_48.js:setupDeferredActions",
+    "name": "setupDeferredActions",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_48.js",
+    "start_line": 116,
+    "end_line": 171,
+    "exported_symbols": [
+      "setupDeferredActions"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `setupDeferredActions` (55 lines)",
+    "signature_or_pseudo": "function setupDeferredActions()",
+    "code_excerpt": "function setupDeferredActions() {\n\n        if(typeof window.BlockModelController !== 'undefined') {\n\t\t\tvar blockModelSetup = function (event) {\n\n\t\t\t\tif (!event.detail) {\n\t\t\t\t\treturn;\n\t\t\t\t}\n\n\t\t\t\twindow.BlockModelController.setupBtns({\n\t\t\t\t\tmodelName: event.detail.performer_name,\n\t\t\t\t\tmodelId: event.detail.performer_id,\n\t\t\t\t\tbtnsSelector: '.block-model-btn',\n\t\t\t\t\tuserType: USER.type\n\t\t\t\t});\n\n\t\t\t};\n\n\t\t\t//add event listener regardless of we are in room or home\n\t\t\t//no execution just listerners being added\n\t\t\tDOM.addEventListener(\n\t\t\t\tdocument,\n\t\t\t\tCHAT_EVENT.ROOM_CONNECTED,\n\t\t\t\tblockModelSetup\n\t\t\t);\n\t\t}\n\n\n\t\t//\t1. See if the page is loading on the 'Homepage' or in a 'room'\n\t\tvar pageUrl = document.location.href;\n// ... [truncated]",
+    "cluster_id": "cluster_inline_48"
+  },
+  {
+    "id": "inline_48.js:executeDeferredActions",
+    "name": "executeDeferredActions",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "inline_48.js",
+    "start_line": 181,
+    "end_line": 231,
+    "exported_symbols": [
+      "executeDeferredActions"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `executeDeferredActions` (50 lines)",
+    "signature_or_pseudo": "function executeDeferredActions()",
+    "code_excerpt": "function executeDeferredActions() {\n\n\t\tDebug.print('executeDeferredActions()', '');\n\n\t\t//\tFirst, remove the subscription to the 2 events that trigger this function because it needs to only run once per session\n\t\tDOM.removeEventListener(\n\t\t\tdocument,\n\t\t\tCHAT_EVENT.ROOM_CONNECTED,\n\t\t\texecuteDeferredActions\n\t\t);\n\n\t\tDOM.removeEventListener(\n\t\t\tdocument,\n\t\t\tCHAT_EVENT.ROOM_NOT_CONNECTED_OFFLINE,\n\t\t\texecuteDeferredActions\n\t\t);\n\n\t\t//\tDeferred calls: \n\n\t\t//\t#1\n\n\t\t\n\t\t//\t#2\n\t\tif(\n\t\t\t//\tCheck that VipExpModal was included as a tpl at all, and that its flag var is coming back as True from php\n\t\t\ttypeof VipExpModal !== 'undefined' &&\n\t\t\tVipExpModal.vipExpirationModal &&\n\t\t\ttypeof VipExpModal.showVipExpiredModal === 'function'\n\t\t) {\n\t\t\tVipExpModal.showVipExpiredModal();\n// ... [truncated]",
+    "cluster_id": "cluster_inline_48"
+  },
+  {
+    "id": "inline_48.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "inline_48.js",
+    "start_line": 230,
+    "end_line": 243,
+    "exported_symbols": [],
+    "called_apis": [
+      "/models/bios/MODEL/bio.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Minified bundle slice invoking `/models/bios/MODEL/bio.php`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/models/bios/MODEL/bio.php')",
+    "code_excerpt": "nt.getElementById('search_text') && document.getElementById(\"modelHeaderSuggest\")) {\n                var homePageSearchSuggestions = new SearchSuggestion({\n                    id: 'search_text',\n                    url: '/models/bios/MODEL/bio.php',\n                    headerHTML: '<strong>Matching Models</strong><li><em>Click a model name to go to their bio page</em></li>',\n                    suggestionEl: 'header-suggest',\n                    service: (typeof service !== 'undefined') ? service : '',\n                });\n            }\t\n\t\t\n        if(typeof AppliedCredits !== 'undefined') {\n\n            try {\n           ",
+    "cluster_id": "cluster_inline_48"
+  },
+  {
+    "id": "inline_57.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "inline_57.js",
+    "start_line": 14,
+    "end_line": 37,
+    "exported_symbols": [],
+    "called_apis": [
+      "/webservices/save-iovation-blackbox.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Minified bundle slice invoking `/webservices/save-iovation-blackbox.php`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/webservices/save-iovation-blackbox.php')",
+    "code_excerpt": "ersion\" : \"general5\",\n    }\n};\n\nvar fnct = function() {\n\n    var saveIovationBlackbox = function (iobb, screenName) {\n\n        if(typeof Ajax !== 'undefined' && typeof Ajax.call === 'function') {\n\n            var _url = '/webservices/save-iovation-blackbox.php';\n            var _options = {\n                method: 'POST',\n                body: JSON.stringify({\n                    'blackbox': iobb,\n                    'screen_name': screenName\n                })\n            };\n\n            Ajax.fetch(_url, _options)\n                .then(function (response) {\n                    return response.json(); \n                })\n            ",
+    "cluster_id": "cluster_inline_57"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:buildLightbox",
+    "name": "buildLightbox",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 14,
+    "end_line": 15,
+    "exported_symbols": [
+      "buildLightbox"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement",
+      "model_access_2026_09_29_01.js:closeLightbox"
+    ],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:openLightbox"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `buildLightbox` (1 lines)",
+    "signature_or_pseudo": "function buildLightbox()",
+    "code_excerpt": "{lightbox=document.createElement('div');lightbox.className='collection-lightbox';lightbox.setAttribute('role','dialog');lightbox.setAttribute('aria-modal','true');lightbox.setAttribute('aria-label','Full size photo');lightboxClose=document.createElement('button');lightboxClose.type='button';lightboxClose.className='collection-lightbox-close';lightboxClose.setAttribute('aria-label','Close full size photo');lightboxClose.innerHTML='&times;';lightboxImg=document.createElement('img');lightboxImg.alt='';lightbox.appendChild(lightboxClose);lightbox.appendChild(lightboxImg);document.body.appendChild(lightbox);lightboxClose.addEventListener('click',closeLightbox);lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox()})}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:lightboxOpen",
+    "name": "lightboxOpen",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 15,
+    "end_line": 16,
+    "exported_symbols": [
+      "lightboxOpen"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:init"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `lightboxOpen` (1 lines)",
+    "signature_or_pseudo": "function lightboxOpen()",
+    "code_excerpt": "{return!!lightbox&&lightbox.classList.contains('is-open')}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:openLightbox",
+    "name": "openLightbox",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 16,
+    "end_line": 17,
+    "exported_symbols": [
+      "openLightbox"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "model_access_2026_09_29_01.js:buildLightbox"
+    ],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:init"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `openLightbox` (1 lines)",
+    "signature_or_pseudo": "function openLightbox(img)",
+    "code_excerpt": "{if(!lightbox)buildLightbox();lastFocus=img;lightboxImg.src=img.currentSrc||img.src;lightboxImg.alt=img.alt;lightbox.classList.add('is-open');lightboxClose.focus()}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:closeLightbox",
+    "name": "closeLightbox",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 17,
+    "end_line": 18,
+    "exported_symbols": [
+      "closeLightbox"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:buildLightbox"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `closeLightbox` (1 lines)",
+    "signature_or_pseudo": "function closeLightbox()",
+    "code_excerpt": "{if(!lightbox)return;lightbox.classList.remove('is-open');lightboxImg.src='';if(lastFocus)lastFocus.focus()}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:resolveSelectors",
+    "name": "resolveSelectors",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 18,
+    "end_line": 20,
+    "exported_symbols": [
+      "resolveSelectors"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:init"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `resolveSelectors` (2 lines)",
+    "signature_or_pseudo": "function resolveSelectors(options)",
+    "code_excerpt": "{var selectors={};var key;for(key in DEFAULT_SELECTORS){if(Object.prototype.hasOwnProperty.call(DEFAULT_SELECTORS,key)){selectors[key]=(options&&options[key])?options[key]:DEFAULT_SELECTORS[key]}}\nreturn selectors}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:init",
+    "name": "init",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 20,
+    "end_line": 25,
+    "exported_symbols": [
+      "init"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "model_access_2026_09_29_01.js:lightboxOpen",
+      "model_access_2026_09_29_01.js:openLightbox",
+      "model_access_2026_09_29_01.js:refresh",
+      "model_access_2026_09_29_01.js:resolveSelectors"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `init` (5 lines)",
+    "signature_or_pseudo": "function init(root,options)",
+    "code_excerpt": "function init(root,options){if(!root)return;var selectors=resolveSelectors(options);var track=root.querySelector(selectors.track);if(!track)return;if(root.dmCarouselState){refresh(root);return}\nroot.dataset.dmCarouselInitialized='true';var dotsWrap=root.querySelector(selectors.dots);var prev=root.querySelector(selectors.prev);var next=root.querySelector(selectors.next);var state={selectors:selectors,track:track,slides:[],dots:[],index:0,prev:prev,next:next};root.dmCarouselState=state;function go(target){if(!state.slides.length)return;state.index=(target+state.slides.length)%state.slides.length;track.style.transform='translateX('+(-state.index*100)+'%)';for(var i=0;i<state.dots.length;i++){state.dots[i].setAttribute('aria-current',i===state.index?'true':'false')}}\nstate.go=go;if(dotsWrap){dotsWrap.addEventListener('click',function(e){var btn=e.target.closest('button');if(btn)go(parseInt(btn.dataset.index,10))})}\nif(prev)prev.addEventListener('click',function(){go(state.index-1)});if(next)next.addEventListener('click',function(){go(state.index+1)});track.addEventListener('click',function(e){if(e.target.tagName==='IMG'){openLightbox(e.target)}});root.addEventListener('keydown',function(e){if(lightboxOpen())return;if(e.target.tagName==='IMG'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openLightbox(e.target);return}\nif(e.key==='ArrowLeft')go(state.index-1);if(e.key==='ArrowRight')go(state.index+1)});r",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:refresh",
+    "name": "refresh",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 25,
+    "end_line": 28,
+    "exported_symbols": [
+      "refresh"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [
+      "model_access_2026_09_29_01.js:init"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `refresh` (3 lines)",
+    "signature_or_pseudo": "function refresh(root)",
+    "code_excerpt": "{var state=root&&root.dmCarouselState;if(!state)return;var dotsWrap=root.querySelector(state.selectors.dots);state.slides=state.track.querySelectorAll(state.selectors.slide);var hasMultipleSlides=state.slides.length>1;root.classList.toggle('is-single',!hasMultipleSlides);if(state.prev)state.prev.classList.toggle('hide',!hasMultipleSlides);if(state.next)state.next.classList.toggle('hide',!hasMultipleSlides);if(dotsWrap)dotsWrap.classList.toggle('hide',!hasMultipleSlides);if(dotsWrap){dotsWrap.innerHTML='';for(var i=0;i<state.slides.length;i++){var dot=document.createElement('button');dot.type='button';dot.dataset.index=i;dot.setAttribute('aria-label','Go to slide '+(i+1));dotsWrap.appendChild(dot)}\nstate.dots=dotsWrap.querySelectorAll('button')}else{state.dots=[]}\nstate.go(0)}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:buildChatServerEventsConstants",
+    "name": "buildChatServerEventsConstants",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 28,
+    "end_line": 30,
+    "exported_symbols": [
+      "buildChatServerEventsConstants"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `buildChatServerEventsConstants` (2 lines)",
+    "signature_or_pseudo": "function buildChatServerEventsConstants()",
+    "code_excerpt": "function buildChatServerEventsConstants(){window.CHAT_SERVER_COMMANDS_RAW={CONNECTED_RECEIVED:100,MODEL_CONNECTED_RECEIVED:3000,DISCONNECT_SEND:101,PING_SEND:102,PONG_RECEIVED:103,MODEL_PING:1000,DM_LIST_GET:2000,DM_MESSAGE_SEND:2001,DM_MESSAGE_RECEIVED:2002,DM_CONVERSATION_GET:2003,DM_CONVERSATION_CREATE_SEND:2004,DM_CONVERSATION_CREATED_RECEIVED:2005,DM_CONVERSATION_DELETE_SEND:2006,DM_CONVERSATION_DELETED_RECEIVED:2007,DM_SEARCH_GET:2008,DM_STATUS_ONLINE_SEND:2009,DM_STATUS_OFFLINE_SEND:2010,DM_STATUS_RECEIVED:2011,DM_MEMBER_ID_GET:2012,DM_FAVORITES_GET:2013,DM_FAVORITE_SEND:2014,DM_UNFAVORITE_SEND:2015,DM_FETCHBLOCKS_GET:2016,DM_BLOCK_SEND:2017,DM_UNBLOCK_SEND:2018,DM_MEMBER_GET:2019,DM_LAST_READ_MSG_SEND:2020,DM_LAST_READ_MSG_GET:2021,DM_UNLOCKED_MEDIA_SEND:2022,DM_UNLOCKED_MEDIA_GET:2023,DM_MEMBER_CREATE:2999,DM_GET_RECOMMENDATIONS:2024,DM_REPORT_MESSAGE_SEND:2025,DM_STATUS_GET:2026,DM_CHECK_MEDIA_HASH:2027,DM_SET_PRICE:2028,DM_GET_PRICE:2029,DM_RECEIVED_UPDATED_PRICE:2030,DM_CONVERSATION_GET_PAGE:2031,DM_RESET_PRICE:2032,};window.CHAT_EVENTS_TO_COMMANDS={};window.CHAT_COMMANDS_TO_EVENTS={};window.CHAT_CONNECTION_EVENTS={};for(var key in window.CHAT_SERVER_COMMANDS_RAW){var commandId=window.CHAT_SERVER_COMMANDS_RAW[key];var eventName='CHAT_SERVER_'+key;window.CHAT_EVENTS_TO_COMMANDS[eventName]=commandId;window.CHAT_COMMANDS_TO_EVENTS[commandId]=eventName;window.CHAT_CONNECTION_EVENTS[key]=eventName}\nwindow.CHAT_",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:zeroCheck",
+    "name": "zeroCheck",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 184,
+    "end_line": 185,
+    "exported_symbols": [
+      "zeroCheck"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `zeroCheck` (1 lines)",
+    "signature_or_pseudo": "function zeroCheck(number)",
+    "code_excerpt": "{return(number<=9)?('0'+number):number}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:handleKeyPress",
+    "name": "handleKeyPress",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 279,
+    "end_line": 280,
+    "exported_symbols": [
+      "handleKeyPress"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleKeyPress` (1 lines)",
+    "signature_or_pseudo": "function handleKeyPress(e)",
+    "code_excerpt": "{if(DMMessagingView.isMaxCharReached()){e.preventDefault();DMMessagingView.createFailedMessage({msg:'Message exceed maximum characters. '});DMMessagingView.shouldSendMsg=!1;return}else{DMMessagingView.shouldSendMsg=!0;if(e.keyCode===13){e.preventDefault();DMEmojiView.hideEmojiArea();DOM.dispatchEvent(document,DM_VIEW_EVENT.SEND_MESSAGE)}}}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:handleKeyUp",
+    "name": "handleKeyUp",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 279,
+    "end_line": 283,
+    "exported_symbols": [
+      "handleKeyUp"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleKeyUp` (4 lines)",
+    "signature_or_pseudo": "function handleKeyUp(e)",
+    "code_excerpt": "{if(!DMMessagingView.isMaxCharReached()){DMMessagingView.shouldSendMsg=!0}\nif((e.key=='Delete'||e.key=='Backspace')){if(!DMMessagingView.dmWrap.classList.contains('chat-input-image')&&!DMMessagingView.pastedMediaFile){return}\nlet nodes=Array.prototype.slice.call(DMMessagingView.chatInput.childNodes);let hasPastedMedia=!1;if(nodes.length>0){let hasCurrentPaste=nodes.some((node)=>{if(node.nodeName=='IMG'){return!node.classList.contains('emoji')&&!node.classList.contains('emoticon')}});hasPastedMedia=hasCurrentPaste}\nif(!hasPastedMedia){DMMessagingView.toggleChatImageClass();DMMessagingView.removePastedMediaFiles()}}}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:onSaveSettingsSuccess",
+    "name": "onSaveSettingsSuccess",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 597,
+    "end_line": 598,
+    "exported_symbols": [
+      "onSaveSettingsSuccess"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `onSaveSettingsSuccess` (1 lines)",
+    "signature_or_pseudo": "function onSaveSettingsSuccess()",
+    "code_excerpt": "{}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "model_access_2026_09_29_01.js:getTypeRank",
+    "name": "getTypeRank",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 516,
+    "end_line": 517,
+    "exported_symbols": [
+      "getTypeRank"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `getTypeRank` (1 lines)",
+    "signature_or_pseudo": "function getTypeRank(file)",
+    "code_excerpt": "{if(file.mimetype.includes(DM_MEDIA_TYPES.IMAGE))return 0;if(file.mimetype.includes(DM_MEDIA_TYPES.VIDEO))return 1;return 2}",
+    "cluster_id": "cluster_model_access_2026_09_29_01"
+  },
+  {
+    "id": "registration_validation_2026_03_26_mn7vumkn.min.js:Validator",
+    "name": "Validator",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "registration_validation_2026_03_26_mn7vumkn.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "Validator"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `Validator` (1 lines)",
+    "signature_or_pseudo": "function Validator(e,t,r)",
+    "code_excerpt": "{this.formID=e,this.formElem=document.getElementById(e),this.errorTextObject=t||{},this.baseURL=r||\"\"}",
+    "cluster_id": "cluster_registration_validation_2026_03_26_mn7vumkn"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:decorateObserver",
+    "name": "decorateObserver",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "decorateObserver"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `decorateObserver` (1 lines)",
+    "signature_or_pseudo": "function decorateObserver(e)",
+    "code_excerpt": "{var t=function(e){e.eventsToDispatch||(e.eventsToDispatch={})};e.prototype.addEventListener=function(e,r){t(this),Array.isArray(this.eventsToDispatch[e])?this.eventsToDispatch[e].push(r):this.eventsToDispatch[e]=[r]},e.prototype.removeEventListener=function(e,r){t(this),Array.isArray(this.eventsToDispatch[e])?this.eventsToDispatch[e]=this.eventsToDispatch[e].filter((function(e){return e!=r})):this.eventsToDispatch[e]=null},e.prototype.dispatchEvent=function(e,r){t(this),Array.isArray(this.eventsToDispatch[e])?this.eventsToDispatch[e].forEach((function(e){e(r)})):\"function\"==typeof this.eventsToDispatch[e]&&this.eventsToDispatch[e](r)}}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:StreamSignalling",
+    "name": "StreamSignalling",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "StreamSignalling"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `StreamSignalling` (1 lines)",
+    "signature_or_pseudo": "function StreamSignalling(e)",
+    "code_excerpt": "{this.wsUrl=e}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:WebRtcConnectionManager",
+    "name": "WebRtcConnectionManager",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "WebRtcConnectionManager"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `WebRtcConnectionManager` (1 lines)",
+    "signature_or_pseudo": "function WebRtcConnectionManager()",
+    "code_excerpt": "{this.ignorePeerClosed=!1,this.offerConfig={offerToReceiveAudio:!0,offerToReceiveVideo:!0},this.eventLogs=[],this.maxEventLogs=200,this.iceDisconnectGraceMs=8e3,this.iceDisconnectTimer=null,this.iceDisconnectedAt=0}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:PlaybackSignalling",
+    "name": "PlaybackSignalling",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "PlaybackSignalling"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `PlaybackSignalling` (1 lines)",
+    "signature_or_pseudo": "function PlaybackSignalling(e)",
+    "code_excerpt": "{this.wsUrl=e}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:WebRTCMonitor",
+    "name": "WebRTCMonitor",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "WebRTCMonitor"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `WebRTCMonitor` (1 lines)",
+    "signature_or_pseudo": "function WebRTCMonitor(e)",
+    "code_excerpt": "{this.videoEl=e.videoEl,this.getRawTracks=e.getRawTracks,this.requestTrack=e.requestTrack,this.rand=100*Math.random()-1,this.delay=1,this.averagingSteps=20,this.vars={values:[],score:!1,active:!1},this.SCORE_UPDATE_EVENT=\"score_updated\",this.PROTOCOL_CHANGE_EVENT=\"protocol_changed\",this.MONITORING_WIDTH=8,this.QUALITY_SWITCH_UP_TIMEOUT=5,this.QUALITY_SWITCH_DOWN_TIMEOUT=5,this.QUALITY_SWITCH_CONNECTION_TIMEOUT=1,this.QUALITY_SWITCH_TIMEOUTS=[5,20,60,120,300,600],this.MIN_VALID_SCORE=.3,this.DEFAULT_PROTOCOL=[\"webrtc\"],this.PROTOCOL_SWITCH_TIMEOUTS={webrtc:1},this.PROTOCOL_CHANGE_EVENT=\"protocol_name\",this.qualitySwitchUpTimeout=0,this.qualitySwitchPreviousMode=null,this.qualitySwitchTimestamp=null,this.currentBitrateIndex=-1,this.SWITCH_MODE={UP:\"UP\",DOWN:\"DOWN\",INIT:\"INIT\"},this.trackIdListener=null}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "vs-player_2026_10_13_mv7cakwh.min.js:WebRTCMonitorV2",
+    "name": "WebRTCMonitorV2",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "WebRTCMonitorV2"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `WebRTCMonitorV2` (1 lines)",
+    "signature_or_pseudo": "function WebRTCMonitorV2(e)",
+    "code_excerpt": "{this.videoEl=e.videoEl,this.getRawTracks=e.getRawTracks,this.requestTrack=e.requestTrack,this.rand=100*Math.random()-1,this.delay=1,this.averagingSteps=20,this.avgScore=1,this.vars={values:[],score:!1,scores:[1],active:!1},this.SCORE_UPDATE_EVENT=\"score_updated\",this.PROTOCOL_CHANGE_EVENT=\"protocol_changed\",this.MONITORING_WIDTH=8,this.QUALITY_SWITCH_UP_TIMEOUT=5,this.QUALITY_SWITCH_DOWN_TIMEOUT=5,this.QUALITY_SWITCH_CONNECTION_TIMEOUT=1,this.QUALITY_SWITCH_TIMEOUTS=[5,20,60,120,300,600],this.MIN_VALID_SCORE=.3,this.DEFAULT_PROTOCOL=[\"webrtc\"],this.PROTOCOL_SWITCH_TIMEOUTS={webrtc:1},this.PROTOCOL_CHANGE_EVENT=\"protocol_name\",this.qualitySwitchUpTimeout=0,this.qualitySwitchPreviousMode=null,this.qualitySwitchTimestamp=null,this.currentBitrateIndex=-1,this.count=0,this.networkConsistent=!1,this.SWITCH_MODE={UP:\"UP\",DOWN:\"DOWN\"},this.direction=this.SWITCH_MODE.UP,this.trackIdListener=null,this.runCount=0}",
+    "cluster_id": "cluster_vs_player_2026_10_13_mv7cakwh"
+  },
+  {
+    "id": "overlay_2026_10_14_mv8bx8qq.min.js:resizeOverlay",
+    "name": "resizeOverlay",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "resizeOverlay"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `resizeOverlay` (1 lines)",
+    "signature_or_pseudo": "function resizeOverlay()",
+    "code_excerpt": "{for(var e,t,o,i=window.innerWidth||document.documentElement.clientWidth,n=window.innerHeight||document.documentElement.clientHeight,l=DOM.getElementsByTagName(\"html\")[0],r=DOM.getElementsByClassName(\"overlayBox\",l),s=0;s<r.length;s++)\"block\"==r[s].style.display&&(t=(e=r[s]).clientHeight,o=e.clientWidth);if(e){if(i>900)for(s=0;s<r.length;s++)r[s].style.top=Math.round(n/2-t/2)+\"px\",r[s].style.left=Math.round(i/2-o/2)+\"px\",r[s].style.width=\"\",r[s].style.height=\"\",r[s].style.position=\"fixed\";else for(s=0;s<r.length;s++){var a=document.documentElement.scrollTop||document.body.scrollTop;r[s].style.top=a+\"px\",r[s].style.left=0,r[s].style.width=i+\"px\",r[s].style.height=\"auto\",r[s].style.position=\"absolute\"}var d=DOM.getElementById(\"overlay\");d.style.height=n+\"px\",d.style.width=i+\"px\"}}",
+    "cluster_id": "cluster_overlay_2026_10_14_mv8bx8qq"
+  },
+  {
+    "id": "overlay_2026_10_14_mv8bx8qq.min.js:popOverlay",
+    "name": "popOverlay",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "popOverlay"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById",
+      "overlay_2026_10_14_mv8bx8qq.min.js:popClose"
+    ],
+    "called_by_slices": [
+      "overlay_2026_10_14_mv8bx8qq.min.js:popPendingReg"
+    ],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `popOverlay` (1 lines)",
+    "signature_or_pseudo": "function popOverlay(e,t)",
+    "code_excerpt": "{void 0===t&&(t=!1);for(var o=window.innerWidth||document.documentElement.clientWidth,i=window.innerHeight||document.documentElement.clientHeight,n=DOM.getElementsByClassName(\"overlayBox\"),l=0;l<n.length;l++)n[l].style.display=\"none\";if(\"undefined\"!=typeof RouterView&&RouterView.closeAllModals(),0==e.indexOf(\"#\")){e=e.slice(1);var r=DOM.getElementById(e)}else if(0==e.indexOf(\".\")){e=e.slice(1);r=DOM.getElementsByClassName(e)[0]}else r=DOM.getElementById(e);if(r){var s=DOM.getElementById(\"overlay\");s.style.height=i+\"px\",s.style.width=o+\"px\",s.style.position=\"fixed\",s.style.display=\"block\",r.style.display=\"block\",s.onclick=1==t?null:function(){popClose(e)};var a=d();requestAnimationFrame((function(){if(\"block\"===r.style.display){if(1!=t)[...r.querySelectorAll(\".close\")].forEach((function(t){t.getAttribute(\"data-listener\")||(DOM.addEventListener(t,\"click\",(function(){popClose(e)})),t.setAttribute(\"data-listener\",1))}));var n=r.clientWidth,l=r.clientHeight;if(o>900)r.style.top=Math.round(i/2-l/2)+\"px\",r.style.left=Math.round(o/2-n/2)+\"px\",r.style.position=\"fixed\";else{var s=document.documentElement.scrollTop||document.body.scrollTop;r.style.top=s+\"px\",r.style.left=0,r.style.width=o+\"px\",r.style.height=\"auto\",r.style.position=\"absolute\"}a||d()}}))}function d(){var e=r.querySelector(\"input[type='text']\")||r.querySelector(\"textarea\");if(!e)return!1;try{e.focus()}catch(e){}return!0}}",
+    "cluster_id": "cluster_overlay_2026_10_14_mv8bx8qq"
+  },
+  {
+    "id": "overlay_2026_10_14_mv8bx8qq.min.js:popClose",
+    "name": "popClose",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "popClose"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [
+      "overlay_2026_10_14_mv8bx8qq.min.js:popOverlay"
+    ],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `popClose` (1 lines)",
+    "signature_or_pseudo": "function popClose(e)",
+    "code_excerpt": "{if(0==e.indexOf(\"#\")){e=e.slice(1);var t=DOM.getElementById(e)}else if(0==e.indexOf(\".\")){e=e.slice(1);t=DOM.getElementsByClassName(e)[0]}else t=DOM.getElementById(e);for(var o=DOM.getElementById(\"overlay\"),i=DOM.getElementsByClassName(\"error\",t),n=0;n<i.length;n++)i[n].style.display=\"none\";o.style.display=\"none\",t.style.display=\"none\",DOM.dispatchEvent(document,\"popClose\")}",
+    "cluster_id": "cluster_overlay_2026_10_14_mv8bx8qq"
+  },
+  {
+    "id": "overlay_2026_10_14_mv8bx8qq.min.js:popRegistration",
+    "name": "popRegistration",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "popRegistration"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:handleEmojiClick",
+      "chatroom_2026_10_14_01.js:handleTransformMenuTouched"
+    ],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `popRegistration` (1 lines)",
+    "signature_or_pseudo": "function popRegistration(e)",
+    "code_excerpt": "function popRegistration(e){for(var t=!0,o=navigator.userAgent.toLowerCase(),i=[\"bot/\",\"spider\",\"crawler\",\"genieo\",\"http://ow.ly\",\"mon.itor.us\",\"feeddemon\",\"appengine-google\",\"yahooexternalcache\",\"yahoo! slurp\",\"bingpreview\",\"btwebclient\",\"checks.panopta.com\",\"wget\",\"webmon\",\"ezooms\",\"ia_archiver\",\"facebookexternalhit\",\"rockmeltservice\",\"yeti\",\"gbplugin\",\"ossproxy\",\"yandeximages\",\"blogsearch\",\"labs.topsy.com\",\"butterfly\",\"coccoc\",\"microsoft windows network diagnostics\",\"snesmusic\"],n=\"object\"==typeof Cookie&&Cookie.get(\"pending_username\"),l=0;l<i.length;l++)if(-1!==o.indexOf(i[l])){t=!1;break}if(Cookie.get(\"utm_source\")&&\"pop\"===Cookie.get(\"utm_source\")&&(t=!1),\"undefined\"!=typeof AppController&&AppController.Room&&DOM.getElementById(\"bodyTag\").classList.contains(\"chat-room-opened\")){var r=USER.templates,s=USER.reg_templates;if(e||(e=\"\"),\"whitelabel\"==AppController.Room.config.env.sitekey&&!r||!s){var a=\"/register/?form_ref=\"+e;AppController.Room.config.performer.id&&\"\"!=AppController.Room.config.performer.id&&(a+=\"&model_id=\"+AppController.Room.config.performer.id),document.location.href=a}else{var d=DOM.getElementById(\"reg_panel\"),c=DOM.getElementById(\"registerOverlay_formRef\"),p=DOM.getElementById(\"registration_pixel\");d?(d.classList.contains(\"open\")?DOM.getElementById(\"arrow_indicator\").classList.add(\"on\"):(DOM.getElementById(\"arrow_indicator\").classList.remove(\"on\"),d.classList.add(\"open\")),DOM.getE",
+    "cluster_id": "cluster_overlay_2026_10_14_mv8bx8qq"
+  },
+  {
+    "id": "overlay_2026_10_14_mv8bx8qq.min.js:popPendingReg",
+    "name": "popPendingReg",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "popPendingReg"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "overlay_2026_10_14_mv8bx8qq.min.js:popOverlay"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.78999996,
+    "summary": "Proprietary routine `popPendingReg` (1 lines)",
+    "signature_or_pseudo": "function popPendingReg()",
+    "code_excerpt": "{if(\"object\"==typeof Cookie&&Cookie.get(\"pending_username\")){\"cams.xvideos.com\"===location.host||\"cams.xnxx.com\"===location.host?\"undefined\"!=typeof RegistrationView&&RegistrationView.doesPendingRegModalExist()&&\"undefined\"!=typeof RegistrationController&&RegistrationController.config.useWebservice?RegistrationView.openPendingRegModal():popOverlay(\"registerOverlay\"):DOM.dispatchEvent(document,BILLING_PLUGIN_EVENTS.USER_SELECTION,{})}}",
+    "cluster_id": "cluster_overlay_2026_10_14_mv8bx8qq"
+  },
+  {
+    "id": "hls.min.js:define",
+    "name": "define",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "hls.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "define"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.92999995,
+    "summary": "Proprietary routine `define` (1 lines)",
+    "signature_or_pseudo": "function define(f)",
+    "code_excerpt": "{f()}",
+    "cluster_id": "cluster_hls"
+  },
+  {
+    "id": "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "user_account_2026_06_02_mpwto51z.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/lookup.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement",
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/lookup.php`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/lookup.php')",
+    "code_excerpt": "\")[0],t=DOM.getElementsByClassName(\"loginForm\")[0]||DOM.getElementsByClassName(\"my-account-page\")[0],i=DOM.getElementById(\"registerOverlay\")||DOM.getElementById(\"registration_form\"),s=document.querySelector('form[action=\"/lookup.php\"]')||document.querySelector('form[action=\"/lookup-username.php\"]');s=s?s.parentElement:DOM.getElementsByClassName(\"lookup-new\")[0],[e,n,t,s,i].forEach((e=>{if(e){const n=DOM.getElementsByClassName(\"main-registration-section-error-messages\",e)[0];if(n){const e=document.createElement(\"span\");e.className=\"fieldErrorC error\",e.style.display=\"none\",e.classList.add(\"oauth-error\"),e.i",
+    "cluster_id": "cluster_user_account_2026_06_02_mpwto51z"
+  },
+  {
+    "id": "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_2",
+    "name": "minified_api_caller_2",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "user_account_2026_06_02_mpwto51z.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/lookup-username.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement",
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/lookup-username.php`",
+    "signature_or_pseudo": "bundle_slice(2) -> fetch('/lookup-username.php')",
+    "code_excerpt": "M.getElementsByClassName(\"my-account-page\")[0],i=DOM.getElementById(\"registerOverlay\")||DOM.getElementById(\"registration_form\"),s=document.querySelector('form[action=\"/lookup.php\"]')||document.querySelector('form[action=\"/lookup-username.php\"]');s=s?s.parentElement:DOM.getElementsByClassName(\"lookup-new\")[0],[e,n,t,s,i].forEach((e=>{if(e){const n=DOM.getElementsByClassName(\"main-registration-section-error-messages\",e)[0];if(n){const e=document.createElement(\"span\");e.className=\"fieldErrorC error\",e.style.display=\"none\",e.classList.add(\"oauth-error\"),e.id=\"oauth_error\",n.appendChild(e)}else Debug.print(\"OAuthView.bu",
+    "cluster_id": "cluster_user_account_2026_06_02_mpwto51z"
+  },
+  {
+    "id": "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_3",
+    "name": "minified_api_caller_3",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "user_account_2026_06_02_mpwto51z.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/lookup.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement",
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/lookup.php`",
+    "signature_or_pseudo": "bundle_slice(3) -> fetch('/lookup.php')",
+    "code_excerpt": "]||DOM.getElementById(\"login\"),t=DOM.getElementsByClassName(\"loginForm\")[0]||DOM.getElementsByClassName(\"my-account-page\")[0];n=this.isLoginModalOpen()?e:t}else if(\"lookup\"===e){let e=document.querySelector('form[action=\"/lookup.php\"]')||document.querySelector('form[action=\"/lookup-username.php\"]');e=e?e.parentElement:\"\";let t=DOM.getElementsByClassName(\"lookup-new\")[0];n=e||t}return DOM.getElementsByClassName(\"oauth-error\",n)[0]},displayFanClubError:function(e){let n=DOM.getElementsByClassName(\"error_box\")[0];if(n)n.innerHTML=e;else{n=document.createElement(\"div\"),n.classList.add(\"error_box\"),n.innerHTML=",
+    "cluster_id": "cluster_user_account_2026_06_02_mpwto51z"
+  },
+  {
+    "id": "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_4",
+    "name": "minified_api_caller_4",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "user_account_2026_06_02_mpwto51z.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/lookup-username.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/lookup-username.php`",
+    "signature_or_pseudo": "bundle_slice(4) -> fetch('/lookup-username.php')",
+    "code_excerpt": "sName(\"loginForm\")[0]||DOM.getElementsByClassName(\"my-account-page\")[0];n=this.isLoginModalOpen()?e:t}else if(\"lookup\"===e){let e=document.querySelector('form[action=\"/lookup.php\"]')||document.querySelector('form[action=\"/lookup-username.php\"]');e=e?e.parentElement:\"\";let t=DOM.getElementsByClassName(\"lookup-new\")[0];n=e||t}return DOM.getElementsByClassName(\"oauth-error\",n)[0]},displayFanClubError:function(e){let n=DOM.getElementsByClassName(\"error_box\")[0];if(n)n.innerHTML=e;else{n=document.createElement(\"div\"),n.classList.add(\"error_box\"),n.innerHTML=e;const t=DOM.getElementsByClassName(\"loginBox\")[0];t?t.parentE",
+    "cluster_id": "cluster_user_account_2026_06_02_mpwto51z"
+  },
+  {
+    "id": "vs-previewer_2025_08_11_me7goa16.min.js:VSPreviewer",
+    "name": "VSPreviewer",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "vs-previewer_2025_08_11_me7goa16.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "VSPreviewer"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Proprietary routine `VSPreviewer` (1 lines)",
+    "signature_or_pseudo": "function VSPreviewer(e)",
+    "code_excerpt": "{this.applyConfig(e),this.declareEventListeners()}",
+    "cluster_id": "cluster_vs_previewer_2025_08_11_me7goa16"
+  },
+  {
+    "id": "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "tracker_2026_07_28_ms4yeok9.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/webservices/fe-feedback.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/webservices/fe-feedback.php?question_id=1&user_id=`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/webservices/fe-feedback.php?question_id=1&user_id=')",
+    "code_excerpt": "ll},setUpBetaQOverlay:function(){Debug.print(\"TrackerController\",\"setUpBetaQOverlay()\"),TrackerView.setUpBetaQOverlayEvList(),DOM.addEventListener(document,TRACKER_VIEW_EVENTS.SUBMIT_BETA_Q,(function(e){var t=e.detail,r=\"/webservices/fe-feedback.php?question_id=1&user_id=\"+USER.id+\"&feedback_text=\"+encodeURIComponent(t);TrackerModel.sendBetaQuestionnaireFeedback(r).then((function(e){RoomController.notifyUser(\"Thank you for your feedback! We appreciate it!\",\"success\",{id:\"errorModal\",title:\"\"})})).catch((function(e){RoomController.notifyUser(\"Something went wrong and we were unable to submit your feedback, we apologize.\",\"error\",{id:\"errorModal\",",
+    "cluster_id": "cluster_tracker_2026_07_28_ms4yeok9"
+  },
+  {
+    "id": "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2",
+    "name": "minified_api_caller_2",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "tracker_2026_07_28_ms4yeok9.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/logout.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:parse",
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/logout.php`",
+    "signature_or_pseudo": "bundle_slice(2) -> fetch('/logout.php')",
+    "code_excerpt": "e)}},{sitekey:n}=this.config,i=\"asia\"===n||\"club\"===n?atob(\"L3dzL3VzZXJzL3NlbnRyeS5waHA=\"):atob(\"L3dlYnNlcnZpY2VzL3NlbnRyeS5waHA=\");Ajax.call(i,(function(e){try{JSON.parse(e.responseText).result&&window.location.replace(\"/logout.php\")}catch(e){}}),r)}}},trackStartYourShowPanel:function(e){Debug.print(\"TrackerController\",\".trackStartYourShowPanel()\");var t,r=e.visibleShowTypes,n=e.playPayAvail,i=r.filter((function(e){if(e.classList.contains(\"voyeur\"))return e})),o=r.filter((function(e){if(e.classList.contains(\"multi\"))return e}));r.filter((function(e){if(e.classList.contains(\"reg-pvt\"))return e})).length>0?",
+    "cluster_id": "cluster_tracker_2026_07_28_ms4yeok9"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:normalizeName",
+    "name": "normalizeName",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 7,
+    "end_line": 27,
+    "exported_symbols": [
+      "normalizeName"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:Headers",
+      "chatroom_2026_10_14_01.js:iteratorFor",
+      "chatroom_2026_10_14_01.js:normalizeValue",
+      "chatroom_2026_10_14_01.js:test"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `normalizeName` (20 lines)",
+    "signature_or_pseudo": "function normalizeName(name)",
+    "code_excerpt": "function normalizeName(name){if(typeof name!=='string'){name=String(name)}\nif(/[^a-z0-9\\-#$%&'*+.\\^_`|~]/i.test(name)){throw new TypeError('Invalid character in header field name')}\nreturn name.toLowerCase()}\nfunction normalizeValue(value){if(typeof value!=='string'){value=String(value)}\nreturn value}\nfunction iteratorFor(items){var iterator={next:function(){var value=items.shift()\nreturn{done:value===undefined,value:value}}}\nif(support.iterable){iterator[Symbol.iterator]=function(){return iterator}}\nreturn iterator}\nfunction Headers(headers){this.map={}\nif(headers instanceof Headers){headers.forEach(function(value,name){this.append(name,value)},this)}else if(Array.isArray(headers)){headers.forEach(function(header){this.append(header[0],header[1])},this)}else if(headers){Object.getOwnPropertyNames(headers).forEach(function(name){this.append(name,headers[name])},this)}}\nHeaders.prototype.append=function(name,value){name=normalizeName(name)\nvalue=normalizeValue(value)\nvar oldValue=this.map[name]\nthis.map[name]=oldValue?oldValue+','+value:value}\nHeaders.prototype['delete']=function(name){delete this.map[normalizeName(name)]}\nHeaders.prototype.get=function(name){name=normalizeName(name)\nreturn this.has(name)?this.map[name]:null}\nHeaders.prototype.has=function(name){return this.map.hasOwnProperty(normalizeName(name))}\nHeaders.prototype.set=function(name,value){this.map[normalizeName(name)]=normalizeValue(value",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:normalizeValue",
+    "name": "normalizeValue",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 10,
+    "end_line": 12,
+    "exported_symbols": [
+      "normalizeValue"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:normalizeName"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `normalizeValue` (2 lines)",
+    "signature_or_pseudo": "function normalizeValue(value)",
+    "code_excerpt": "{if(typeof value!=='string'){value=String(value)}\nreturn value}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:iteratorFor",
+    "name": "iteratorFor",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 12,
+    "end_line": 16,
+    "exported_symbols": [
+      "iteratorFor"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:normalizeName"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `iteratorFor` (4 lines)",
+    "signature_or_pseudo": "function iteratorFor(items)",
+    "code_excerpt": "{var iterator={next:function(){var value=items.shift()\nreturn{done:value===undefined,value:value}}}\nif(support.iterable){iterator[Symbol.iterator]=function(){return iterator}}\nreturn iterator}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:Headers",
+    "name": "Headers",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 16,
+    "end_line": 18,
+    "exported_symbols": [
+      "Headers"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:Request",
+      "chatroom_2026_10_14_01.js:Response",
+      "chatroom_2026_10_14_01.js:normalizeName",
+      "chatroom_2026_10_14_01.js:parseHeaders"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `Headers` (2 lines)",
+    "signature_or_pseudo": "function Headers(headers)",
+    "code_excerpt": "{this.map={}\nif(headers instanceof Headers){headers.forEach(function(value,name){this.append(name,value)},this)}else if(Array.isArray(headers)){headers.forEach(function(header){this.append(header[0],header[1])},this)}else if(headers){Object.getOwnPropertyNames(headers).forEach(function(name){this.append(name,headers[name])},this)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:consumed",
+    "name": "consumed",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 38,
+    "end_line": 40,
+    "exported_symbols": [
+      "consumed"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:Body"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `consumed` (2 lines)",
+    "signature_or_pseudo": "function consumed(body)",
+    "code_excerpt": "{if(body.bodyUsed){return Promise.reject(new TypeError('Already read'))}\nbody.bodyUsed=!0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:fileReaderReady",
+    "name": "fileReaderReady",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 40,
+    "end_line": 42,
+    "exported_symbols": [
+      "fileReaderReady"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:readBlobAsArrayBuffer",
+      "chatroom_2026_10_14_01.js:readBlobAsText"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `fileReaderReady` (2 lines)",
+    "signature_or_pseudo": "function fileReaderReady(reader)",
+    "code_excerpt": "{return new Promise(function(resolve,reject){reader.onload=function(){resolve(reader.result)}\nreader.onerror=function(){reject(reader.error)}})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:readBlobAsArrayBuffer",
+    "name": "readBlobAsArrayBuffer",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 42,
+    "end_line": 46,
+    "exported_symbols": [
+      "readBlobAsArrayBuffer"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:fileReaderReady"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `readBlobAsArrayBuffer` (4 lines)",
+    "signature_or_pseudo": "function readBlobAsArrayBuffer(blob)",
+    "code_excerpt": "{var reader=new FileReader()\nvar promise=fileReaderReady(reader)\nreader.readAsArrayBuffer(blob)\nreturn promise}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:readBlobAsText",
+    "name": "readBlobAsText",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 46,
+    "end_line": 50,
+    "exported_symbols": [
+      "readBlobAsText"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:fileReaderReady"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `readBlobAsText` (4 lines)",
+    "signature_or_pseudo": "function readBlobAsText(blob)",
+    "code_excerpt": "{var reader=new FileReader()\nvar promise=fileReaderReady(reader)\nreader.readAsText(blob)\nreturn promise}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:readArrayBufferAsText",
+    "name": "readArrayBufferAsText",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 50,
+    "end_line": 54,
+    "exported_symbols": [
+      "readArrayBufferAsText"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `readArrayBufferAsText` (4 lines)",
+    "signature_or_pseudo": "function readArrayBufferAsText(buf)",
+    "code_excerpt": "{var view=new Uint8Array(buf)\nvar chars=new Array(view.length)\nfor(var i=0;i<view.length;i++){chars[i]=String.fromCharCode(view[i])}\nreturn chars.join('')}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:bufferClone",
+    "name": "bufferClone",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 54,
+    "end_line": 57,
+    "exported_symbols": [
+      "bufferClone"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:Body"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `bufferClone` (3 lines)",
+    "signature_or_pseudo": "function bufferClone(buf)",
+    "code_excerpt": "{if(buf.slice){return buf.slice(0)}else{var view=new Uint8Array(buf.byteLength)\nview.set(new Uint8Array(buf))\nreturn view.buffer}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:Body",
+    "name": "Body",
+    "category": "ui_component",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 57,
+    "end_line": 65,
+    "exported_symbols": [
+      "Body"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:bufferClone",
+      "chatroom_2026_10_14_01.js:consumed"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `Body` (8 lines)",
+    "signature_or_pseudo": "function Body()",
+    "code_excerpt": "function Body(){this.bodyUsed=!1\nthis._initBody=function(body){this._bodyInit=body\nif(!body){this._bodyText=''}else if(typeof body==='string'){this._bodyText=body}else if(support.blob&&Blob.prototype.isPrototypeOf(body)){this._bodyBlob=body}else if(support.formData&&FormData.prototype.isPrototypeOf(body)){this._bodyFormData=body}else if(support.searchParams&&URLSearchParams.prototype.isPrototypeOf(body)){this._bodyText=body.toString()}else if(support.arrayBuffer&&support.blob&&isDataView(body)){this._bodyArrayBuffer=bufferClone(body.buffer)\nthis._bodyInit=new Blob([this._bodyArrayBuffer])}else if(support.arrayBuffer&&(ArrayBuffer.prototype.isPrototypeOf(body)||isArrayBufferView(body))){this._bodyArrayBuffer=bufferClone(body)}else{throw new Error('unsupported BodyInit type')}\nif(!this.headers.get('content-type')){if(typeof body==='string'){this.headers.set('content-type','text/plain;charset=UTF-8')}else if(this._bodyBlob&&this._bodyBlob.type){this.headers.set('content-type',this._bodyBlob.type)}else if(support.searchParams&&URLSearchParams.prototype.isPrototypeOf(body)){this.headers.set('content-type','application/x-www-form-urlencoded;charset=UTF-8')}}}\nif(support.blob){this.blob=function(){var rejected=consumed(this)\nif(rejected){return rejected}\nif(this._bodyBlob){return Promise.resolve(this._bodyBlob)}else if(this._bodyArrayBuffer){return Promise.resolve(new Blob([this._bodyArrayBuffer]))}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:normalizeMethod",
+    "name": "normalizeMethod",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 73,
+    "end_line": 75,
+    "exported_symbols": [
+      "normalizeMethod"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:Request"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `normalizeMethod` (2 lines)",
+    "signature_or_pseudo": "function normalizeMethod(method)",
+    "code_excerpt": "{var upcased=method.toUpperCase()\nreturn(methods.indexOf(upcased)>-1)?upcased:method}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:Request",
+    "name": "Request",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 75,
+    "end_line": 92,
+    "exported_symbols": [
+      "Request"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:Headers",
+      "chatroom_2026_10_14_01.js:normalizeMethod"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `Request` (17 lines)",
+    "signature_or_pseudo": "function Request(input,options)",
+    "code_excerpt": "{options=options||{}\nvar body=options.body\nif(input instanceof Request){if(input.bodyUsed){throw new TypeError('Already read')}\nthis.url=input.url\nthis.credentials=input.credentials\nif(!options.headers){this.headers=new Headers(input.headers)}\nthis.method=input.method\nthis.mode=input.mode\nif(!body&&input._bodyInit!=null){body=input._bodyInit\ninput.bodyUsed=!0}}else{this.url=String(input)}\nthis.credentials=options.credentials||this.credentials||'omit'\nif(options.headers||!this.headers){this.headers=new Headers(options.headers)}\nthis.method=normalizeMethod(options.method||this.method||'GET')\nthis.mode=options.mode||this.mode||null\nthis.referrer=null\nif((this.method==='GET'||this.method==='HEAD')&&body){throw new TypeError('Body not allowed for GET or HEAD requests')}\nthis._initBody(body)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:decode",
+    "name": "decode",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 93,
+    "end_line": 99,
+    "exported_symbols": [
+      "decode"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [
+      "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `decode` (6 lines)",
+    "signature_or_pseudo": "function decode(body)",
+    "code_excerpt": "{var form=new FormData()\nbody.trim().split('&').forEach(function(bytes){if(bytes){var split=bytes.split('=')\nvar name=split.shift().replace(/\\+/g,' ')\nvar value=split.join('=').replace(/\\+/g,' ')\nform.append(decodeURIComponent(name),decodeURIComponent(value))}})\nreturn form}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:parseHeaders",
+    "name": "parseHeaders",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 99,
+    "end_line": 106,
+    "exported_symbols": [
+      "parseHeaders"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:Headers",
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `parseHeaders` (7 lines)",
+    "signature_or_pseudo": "function parseHeaders(rawHeaders)",
+    "code_excerpt": "{var headers=new Headers()\nvar preProcessedHeaders=rawHeaders.replace(/\\r?\\n[\\t ]+/g,' ')\npreProcessedHeaders.split(/\\r?\\n/).forEach(function(line){var parts=line.split(':')\nvar key=parts.shift().trim()\nif(key){var value=parts.join(':').trim()\nheaders.append(key,value)}})\nreturn headers}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:Response",
+    "name": "Response",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 107,
+    "end_line": 115,
+    "exported_symbols": [
+      "Response"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:Headers"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `Response` (8 lines)",
+    "signature_or_pseudo": "function Response(bodyInit,options)",
+    "code_excerpt": "{if(!options){options={}}\nthis.type='default'\nthis.status=options.status===undefined?200:options.status\nthis.ok=this.status>=200&&this.status<300\nthis.statusText='statusText' in options?options.statusText:'OK'\nthis.headers=new Headers(options.headers)\nthis.url=options.url||''\nthis._initBody(bodyInit)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:checkIfImageExists",
+    "name": "checkIfImageExists",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 196,
+    "end_line": 197,
+    "exported_symbols": [
+      "checkIfImageExists"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `checkIfImageExists` (1 lines)",
+    "signature_or_pseudo": "function checkIfImageExists(imageSrc,cbError,cbSuccess)",
+    "code_excerpt": "{if(typeof Image!=='undefined'){var image=new Image();image.onload=cbSuccess;image.onerror=cbError;image.src=imageSrc}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:Caress",
+    "name": "Caress",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 196,
+    "end_line": 197,
+    "exported_symbols": [
+      "Caress"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `Caress` (1 lines)",
+    "signature_or_pseudo": "function Caress(options)",
+    "code_excerpt": "{this.initProps(options);this.el.addEventListener('touchstart',this.handleTouchStart.bind(this));this.el.addEventListener('touchmove',this.handleTouchMove.bind(this));this.el.addEventListener('touchend',this.handleTouchEnd.bind(this))}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:loadModelImages",
+    "name": "loadModelImages",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 214,
+    "end_line": 215,
+    "exported_symbols": [
+      "loadModelImages"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:watchScrollForImages"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `loadModelImages` (1 lines)",
+    "signature_or_pseudo": "function loadModelImages()",
+    "code_excerpt": "{var modelContainers=DOM.getElementsByClassName('scrollLoad');for(var i=0;i<modelContainers.length;i++){modelContainers[i].src=modelContainers[i].getAttribute('data-image-url')}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:watchScrollForImages",
+    "name": "watchScrollForImages",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 216,
+    "end_line": 218,
+    "exported_symbols": [
+      "watchScrollForImages"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById",
+      "chatroom_2026_10_14_01.js:loadModelImages"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `watchScrollForImages` (2 lines)",
+    "signature_or_pseudo": "function watchScrollForImages()",
+    "code_excerpt": "{loadModelImages();var homeFeatureShows=DOM.getElementById('homeFeaturedShows');if(homeFeatureShows){homeFeatureShows.classList.remove('hide')}\nDOM.removeEventListener(window,'scroll',watchScrollForImages);DOM.removeEventListener(DOM.getElementsByTagName('body')[0],'scroll',watchScrollForImages)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:zipCodeListener",
+    "name": "zipCodeListener",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 306,
+    "end_line": 307,
+    "exported_symbols": [
+      "zipCodeListener"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `zipCodeListener` (1 lines)",
+    "signature_or_pseudo": "function zipCodeListener(ev)",
+    "code_excerpt": "{DOM.removeEventListener(document,VIEW_EVENT.ZIP_CODE,zipCodeListener);var zipValue=ev.detail;if(zipValue==='canceled'){reject('canceled')}else{BillingController.zip=zipValue;resolve(zipValue)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:disableBtn",
+    "name": "disableBtn",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 352,
+    "end_line": 353,
+    "exported_symbols": [
+      "disableBtn"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `disableBtn` (1 lines)",
+    "signature_or_pseudo": "function disableBtn(btn)",
+    "code_excerpt": "{btn.classList.add('disabled');if(btn.classList.contains('one-click-product')&&!btn.classList.contains('active')){btn.classList.add('opacity-25')}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:disableBtn",
+    "name": "disableBtn",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 353,
+    "end_line": 354,
+    "exported_symbols": [
+      "disableBtn"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `disableBtn` (1 lines)",
+    "signature_or_pseudo": "function disableBtn(btn)",
+    "code_excerpt": "{btn.classList.remove('disabled');if(btn.classList.contains('one-click-product')){btn.classList.remove('opacity-25')}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:evlist",
+    "name": "evlist",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 360,
+    "end_line": 361,
+    "exported_symbols": [
+      "evlist"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `evlist` (1 lines)",
+    "signature_or_pseudo": "function evlist()",
+    "code_excerpt": "{DOM.getElementById('billingLoadingSymbol').classList.add('hide');DOM.removeEventListener(epochIframe,'load',evlist)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:attemptLogin",
+    "name": "attemptLogin",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 417,
+    "end_line": 420,
+    "exported_symbols": [
+      "attemptLogin"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:dataHandler",
+      "chatroom_2026_10_14_01.js:parse"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `attemptLogin` (3 lines)",
+    "signature_or_pseudo": "function attemptLogin()",
+    "code_excerpt": "{return new Promise(function(resolve,reject){var xhr=new XMLHttpRequest();xhr.open('GET',endpoint);xhr.onload=dataHandler;if(typeof window.isUsingSandbox!=='undefined'){}\nfunction dataHandler(){DOM.dispatchEvent(document,EVENT.SET_CONNECTION_FLAG,{ignoreConnection:!1});if(xhr.status===200&&xhr.readyState===4){try{var data=JSON.parse(xhr.responseText);return resolve(data)}catch(err){reject({phpErr:!0,message:'Invalid JSON'})}}else{return reject({phpErr:!0})}}\nxhr.send()})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:dataHandler",
+    "name": "dataHandler",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 418,
+    "end_line": 419,
+    "exported_symbols": [
+      "dataHandler"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:parse"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:attemptLogin"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `dataHandler` (1 lines)",
+    "signature_or_pseudo": "function dataHandler()",
+    "code_excerpt": "{DOM.dispatchEvent(document,EVENT.SET_CONNECTION_FLAG,{ignoreConnection:!1});if(xhr.status===200&&xhr.readyState===4){try{var data=JSON.parse(xhr.responseText);return resolve(data)}catch(err){reject({phpErr:!0,message:'Invalid JSON'})}}else{return reject({phpErr:!0})}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:onFeatureTagsRendered",
+    "name": "onFeatureTagsRendered",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 515,
+    "end_line": 516,
+    "exported_symbols": [
+      "onFeatureTagsRendered"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `onFeatureTagsRendered` (1 lines)",
+    "signature_or_pseudo": "function onFeatureTagsRendered()",
+    "code_excerpt": "{ModelsVirtualizer.virtualizedModels()}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleTransformMenuTouched",
+    "name": "handleTransformMenuTouched",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 601,
+    "end_line": 606,
+    "exported_symbols": [
+      "handleTransformMenuTouched"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "overlay_2026_10_14_mv8bx8qq.min.js:popRegistration"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleTransformMenuTouched` (5 lines)",
+    "signature_or_pseudo": "function handleTransformMenuTouched(event)",
+    "code_excerpt": "{if(tagName==='input'&&menuEL.value.indexOf('<')!=-1){event.preventDefault();return}\nif(event.target.getAttribute('data-use-default')){return}\nif(shouldPreventDefault){event.preventDefault()}\nvar isGuest=USER.type==='';if(transformType==='image-type'&&USER.no_adult&&isGuest){event.preventDefault();this.checked=!0;popRegistration('nsfw_live_images');return}\nvar isText=menuEL.getAttribute('type')&&menuEL.getAttribute('type')==='text';self.sendUpdateTransformConfig({transformType:transformType,transform:transform,value:Helpers.sanitizeHTML(isText?menuEL.value:''),selected:!0,commit:!0})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 748,
+    "end_line": 751,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.is_premiere;var bVal=b.is_premiere;if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 750,
+    "end_line": 751,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{if(a.model_seo_name<b.model_seo_name){return-1}else if(a.model_seo_name===b.model_seo_name){return 0}else{return 1}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 752,
+    "end_line": 755,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.is_fetish;var bVal=b.is_fetish;if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 754,
+    "end_line": 757,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.is_group_chat;var bVal=b.is_group_chat;if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 756,
+    "end_line": 759,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.interactive_type===\"tip-controlled\";var bVal=b.interactive_type===\"tip-controlled\";if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 758,
+    "end_line": 761,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.interactive_type===\"interactive-1\";var bVal=b.interactive_type===\"interactive-1\";if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 760,
+    "end_line": 763,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.interactive_type===\"interactive-2\";var bVal=b.interactive_type===\"interactive-2\";if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 762,
+    "end_line": 763,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{return b.is_new-a.is_new}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 762,
+    "end_line": 765,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{var aVal=a.is_party_chat;var bVal=b.is_party_chat;if(aVal&&!bVal){return-1}\nif(!aVal&&bVal){return 1}\nreturn 0}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 764,
+    "end_line": 765,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{if(a.default_cpm<b.default_cpm){return-1}else if(a.default_cpm===b.default_cpm){return 0}else{return 1}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 769,
+    "end_line": 770,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{if(a.is_voyeur){return-1}else if(b.is_voyeur){return 1}else{return 0}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 769,
+    "end_line": 770,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{if(a.category_name_lower_case<b.category_name_lower_case){return-1}else if(a.category_name_lower_case===b.category_name_lower_case){return 0}else{return 1}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 770,
+    "end_line": 771,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (1 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{if(a.pa_type===\"webapp-mobile\"){return-1}else if(b.pa_type===\"webapp-mobile\"){return 1}else{return 0}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:sorter",
+    "name": "sorter",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 770,
+    "end_line": 773,
+    "exported_symbols": [
+      "sorter"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `sorter` (3 lines)",
+    "signature_or_pseudo": "function sorter(a,b)",
+    "code_excerpt": "{let goldA=a.sexy_selfie_badge=='gold'||0;let goldB=b.sexy_selfie_badge=='gold'||0;if(goldB-goldA!==0){return goldB-goldA}\nlet silvA=a.sexy_selfie_badge=='silver'||0;let silvB=b.sexy_selfie_badge=='silver'||0;if(silvB-silvA!==0){return silvB-silvA}\nreturn a.name_seo.localeCompare(b.name_seo)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleScroll",
+    "name": "handleScroll",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 885,
+    "end_line": 888,
+    "exported_symbols": [
+      "handleScroll"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleScroll` (3 lines)",
+    "signature_or_pseudo": "function handleScroll()",
+    "code_excerpt": "{if(HomePageController.useNoVScroll){return}\nif(ModelsVirtualizer._freeze){return}\nModelsVirtualizer.virtualizerResize=!1;ModelsVirtualizer._requestTick__()}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:uiListener",
+    "name": "uiListener",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1084,
+    "end_line": 1085,
+    "exported_symbols": [
+      "uiListener"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `uiListener` (1 lines)",
+    "signature_or_pseudo": "function uiListener()",
+    "code_excerpt": "{DOM.removeEventListener(document,VIEW_EVENT.USER_INTERACTED,uiListener);RouterController.stopPopRelocate()}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:updateHrefValue",
+    "name": "updateHrefValue",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1095,
+    "end_line": 1096,
+    "exported_symbols": [
+      "updateHrefValue"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `updateHrefValue` (1 lines)",
+    "signature_or_pseudo": "function updateHrefValue(htmlElement,attributeName,attributeValue)",
+    "code_excerpt": "{if(htmlElement&&htmlElement.setAttribute){htmlElement.setAttribute(attributeName,attributeValue)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:scrollToModelThumbnail",
+    "name": "scrollToModelThumbnail",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1108,
+    "end_line": 1109,
+    "exported_symbols": [
+      "scrollToModelThumbnail"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `scrollToModelThumbnail` (1 lines)",
+    "signature_or_pseudo": "function scrollToModelThumbnail(headerEl)",
+    "code_excerpt": "{setTimeout(function(){window.scroll(0,currentModelRoom.offsetTop-headerEl.clientHeight)},10)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:getUrlVars",
+    "name": "getUrlVars",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1182,
+    "end_line": 1183,
+    "exported_symbols": [
+      "getUrlVars"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `getUrlVars` (1 lines)",
+    "signature_or_pseudo": "function getUrlVars()",
+    "code_excerpt": "{try{var params={};var parts=window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(m,key,value){params[key]=value});return params}catch(err){return{}}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:addOrRemoveClass",
+    "name": "addOrRemoveClass",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1228,
+    "end_line": 1229,
+    "exported_symbols": [
+      "addOrRemoveClass"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `addOrRemoveClass` (1 lines)",
+    "signature_or_pseudo": "function addOrRemoveClass(element,addOrRemove)",
+    "code_excerpt": "{if(!element)return;element.classList[addOrRemove]('fade-out')}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:changeRevealText",
+    "name": "changeRevealText",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1229,
+    "end_line": 1230,
+    "exported_symbols": [
+      "changeRevealText"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `changeRevealText` (1 lines)",
+    "signature_or_pseudo": "function changeRevealText(addOrRemove)",
+    "code_excerpt": "{var messageContainer=DOM.querySelectorAll('#reveal h5')[0];if(!messageContainer)return;messageContainer.innerHTML=(addOrRemove===\"add\")?\"Click here to display controls\":\"Click here to hide controls\"}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:changeBackgroundImage",
+    "name": "changeBackgroundImage",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1230,
+    "end_line": 1231,
+    "exported_symbols": [
+      "changeBackgroundImage"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `changeBackgroundImage` (1 lines)",
+    "signature_or_pseudo": "function changeBackgroundImage(elementsCollection,backgroundImage)",
+    "code_excerpt": "{for(var i=0;i<elementsCollection.length;i++){elementsCollection[i].style.backgroundImage=backgroundImage}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleInput",
+    "name": "handleInput",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1252,
+    "end_line": 1253,
+    "exported_symbols": [
+      "handleInput"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleInput` (1 lines)",
+    "signature_or_pseudo": "function handleInput()",
+    "code_excerpt": "{DOM.dispatchEvent(document,VIEW_EVENT.CUSTOM_TIP_INPUT_CHANGED,{inputElem:this})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleCommandQueryShowOffers",
+    "name": "handleCommandQueryShowOffers",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1283,
+    "end_line": 1286,
+    "exported_symbols": [
+      "handleCommandQueryShowOffers"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleCommandQueryShowOffers` (3 lines)",
+    "signature_or_pseudo": "function handleCommandQueryShowOffers(event)",
+    "code_excerpt": "{try{if(typeof dealTimeout!=='number'){ErrorController.report(2401,`typeof dealTimeout: ${typeof dealTimeout}`)}\nclearTimeout(dealTimeout);DOM.removeEventListener(document,CHATSERVER_EVENT.QUERY_SHOW_OFFERS,handleCommandQueryShowOffers);var objToReturn={};if(event.detail.active_deal==='true'){objToReturn.dealStatus='true'}else{objToReturn.dealStatus='false'}\nresolve(objToReturn)}catch(err){ErrorController.report(2401,`handleCommandQueryShowOffers error: ${err.message}`)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleCommandShowAuth",
+    "name": "handleCommandShowAuth",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1285,
+    "end_line": 1287,
+    "exported_symbols": [
+      "handleCommandShowAuth"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleCommandShowAuth` (2 lines)",
+    "signature_or_pseudo": "function handleCommandShowAuth(event)",
+    "code_excerpt": "{clearTimeout(authTimeout);DOM.removeEventListener(document,CHATSERVER_EVENT.SHOW_AUTH,handleCommandShowAuth);var resultObj={'dealCode':dealCode};resultObj.success=event.detail.success;resultObj.key=event.detail.key;resultObj.showId=showObj.showId;resultObj.showCpm=showObj.showCpm;if(event.detail.error){resultObj.error=event.detail.error}\nresolve(resultObj)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleCommandShowLogin",
+    "name": "handleCommandShowLogin",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1286,
+    "end_line": 1287,
+    "exported_symbols": [
+      "handleCommandShowLogin"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleCommandShowLogin` (1 lines)",
+    "signature_or_pseudo": "function handleCommandShowLogin(event)",
+    "code_excerpt": "{clearTimeout(loginTimeout);DOM.removeEventListener(document,CHATSERVER_EVENT.SHOW_LOGIN,handleCommandShowLogin);resolve(event.detail)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:onBPTransact",
+    "name": "onBPTransact",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1286,
+    "end_line": 1288,
+    "exported_symbols": [
+      "onBPTransact"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `onBPTransact` (2 lines)",
+    "signature_or_pseudo": "function onBPTransact(e)",
+    "code_excerpt": "{var response=e.detail;if(response.data.OPTIONS.experience_flow==='play-and-pay-access'){if(response.transact_status==='success'){var paramsObj={'code':'SUCCESSFUL_TRANSACTION','result':'1'};BillingController.accessFeePurchaseFeedback(paramsObj);PaidShowController.accessFeeSuccess=null}else{var paramsObj={'code':'FAILED_TRANSACTION','result':'0'};reject(new Error('Failed to process the access fee for play and pay show.'));BillingController.accessFeePurchaseFeedback(paramsObj);PaidShowController.accessFeeFailed=null}\nDOM.removeEventListener(document,BILLING_PLUGIN_EVENTS.TRANSACTION,onBPTransact)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:onBillingPluginClosed",
+    "name": "onBillingPluginClosed",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1287,
+    "end_line": 1288,
+    "exported_symbols": [
+      "onBillingPluginClosed"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `onBillingPluginClosed` (1 lines)",
+    "signature_or_pseudo": "function onBillingPluginClosed()",
+    "code_excerpt": "{reject(new Error('You have canceled the process of charging a one-time access fee.'));DOM.removeEventListener(document,BILLING_PLUGIN_EVENTS.BILLING_MODAL_CLOSED,onBillingPluginClosed)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleCommandShowLogin",
+    "name": "handleCommandShowLogin",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1287,
+    "end_line": 1288,
+    "exported_symbols": [
+      "handleCommandShowLogin"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleCommandShowLogin` (1 lines)",
+    "signature_or_pseudo": "function handleCommandShowLogin(event)",
+    "code_excerpt": "{clearTimeout(loginTimeout);DOM.removeEventListener(document,CHATSERVER_EVENT.SHOW_LOGIN,handleCommandShowLogin);resolve(event.detail)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleCommandShowReady",
+    "name": "handleCommandShowReady",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1287,
+    "end_line": 1288,
+    "exported_symbols": [
+      "handleCommandShowReady"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleCommandShowReady` (1 lines)",
+    "signature_or_pseudo": "function handleCommandShowReady(event)",
+    "code_excerpt": "{clearTimeout(readyTimeout);DOM.removeEventListener(document,CHATSERVER_EVENT.SHOW_READY,handleCommandShowReady);resolve(event.detail)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:unmuteAudioOnRoomClick",
+    "name": "unmuteAudioOnRoomClick",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1347,
+    "end_line": 1348,
+    "exported_symbols": [
+      "unmuteAudioOnRoomClick"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `unmuteAudioOnRoomClick` (1 lines)",
+    "signature_or_pseudo": "function unmuteAudioOnRoomClick()",
+    "code_excerpt": "{VSPlayerController.removeExternalCodesForcedMuting();DOM.removeEventListener(document,VIEW_EVENT.WHOLE_ROOM_CLICKED,unmuteAudioOnRoomClick);RouterController.paramsArray.splice(RouterController.paramsArray.indexOf('no_audio=1'),1)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+    "name": "listenForClickOnRoom",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1381,
+    "end_line": 1382,
+    "exported_symbols": [
+      "listenForClickOnRoom"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `listenForClickOnRoom` (1 lines)",
+    "signature_or_pseudo": "function listenForClickOnRoom()",
+    "code_excerpt": "{DOM.dispatchEvent(document,VIEW_EVENT.WHOLE_ROOM_CLICKED);DOM.removeEventListener(DOM.getElementById(\"roomInterface\"),\"click\",listenForClickOnRoom)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:setVideoSizingCookie",
+    "name": "setVideoSizingCookie",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1382,
+    "end_line": 1383,
+    "exported_symbols": [
+      "setVideoSizingCookie"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `setVideoSizingCookie` (1 lines)",
+    "signature_or_pseudo": "function setVideoSizingCookie(videoSize)",
+    "code_excerpt": "{DOM.dispatchEvent(document,VIEW_EVENT.SET_VIDEO_SIZE_COOKIE,{videoSize:videoSize})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:displayMessage",
+    "name": "displayMessage",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1510,
+    "end_line": 1511,
+    "exported_symbols": [
+      "displayMessage"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `displayMessage` (1 lines)",
+    "signature_or_pseudo": "function displayMessage(element,message)",
+    "code_excerpt": "{element.innerHTML=message;element.classList.remove('hide');element.classList.add('show');setTimeout(function(){element.classList.add('hide');element.classList.remove('show');element.classlist},5000)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleInput",
+    "name": "handleInput",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1512,
+    "end_line": 1513,
+    "exported_symbols": [
+      "handleInput"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleInput` (1 lines)",
+    "signature_or_pseudo": "function handleInput()",
+    "code_excerpt": "{DOM.dispatchEvent(document,VIEW_EVENT.CUSTOM_TIP_INPUT_CHANGED,{inputElem:this})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:openTipTab",
+    "name": "openTipTab",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1531,
+    "end_line": 1532,
+    "exported_symbols": [
+      "openTipTab"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `openTipTab` (1 lines)",
+    "signature_or_pseudo": "function openTipTab()",
+    "code_excerpt": "{var isMobile=USER.platform_type!=='computer';if(isMobile){let mobileTips=DOM.querySelectorAll('[data-tip-type=\"tips\"]')[0];if(mobileTips){TipView.switchTippingTab({clickedTab:mobileTips,scrollSectionIntoView:!0})}}else{let tips=DOM.getElementById('tippingLiteTippingTabCheck');if(tips){tips.checked=!0}}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:callbackFn",
+    "name": "callbackFn",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1585,
+    "end_line": 1586,
+    "exported_symbols": [
+      "callbackFn"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `callbackFn` (1 lines)",
+    "signature_or_pseudo": "function callbackFn(res)",
+    "code_excerpt": "{Debug.print('Tipping','.logParsingError()')}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleContentEditablePaste",
+    "name": "handleContentEditablePaste",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1621,
+    "end_line": 1623,
+    "exported_symbols": [
+      "handleContentEditablePaste"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleContentEditablePaste` (2 lines)",
+    "signature_or_pseudo": "function handleContentEditablePaste(event)",
+    "code_excerpt": "{var paste=(event.clipboardData||window.clipboardData);if(paste==null||typeof paste.getData!='function'){return}\nevent.preventDefault();DOM.dispatchEvent(document,VIEW_EVENT.CHAT_AREA_PASTE,{paste})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:dispatchSendMessageEvent",
+    "name": "dispatchSendMessageEvent",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1624,
+    "end_line": 1625,
+    "exported_symbols": [
+      "dispatchSendMessageEvent"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `dispatchSendMessageEvent` (1 lines)",
+    "signature_or_pseudo": "function dispatchSendMessageEvent()",
+    "code_excerpt": "{DOM.dispatchEvent(document,VIEW_EVENT.SEND_MESSAGE)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:positionVideoOnKeyboardUp",
+    "name": "positionVideoOnKeyboardUp",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1629,
+    "end_line": 1630,
+    "exported_symbols": [
+      "positionVideoOnKeyboardUp"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `positionVideoOnKeyboardUp` (1 lines)",
+    "signature_or_pseudo": "function positionVideoOnKeyboardUp(keyboardUp)",
+    "code_excerpt": "{if(keyboardUp){DOM.getElementsByClassName('chatroom-container')[0].classList.add('keyboard-up');ChatView.scrollToBottom()}else{DOM.getElementsByClassName('chatroom-container')[0].classList.remove('keyboard-up');ChatView.scrollToBottom()}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:chatContainerScrollCb",
+    "name": "chatContainerScrollCb",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1642,
+    "end_line": 1643,
+    "exported_symbols": [
+      "chatContainerScrollCb"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `chatContainerScrollCb` (1 lines)",
+    "signature_or_pseudo": "function chatContainerScrollCb()",
+    "code_excerpt": "{var diff=this.scrollHeight-this.scrollTop;ChatView.atBottomOfChatContainer=(diff===this.clientHeight||(diff-this.clientHeight<=10))?!0:!1;if(ChatView.atBottomOfChatContainer){let isUsingChatTabs=ChatView._doChatTabsExist()&&ChatView._isUsingChatTabs();(isUsingChatTabs)?ChatController._resetUnreadMessages(ChatView._currentTab):DOM.dispatchEvent(document,VIEW_EVENT.HANDLED_CHAT_NOTIFICATION_BUBBLE,{reset:!0})}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:clickVIPOption",
+    "name": "clickVIPOption",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1864,
+    "end_line": 1865,
+    "exported_symbols": [
+      "clickVIPOption"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `clickVIPOption` (1 lines)",
+    "signature_or_pseudo": "function clickVIPOption(evt)",
+    "code_excerpt": "{if(evt)evt.preventDefault();DOM.getElementById('panelModalOpen').checked=!1;(DOM.getElementById('vipOption'))?DOM.getElementById('vipOption').click():null}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:openBillingPanel",
+    "name": "openBillingPanel",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1865,
+    "end_line": 1866,
+    "exported_symbols": [
+      "openBillingPanel"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `openBillingPanel` (1 lines)",
+    "signature_or_pseudo": "function openBillingPanel(evt)",
+    "code_excerpt": "{if(evt)evt.preventDefault();DOM.dispatchEvent(document,VIEW_EVENT.TRIGGER_BILLING_PLUGIN,{'trigger':'buy_more_credits_wdm_link'})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:display",
+    "name": "display",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1866,
+    "end_line": 1867,
+    "exported_symbols": [
+      "display"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `display` (1 lines)",
+    "signature_or_pseudo": "function display(elementID)",
+    "code_excerpt": "{DOM.getElementById(elementID).classList.add('show');DOM.getElementById(elementID).classList.remove('hide')}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:locateModelThumb",
+    "name": "locateModelThumb",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1887,
+    "end_line": 1888,
+    "exported_symbols": [
+      "locateModelThumb"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `locateModelThumb` (1 lines)",
+    "signature_or_pseudo": "function locateModelThumb(modelID)",
+    "code_excerpt": "{if(HomePageController.models){return HomePageController.models.filter(function(model){return model.model_id==modelID})[0]}else{return null}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleEmojiClick",
+    "name": "handleEmojiClick",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1921,
+    "end_line": 1922,
+    "exported_symbols": [
+      "handleEmojiClick"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "overlay_2026_10_14_mv8bx8qq.min.js:popRegistration"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleEmojiClick` (1 lines)",
+    "signature_or_pseudo": "function handleEmojiClick(event)",
+    "code_excerpt": "{if(AppController.User.type===USER_TYPE.GUEST||!USER.type){popRegistration(\"menu_emoticons\")}else{ChatView.restoreChatInputSelection();EmojiController.insertEmoJi(event.detail.target)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleAddToHomeScreenPopupDelay",
+    "name": "handleAddToHomeScreenPopupDelay",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1969,
+    "end_line": 1970,
+    "exported_symbols": [
+      "handleAddToHomeScreenPopupDelay"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:handleAddToHomeScreenPopupStay"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleAddToHomeScreenPopupDelay` (1 lines)",
+    "signature_or_pseudo": "function handleAddToHomeScreenPopupDelay()",
+    "code_excerpt": "{if(!HSC.currentlyInRoom()){HSV.displayMobileOverlay();ConfigModel.setAddToHomeScreenPopUpShown();if(typeof HSC.popupStayTimerId==='number'){window.clearTimeout(HSC.popupStayTimerId)};HSC.popupStayTimerId=window.setTimeout(function handleAddToHomeScreenPopupStay(){HSV.hideOverlay()},HSC.popupStayTime)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:handleAddToHomeScreenPopupStay",
+    "name": "handleAddToHomeScreenPopupStay",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1969,
+    "end_line": 1970,
+    "exported_symbols": [
+      "handleAddToHomeScreenPopupStay"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:handleAddToHomeScreenPopupDelay"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `handleAddToHomeScreenPopupStay` (1 lines)",
+    "signature_or_pseudo": "function handleAddToHomeScreenPopupStay()",
+    "code_excerpt": "{HSV.hideOverlay()}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:cleanup",
+    "name": "cleanup",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2127,
+    "end_line": 2128,
+    "exported_symbols": [
+      "cleanup"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:attemptLogin"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `cleanup` (1 lines)",
+    "signature_or_pseudo": "function cleanup()",
+    "code_excerpt": "{clearTimeout(wait);xhr.onload=null;xhr.onerror=null}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:attemptLogin",
+    "name": "attemptLogin",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2128,
+    "end_line": 2130,
+    "exported_symbols": [
+      "attemptLogin"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:cleanup",
+      "chatroom_2026_10_14_01.js:parse"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `attemptLogin` (2 lines)",
+    "signature_or_pseudo": "function attemptLogin()",
+    "code_excerpt": "{return new Promise(function(resolve,reject){xhr.open('GET',endpoint);if(typeof window.isUsingSandbox!=='undefined'){}\nxhr.onload=function(){cleanup();if(xhr.status===200&&xhr.readyState===4){try{var data=JSON.parse(xhr.responseText);return resolve(data)}catch(err){reject({phpErr:!0,message:'Invalid JSON'})}}else{return reject({phpErr:!0})}};xhr.onerror=function(){cleanup();reject({phpErr:!0,networkErr:!0,message:'Network error'})};xhr.send()})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:onerror",
+    "name": "onerror",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "onerror"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createText"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `onerror` (1 lines)",
+    "signature_or_pseudo": "function onerror()",
+    "code_excerpt": "{if(this.parentNode){this.parentNode.replaceChild(createText(this.alt,false),this)}}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:createText",
+    "name": "createText",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "createText"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:onerror",
+      "chatroom_2026_10_14_01.js:parseNode"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `createText` (1 lines)",
+    "signature_or_pseudo": "function createText(text,clean)",
+    "code_excerpt": "{return document.createTextNode(clean?text.replace(UFE0Fg,\"\"):text)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:escapeHTML",
+    "name": "escapeHTML",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "escapeHTML"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:parseString"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `escapeHTML` (1 lines)",
+    "signature_or_pseudo": "function escapeHTML(s)",
+    "code_excerpt": "{return s.replace(rescaper,replacer)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:defaultImageSrcGenerator",
+    "name": "defaultImageSrcGenerator",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "defaultImageSrcGenerator"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `defaultImageSrcGenerator` (1 lines)",
+    "signature_or_pseudo": "function defaultImageSrcGenerator(icon,options)",
+    "code_excerpt": "{return\"\".concat(options.base,options.size,\"/\",icon,options.ext)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:grabAllTextNodes",
+    "name": "grabAllTextNodes",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "grabAllTextNodes"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:test"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:parseNode"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `grabAllTextNodes` (1 lines)",
+    "signature_or_pseudo": "function grabAllTextNodes(node,allText)",
+    "code_excerpt": "{var childNodes=node.childNodes,length=childNodes.length,subnode,nodeType;while(length--){subnode=childNodes[length];nodeType=subnode.nodeType;if(nodeType===3){allText.push(subnode)}else if(nodeType===1&&!(\"ownerSVGElement\"in subnode)&&!shouldntBeParsed.test(subnode.nodeName.toLowerCase())){grabAllTextNodes(subnode,allText)}}return allText}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:grabTheRightIcon",
+    "name": "grabTheRightIcon",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "grabTheRightIcon"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:replace",
+      "chatroom_2026_10_14_01.js:toCodePoint"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:parseNode",
+      "chatroom_2026_10_14_01.js:parseString"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `grabTheRightIcon` (1 lines)",
+    "signature_or_pseudo": "function grabTheRightIcon(rawText)",
+    "code_excerpt": "{return toCodePoint(rawText.indexOf(U200D)<0?rawText.replace(UFE0Fg,\"\"):rawText)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:parseNode",
+    "name": "parseNode",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "parseNode"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createText",
+      "chatroom_2026_10_14_01.js:grabAllTextNodes",
+      "chatroom_2026_10_14_01.js:grabTheRightIcon"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `parseNode` (1 lines)",
+    "signature_or_pseudo": "function parseNode(node,options)",
+    "code_excerpt": "{var allText=grabAllTextNodes(node,[]),length=allText.length,attrib,attrname,modified,fragment,subnode,text,match,i,index,img,rawText,iconId,src;while(length--){modified=false;fragment=document.createDocumentFragment();subnode=allText[length];text=subnode.nodeValue;i=0;while(match=re.exec(text)){index=match.index;if(index!==i){fragment.appendChild(createText(text.slice(i,index),true))}rawText=match[0];iconId=grabTheRightIcon(rawText);i=index+rawText.length;src=options.callback(iconId,options);if(iconId&&src){img=new Image;img.onerror=options.onerror;img.setAttribute(\"draggable\",\"false\");attrib=options.attributes(rawText,iconId);for(attrname in attrib){if(attrib.hasOwnProperty(attrname)&&attrname.indexOf(\"on\")!==0&&!img.hasAttribute(attrname)){img.setAttribute(attrname,attrib[attrname])}}img.className=options.className;img.alt=rawText;img.src=src;modified=true;fragment.appendChild(img)}if(!img)fragment.appendChild(createText(rawText,false));img=null}if(modified){if(i<text.length){fragment.appendChild(createText(text.slice(i),true))}subnode.parentNode.replaceChild(fragment,subnode)}}return node}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:parseString",
+    "name": "parseString",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "parseString"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:escapeHTML",
+      "chatroom_2026_10_14_01.js:grabTheRightIcon",
+      "chatroom_2026_10_14_01.js:replace"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "`parseString` — renders interactive DOM/JSX view",
+    "signature_or_pseudo": "function parseString(str,options)",
+    "code_excerpt": "{return replace(str,function(rawText){var ret=rawText,iconId=grabTheRightIcon(rawText),src=options.callback(iconId,options),attrib,attrname;if(iconId&&src){ret=\"<img \".concat('class=\"',options.className,'\" ','draggable=\"false\" ','alt=\"',rawText,'\"',' src=\"',src,'\"');attrib=options.attributes(rawText,iconId);for(attrname in attrib){if(attrib.hasOwnProperty(attrname)&&attrname.indexOf(\"on\")!==0&&ret.indexOf(\" \"+attrname+\"=\")===-1){ret=ret.concat(\" \",attrname,'=\"',escapeHTML(attrib[attrname]),'\"')}}ret=ret.concat(\"/>\")}return ret})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:replacer",
+    "name": "replacer",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "replacer"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `replacer` (1 lines)",
+    "signature_or_pseudo": "function replacer(m)",
+    "code_excerpt": "{return escaper[m]}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:returnNull",
+    "name": "returnNull",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "returnNull"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `returnNull` (1 lines)",
+    "signature_or_pseudo": "function returnNull()",
+    "code_excerpt": "{return null}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:toSizeSquaredAsset",
+    "name": "toSizeSquaredAsset",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "toSizeSquaredAsset"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:parse"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `toSizeSquaredAsset` (1 lines)",
+    "signature_or_pseudo": "function toSizeSquaredAsset(value)",
+    "code_excerpt": "{return typeof value===\"number\"?value+\"x\"+value:value}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:fromCodePoint",
+    "name": "fromCodePoint",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "fromCodePoint"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `fromCodePoint` (1 lines)",
+    "signature_or_pseudo": "function fromCodePoint(codepoint)",
+    "code_excerpt": "{var code=typeof codepoint===\"string\"?parseInt(codepoint,16):codepoint;if(code<65536){return fromCharCode(code)}code-=65536;return fromCharCode(55296+(code>>10),56320+(code&1023))}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:parse",
+    "name": "parse",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "parse"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:toSizeSquaredAsset"
+    ],
+    "called_by_slices": [
+      "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5",
+      "chatroom_2026_10_14_01.js:attemptLogin",
+      "chatroom_2026_10_14_01.js:dataHandler",
+      "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `parse` (1 lines)",
+    "signature_or_pseudo": "function parse(what,how)",
+    "code_excerpt": "{if(!how||typeof how===\"function\"){how={callback:how}}return(typeof what===\"string\"?parseString:parseNode)(what,{callback:how.callback||defaultImageSrcGenerator,attributes:typeof how.attributes===\"function\"?how.attributes:returnNull,base:typeof how.base===\"string\"?how.base:twemoji.base,ext:how.ext||twemoji.ext,size:how.folder||toSizeSquaredAsset(how.size||twemoji.size),className:how.className||twemoji.className,onerror:how.onerror||twemoji.onerror})}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:replace",
+    "name": "replace",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "replace"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:createText",
+      "chatroom_2026_10_14_01.js:decode",
+      "chatroom_2026_10_14_01.js:escapeHTML",
+      "chatroom_2026_10_14_01.js:getUrlVars",
+      "chatroom_2026_10_14_01.js:grabTheRightIcon",
+      "chatroom_2026_10_14_01.js:parseHeaders",
+      "chatroom_2026_10_14_01.js:parseString",
+      "chatroom_2026_10_14_01.js:showExpressInstall",
+      "inline_1.js:piiScrub",
+      "inline_35.js:piiScrub",
+      "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `replace` (1 lines)",
+    "signature_or_pseudo": "function replace(text,callback)",
+    "code_excerpt": "{return String(text).replace(re,callback)}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:test",
+    "name": "test",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "test"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:grabAllTextNodes",
+      "chatroom_2026_10_14_01.js:normalizeName",
+      "chatroom_2026_10_14_01.js:showExpressInstall"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `test` (1 lines)",
+    "signature_or_pseudo": "function test(text)",
+    "code_excerpt": "{re.lastIndex=0;var result=re.test(text);re.lastIndex=0;return result}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:toCodePoint",
+    "name": "toCodePoint",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2178,
+    "end_line": 2179,
+    "exported_symbols": [
+      "toCodePoint"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:grabTheRightIcon"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `toCodePoint` (1 lines)",
+    "signature_or_pseudo": "function toCodePoint(unicodeSurrogates,sep)",
+    "code_excerpt": "{var r=[],c=0,p=0,i=0;while(i<unicodeSurrogates.length){c=unicodeSurrogates.charCodeAt(i++);if(p){r.push((65536+(p-55296<<10)+(c-56320)).toString(16));p=0}else if(55296<=c&&c<=56319){p=c}else{r.push(c.toString(16))}}return r.join(sep||\"-\")}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:callDomLoadFunctions",
+    "name": "callDomLoadFunctions",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2303,
+    "end_line": 2316,
+    "exported_symbols": [
+      "callDomLoadFunctions"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `callDomLoadFunctions` (13 lines)",
+    "signature_or_pseudo": "function callDomLoadFunctions()",
+    "code_excerpt": "{\n\t\tif (isDomLoaded) { return; }\n\t\ttry { // test if we can really add/remove elements to/from the DOM; we don't want to fire it too early\n\t\t\tvar t = doc.getElementsByTagName(\"body\")[0].appendChild(createElement(\"span\"));\n\t\t\tt.parentNode.removeChild(t);\n\t\t}\n\t\tcatch (e) { return; }\n\t\tisDomLoaded = true;\n\t\tvar dl = domLoadFnArr.length;\n\t\tfor (var i = 0; i < dl; i++) {\n\t\t\tdomLoadFnArr[i]();\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:addDomLoadEvent",
+    "name": "addDomLoadEvent",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2317,
+    "end_line": 2325,
+    "exported_symbols": [
+      "addDomLoadEvent"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `addDomLoadEvent` (8 lines)",
+    "signature_or_pseudo": "function addDomLoadEvent(fn)",
+    "code_excerpt": "{\n\t\tif (isDomLoaded) {\n\t\t\tfn();\n\t\t}\n\t\telse { \n\t\t\tdomLoadFnArr[domLoadFnArr.length] = fn; // Array.push() is only available in IE5.5+\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:addLoadEvent",
+    "name": "addLoadEvent",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2330,
+    "end_line": 2351,
+    "exported_symbols": [
+      "addLoadEvent"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:addListener"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `addLoadEvent` (21 lines)",
+    "signature_or_pseudo": "function addLoadEvent(fn)",
+    "code_excerpt": "{\n\t\tif (typeof win.addEventListener != UNDEF) {\n\t\t\twin.addEventListener(\"load\", fn, false);\n\t\t}\n\t\telse if (typeof doc.addEventListener != UNDEF) {\n\t\t\tdoc.addEventListener(\"load\", fn, false);\n\t\t}\n\t\telse if (typeof win.attachEvent != UNDEF) {\n\t\t\taddListener(win, \"onload\", fn);\n\t\t}\n\t\telse if (typeof win.onload == \"function\") {\n\t\t\tvar fnOld = win.onload;\n\t\t\twin.onload = function() {\n\t\t\t\tfnOld();\n\t\t\t\tfn();\n\t\t\t};\n\t\t}\n\t\telse {\n\t\t\twin.onload = fn;\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:main",
+    "name": "main",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2355,
+    "end_line": 2363,
+    "exported_symbols": [
+      "main"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:matchVersions",
+      "chatroom_2026_10_14_01.js:testPlayerVersion"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `main` (8 lines)",
+    "signature_or_pseudo": "function main()",
+    "code_excerpt": "{ \n\t\tif (plugin) {\n\t\t\ttestPlayerVersion();\n\t\t}\n\t\telse {\n\t\t\tmatchVersions();\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:testPlayerVersion",
+    "name": "testPlayerVersion",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2371,
+    "end_line": 2400,
+    "exported_symbols": [
+      "testPlayerVersion"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement",
+      "chatroom_2026_10_14_01.js:matchVersions"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:main"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `testPlayerVersion` (29 lines)",
+    "signature_or_pseudo": "function testPlayerVersion()",
+    "code_excerpt": "{\n\t\tvar b = doc.getElementsByTagName(\"body\")[0];\n\t\tvar o = createElement(OBJECT);\n\t\to.setAttribute(\"type\", FLASH_MIME_TYPE);\n\t\tvar t = b.appendChild(o);\n\t\tif (t) {\n\t\t\tvar counter = 0;\n\t\t\t(function(){\n\t\t\t\tif (typeof t.GetVariable != UNDEF) {\n\t\t\t\t\tvar d = t.GetVariable(\"$version\");\n\t\t\t\t\tif (d) {\n\t\t\t\t\t\td = d.split(\" \")[1].split(\",\");\n\t\t\t\t\t\tua.pv = [parseInt(d[0], 10), parseInt(d[1], 10), parseInt(d[2], 10)];\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\telse if (counter < 10) {\n\t\t\t\t\tcounter++;\n\t\t\t\t\tsetTimeout(arguments.callee, 10);\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tb.removeChild(o);\n\t\t\t\tt = null;\n\t\t\t\tmatchVersions();\n\t\t\t})();\n\t\t}\n\t\telse {\n\t\t\tmatchVersions();\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:matchVersions",
+    "name": "matchVersions",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2403,
+    "end_line": 2435,
+    "exported_symbols": [
+      "matchVersions"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:canExpressInstall",
+      "chatroom_2026_10_14_01.js:getElementById",
+      "chatroom_2026_10_14_01.js:getObjectById",
+      "chatroom_2026_10_14_01.js:hasPlayerVersion",
+      "chatroom_2026_10_14_01.js:setVisibility"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:main",
+      "chatroom_2026_10_14_01.js:testPlayerVersion"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `matchVersions` (32 lines)",
+    "signature_or_pseudo": "function matchVersions()",
+    "code_excerpt": "function matchVersions() {\n\t\tvar rl = regObjArr.length;\n\t\tif (rl > 0) {\n\t\t\tfor (var i = 0; i < rl; i++) { // for each registered object element\n\t\t\t\tvar id = regObjArr[i].id;\n\t\t\t\tvar cb = regObjArr[i].callbackFn;\n\t\t\t\tvar cbObj = {success:false, id:id};\n\t\t\t\tif (ua.pv[0] > 0) {\n\t\t\t\t\tvar obj = getElementById(id);\n\t\t\t\t\tif (obj) {\n\t\t\t\t\t\tif (hasPlayerVersion(regObjArr[i].swfVersion) && !(ua.wk && ua.wk < 312)) { // Flash Player version >= published SWF version: Houston, we have a match!\n\t\t\t\t\t\t\tsetVisibility(id, true);\n\t\t\t\t\t\t\tif (cb) {\n\t\t\t\t\t\t\t\tcbObj.success = true;\n\t\t\t\t\t\t\t\tcbObj.ref = getObjectById(id);\n\t\t\t\t\t\t\t\tcb(cbObj);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (regObjArr[i].expressInstall && canExpressInstall()) { // show the Adobe Express Install dialog if set by the web page author and if supported\n\t\t\t\t\t\t\tvar att = {};\n\t\t\t\t\t\t\tatt.data = regObjArr[i].expressInstall;\n\t\t\t\t\t\t\tatt.width = obj.getAttribute(\"width\") || \"0\";\n\t\t\t\t\t\t\tatt.height = obj.getAttribute(\"height\") || \"0\";\n\t\t\t\t\t\t\tif (obj.getAttribute(\"class\")) { att.styleclass = obj.getAttribute(\"class\"); }\n\t\t\t\t\t\t\tif (obj.getAttribute(\"align\")) { att.align = obj.getAttribute(\"align\"); }\n\t\t\t\t\t\t\t// parse HTML object param element's name-value pairs\n\t\t\t\t\t\t\tvar par = {};\n\t\t\t\t\t\t\tvar p = obj.getElementsByTagName(\"param\");\n\t\t\t\t\t\t\tvar pl = p.length;\n\t\t\t\t\t\t\tfor (var j = 0; j < pl; j++) {\n// ... [truncated]",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:getObjectById",
+    "name": "getObjectById",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2460,
+    "end_line": 2476,
+    "exported_symbols": [
+      "getObjectById"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:matchVersions"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `getObjectById` (16 lines)",
+    "signature_or_pseudo": "function getObjectById(objectIdStr)",
+    "code_excerpt": "{\n\t\tvar r = null;\n\t\tvar o = getElementById(objectIdStr);\n\t\tif (o && o.nodeName == \"OBJECT\") {\n\t\t\tif (typeof o.SetVariable != UNDEF) {\n\t\t\t\tr = o;\n\t\t\t}\n\t\t\telse {\n\t\t\t\tvar n = o.getElementsByTagName(OBJECT)[0];\n\t\t\t\tif (n) {\n\t\t\t\t\tr = n;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn r;\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:canExpressInstall",
+    "name": "canExpressInstall",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2483,
+    "end_line": 2486,
+    "exported_symbols": [
+      "canExpressInstall"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:hasPlayerVersion"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:matchVersions"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `canExpressInstall` (3 lines)",
+    "signature_or_pseudo": "function canExpressInstall()",
+    "code_excerpt": "{\n\t\treturn !isExpressInstallActive && hasPlayerVersion(\"6.0.65\") && (ua.win || ua.mac) && !(ua.wk && ua.wk < 312);\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:showExpressInstall",
+    "name": "showExpressInstall",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2490,
+    "end_line": 2519,
+    "exported_symbols": [
+      "showExpressInstall"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:abstractAltContent",
+      "chatroom_2026_10_14_01.js:getElementById",
+      "chatroom_2026_10_14_01.js:replace",
+      "chatroom_2026_10_14_01.js:test"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `showExpressInstall` (29 lines)",
+    "signature_or_pseudo": "function showExpressInstall(att, par, replaceElemIdStr, callbackFn)",
+    "code_excerpt": "function showExpressInstall(att, par, replaceElemIdStr, callbackFn) {\n\t\tisExpressInstallActive = true;\n\t\tstoredCallbackFn = callbackFn || null;\n\t\tstoredCallbackObj = {success:false, id:replaceElemIdStr};\n\t\tvar obj = getElementById(replaceElemIdStr);\n\t\tif (obj) {\n\t\t\tif (obj.nodeName == \"OBJECT\") { // static publishing\n\t\t\t\tstoredAltContent = abstractAltContent(obj);\n\t\t\t\tstoredAltContentId = null;\n\t\t\t}\n\t\t\telse { // dynamic publishing\n\t\t\t\tstoredAltContent = obj;\n\t\t\t\tstoredAltContentId = replaceElemIdStr;\n\t\t\t}\n\t\t\tatt.id = EXPRESS_INSTALL_ID;\n\t\t\tif (typeof att.width == UNDEF || (!/%$/.test(att.width) && parseInt(att.width, 10) < 310)) { att.width = \"310\"; }\n\t\t\tif (typeof att.height == UNDEF || (!/%$/.test(att.height) && parseInt(att.height, 10) < 137)) { att.height = \"137\"; }\n\t\t\tdoc.title = doc.title.slice(0, 47) + \" - Flash Player Installation\";\n\t\t\tvar pt = ua.ie && ua.win ? \"ActiveX\" : \"PlugIn\",\n\t\t\t\tfv = \"MMredirectURL=\" + win.location.toString().replace(/&/g,\"%26\") + \"&MMplayerType=\" + pt + \"&MMdoctitle=\" + doc.title;\n\t\t\tif (typeof par.flashvars != UNDEF) {\n\t\t\t\tpar.flashvars += \"&\" + fv;\n\t\t\t}\n\t\t\telse {\n\t\t\t\tpar.flashvars = fv;\n\t\t\t}\n\t\t\t// IE only: when a SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,\n\t\t\t// because you cannot properly cancel a loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work\n\t\t\tif (ua.ie && ua.win && obj.rea",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:displayAltContent",
+    "name": "displayAltContent",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2539,
+    "end_line": 2560,
+    "exported_symbols": [
+      "displayAltContent"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:abstractAltContent",
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `displayAltContent` (21 lines)",
+    "signature_or_pseudo": "function displayAltContent(obj)",
+    "code_excerpt": "{\n\t\tif (ua.ie && ua.win && obj.readyState != 4) {\n\t\t\t// IE only: when a SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,\n\t\t\t// because you cannot properly cancel a loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work\n\t\t\tvar el = createElement(\"div\");\n\t\t\tobj.parentNode.insertBefore(el, obj); // insert placeholder div that will be replaced by the alternative content\n\t\t\tel.parentNode.replaceChild(abstractAltContent(obj), el);\n\t\t\tobj.style.display = \"none\";\n\t\t\t(function(){\n\t\t\t\tif (obj.readyState == 4) {\n\t\t\t\t\tobj.parentNode.removeChild(obj);\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tsetTimeout(arguments.callee, 10);\n\t\t\t\t}\n\t\t\t})();\n\t\t}\n\t\telse {\n\t\t\tobj.parentNode.replaceChild(abstractAltContent(obj), obj);\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:abstractAltContent",
+    "name": "abstractAltContent",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2561,
+    "end_line": 2582,
+    "exported_symbols": [
+      "abstractAltContent"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:displayAltContent",
+      "chatroom_2026_10_14_01.js:showExpressInstall"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `abstractAltContent` (21 lines)",
+    "signature_or_pseudo": "function abstractAltContent(obj)",
+    "code_excerpt": "{\n\t\tvar ac = createElement(\"div\");\n\t\tif (ua.win && ua.ie) {\n\t\t\tac.innerHTML = obj.innerHTML;\n\t\t}\n\t\telse {\n\t\t\tvar nestedObj = obj.getElementsByTagName(OBJECT)[0];\n\t\t\tif (nestedObj) {\n\t\t\t\tvar c = nestedObj.childNodes;\n\t\t\t\tif (c) {\n\t\t\t\t\tvar cl = c.length;\n\t\t\t\t\tfor (var i = 0; i < cl; i++) {\n\t\t\t\t\t\tif (!(c[i].nodeType == 1 && c[i].nodeName == \"PARAM\") && !(c[i].nodeType == 8)) {\n\t\t\t\t\t\t\tac.appendChild(c[i].cloneNode(true));\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn ac;\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:createSWF",
+    "name": "createSWF",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2585,
+    "end_line": 2618,
+    "exported_symbols": [
+      "createSWF"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `createSWF` (33 lines)",
+    "signature_or_pseudo": "function createSWF(attObj, parObj, id)",
+    "code_excerpt": "function createSWF(attObj, parObj, id) {\n\t\tvar r, el = getElementById(id);\n\t\tif (ua.wk && ua.wk < 312) { return r; }\n\t\tif (el) {\n\t\t\tif (typeof attObj.id == UNDEF) { // if no 'id' is defined for the object element, it will inherit the 'id' from the alternative content\n\t\t\t\tattObj.id = id;\n\t\t\t}\n\t\t\tif (ua.ie && ua.win) { // Internet Explorer + the HTML object element + W3C DOM methods do not combine: fall back to outerHTML\n\t\t\t\tvar att = \"\";\n\t\t\t\tfor (var i in attObj) {\n\t\t\t\t\tif (attObj[i] != Object.prototype[i]) { // filter out prototype additions from other potential libraries\n\t\t\t\t\t\tif (i.toLowerCase() == \"data\") {\n\t\t\t\t\t\t\tparObj.movie = attObj[i];\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (i.toLowerCase() == \"styleclass\") { // 'class' is an ECMA4 reserved keyword\n\t\t\t\t\t\t\tatt += ' class=\"' + attObj[i] + '\"';\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse if (i.toLowerCase() != \"classid\") {\n\t\t\t\t\t\t\tatt += ' ' + i + '=\"' + attObj[i] + '\"';\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tvar par = \"\";\n\t\t\t\tfor (var j in parObj) {\n\t\t\t\t\tif (parObj[j] != Object.prototype[j]) { // filter out prototype additions from other potential libraries\n\t\t\t\t\t\tpar += '<param name=\"' + j + '\" value=\"' + parObj[j] + '\" />';\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tel.outerHTML = '<object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\"' + att + '>' + par + '</object>';\n\t\t\t\tobjIdArr[objIdArr.length] = attObj.id; // stored to fix object 'leaks' on unload (dynamic publishing only)\n// ... [truncated]",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:createObjParam",
+    "name": "createObjParam",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2642,
+    "end_line": 2648,
+    "exported_symbols": [
+      "createObjParam"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `createObjParam` (6 lines)",
+    "signature_or_pseudo": "function createObjParam(el, pName, pValue)",
+    "code_excerpt": "{\n\t\tvar p = createElement(\"param\");\n\t\tp.setAttribute(\"name\", pName);\t\n\t\tp.setAttribute(\"value\", pValue);\n\t\tel.appendChild(p);\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:removeSWF",
+    "name": "removeSWF",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2652,
+    "end_line": 2671,
+    "exported_symbols": [
+      "removeSWF"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById",
+      "chatroom_2026_10_14_01.js:removeObjectInIE"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:urlEncodeIfNecessary"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `removeSWF` (19 lines)",
+    "signature_or_pseudo": "function removeSWF(id)",
+    "code_excerpt": "{\n\t\tvar obj = getElementById(id);\n\t\tif (obj && obj.nodeName == \"OBJECT\") {\n\t\t\tif (ua.ie && ua.win) {\n\t\t\t\tobj.style.display = \"none\";\n\t\t\t\t(function(){\n\t\t\t\t\tif (obj.readyState == 4) {\n\t\t\t\t\t\tremoveObjectInIE(id);\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\tsetTimeout(arguments.callee, 10);\n\t\t\t\t\t}\n\t\t\t\t})();\n\t\t\t}\n\t\t\telse {\n\t\t\t\tobj.parentNode.removeChild(obj);\n\t\t\t}\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:removeObjectInIE",
+    "name": "removeObjectInIE",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2672,
+    "end_line": 2683,
+    "exported_symbols": [
+      "removeObjectInIE"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:removeSWF"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `removeObjectInIE` (11 lines)",
+    "signature_or_pseudo": "function removeObjectInIE(id)",
+    "code_excerpt": "{\n\t\tvar obj = getElementById(id);\n\t\tif (obj) {\n\t\t\tfor (var i in obj) {\n\t\t\t\tif (typeof obj[i] == \"function\") {\n\t\t\t\t\tobj[i] = null;\n\t\t\t\t}\n\t\t\t}\n\t\t\tobj.parentNode.removeChild(obj);\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:getElementById",
+    "name": "getElementById",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2686,
+    "end_line": 2694,
+    "exported_symbols": [
+      "getElementById"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:clickVIPOption",
+      "chatroom_2026_10_14_01.js:createSWF",
+      "chatroom_2026_10_14_01.js:display",
+      "chatroom_2026_10_14_01.js:evlist",
+      "chatroom_2026_10_14_01.js:getObjectById",
+      "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+      "chatroom_2026_10_14_01.js:matchVersions",
+      "chatroom_2026_10_14_01.js:openTipTab",
+      "chatroom_2026_10_14_01.js:removeObjectInIE",
+      "chatroom_2026_10_14_01.js:removeSWF",
+      "chatroom_2026_10_14_01.js:setVisibility",
+      "chatroom_2026_10_14_01.js:showExpressInstall"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `getElementById` (8 lines)",
+    "signature_or_pseudo": "function getElementById(id)",
+    "code_excerpt": "{\n\t\tvar el = null;\n\t\ttry {\n\t\t\tel = doc.getElementById(id);\n\t\t}\n\t\tcatch (e) {}\n\t\treturn el;\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:createElement",
+    "name": "createElement",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2695,
+    "end_line": 2698,
+    "exported_symbols": [
+      "createElement"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:abstractAltContent",
+      "chatroom_2026_10_14_01.js:callDomLoadFunctions",
+      "chatroom_2026_10_14_01.js:createCSS",
+      "chatroom_2026_10_14_01.js:createObjParam",
+      "chatroom_2026_10_14_01.js:displayAltContent",
+      "chatroom_2026_10_14_01.js:testPlayerVersion",
+      "model_access_2026_09_29_01.js:buildLightbox",
+      "model_access_2026_09_29_01.js:refresh",
+      "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_1",
+      "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_2",
+      "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_3",
+      "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_4"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `createElement` (3 lines)",
+    "signature_or_pseudo": "function createElement(el)",
+    "code_excerpt": "{\n\t\treturn doc.createElement(el);\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:addListener",
+    "name": "addListener",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2702,
+    "end_line": 2706,
+    "exported_symbols": [
+      "addListener"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:addLoadEvent"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `addListener` (4 lines)",
+    "signature_or_pseudo": "function addListener(target, eventType, fn)",
+    "code_excerpt": "{\n\t\ttarget.attachEvent(eventType, fn);\n\t\tlistenersArr[listenersArr.length] = [target, eventType, fn];\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:hasPlayerVersion",
+    "name": "hasPlayerVersion",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2709,
+    "end_line": 2716,
+    "exported_symbols": [
+      "hasPlayerVersion"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:canExpressInstall",
+      "chatroom_2026_10_14_01.js:matchVersions"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `hasPlayerVersion` (7 lines)",
+    "signature_or_pseudo": "function hasPlayerVersion(rv)",
+    "code_excerpt": "{\n\t\tvar pv = ua.pv, v = rv.split(\".\");\n\t\tv[0] = parseInt(v[0], 10);\n\t\tv[1] = parseInt(v[1], 10) || 0; // supports short notation, e.g. \"9\" instead of \"9.0.0\"\n\t\tv[2] = parseInt(v[2], 10) || 0;\n\t\treturn (pv[0] > v[0] || (pv[0] == v[0] && pv[1] > v[1]) || (pv[0] == v[0] && pv[1] == v[1] && pv[2] >= v[2])) ? true : false;\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:createCSS",
+    "name": "createCSS",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2720,
+    "end_line": 2752,
+    "exported_symbols": [
+      "createCSS"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createElement"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:setVisibility"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `createCSS` (32 lines)",
+    "signature_or_pseudo": "function createCSS(sel, decl, media, newStyle)",
+    "code_excerpt": "{\n\t\tif (ua.ie && ua.mac) { return; }\n\t\tvar h = doc.getElementsByTagName(\"head\")[0];\n\t\tif (!h) { return; } // to also support badly authored HTML pages that lack a head element\n\t\tvar m = (media && typeof media == \"string\") ? media : \"screen\";\n\t\tif (newStyle) {\n\t\t\tdynamicStylesheet = null;\n\t\t\tdynamicStylesheetMedia = null;\n\t\t}\n\t\tif (!dynamicStylesheet || dynamicStylesheetMedia != m) { \n\t\t\t// create dynamic stylesheet + get a global reference to it\n\t\t\tvar s = createElement(\"style\");\n\t\t\ts.setAttribute(\"type\", \"text/css\");\n\t\t\ts.setAttribute(\"media\", m);\n\t\t\tdynamicStylesheet = h.appendChild(s);\n\t\t\tif (ua.ie && ua.win && typeof doc.styleSheets != UNDEF && doc.styleSheets.length > 0) {\n\t\t\t\tdynamicStylesheet = doc.styleSheets[doc.styleSheets.length - 1];\n\t\t\t}\n\t\t\tdynamicStylesheetMedia = m;\n\t\t}\n\t\t// add style rule\n\t\tif (ua.ie && ua.win) {\n\t\t\tif (dynamicStylesheet && typeof dynamicStylesheet.addRule == OBJECT) {\n\t\t\t\tdynamicStylesheet.addRule(sel, decl);\n\t\t\t}\n\t\t}\n\t\telse {\n\t\t\tif (dynamicStylesheet && typeof doc.createTextNode != UNDEF) {\n\t\t\t\tdynamicStylesheet.appendChild(doc.createTextNode(sel + \" {\" + decl + \"}\"));\n\t\t\t}\n// ... [truncated]",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:setVisibility",
+    "name": "setVisibility",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2753,
+    "end_line": 2763,
+    "exported_symbols": [
+      "setVisibility"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:createCSS",
+      "chatroom_2026_10_14_01.js:getElementById"
+    ],
+    "called_by_slices": [
+      "chatroom_2026_10_14_01.js:matchVersions"
+    ],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `setVisibility` (10 lines)",
+    "signature_or_pseudo": "function setVisibility(id, isVisible)",
+    "code_excerpt": "{\n\t\tif (!autoHideShow) { return; }\n\t\tvar v = isVisible ? \"visible\" : \"hidden\";\n\t\tif (isDomLoaded && getElementById(id)) {\n\t\t\tgetElementById(id).style.visibility = v;\n\t\t}\n\t\telse {\n\t\t\tcreateCSS(\"#\" + id, \"visibility:\" + v);\n\t\t}\n\t}",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "chatroom_2026_10_14_01.js:urlEncodeIfNecessary",
+    "name": "urlEncodeIfNecessary",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 2766,
+    "end_line": 2809,
+    "exported_symbols": [
+      "urlEncodeIfNecessary"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:removeSWF"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.99,
+    "summary": "Proprietary routine `urlEncodeIfNecessary` (43 lines)",
+    "signature_or_pseudo": "function urlEncodeIfNecessary(s)",
+    "code_excerpt": "function urlEncodeIfNecessary(s) {\n\t\tvar regex = /[\\\\\\\"<>\\.;]/;\n\t\tvar hasBadChars = regex.exec(s) != null;\n\t\treturn hasBadChars && typeof encodeURIComponent != UNDEF ? encodeURIComponent(s) : s;\n\t}\n\t\n\t/* Release memory to avoid memory leaks caused by closures, fix hanging audio/video threads and force open sockets/NetConnections to disconnect (Internet Explorer only)\n\t*/\n\tvar cleanup = function() {\n\t\tif (ua.ie && ua.win) {\n\t\t\twindow.attachEvent(\"onunload\", function() {\n\t\t\t\t// remove listeners to avoid memory leaks\n\t\t\t\tvar ll = listenersArr.length;\n\t\t\t\tfor (var i = 0; i < ll; i++) {\n\t\t\t\t\tlistenersArr[i][0].detachEvent(listenersArr[i][1], listenersArr[i][2]);\n\t\t\t\t}\n\t\t\t\t// cleanup dynamically embedded objects to fix audio/video threads and force open sockets and NetConnections to disconnect\n\t\t\t\tvar il = objIdArr.length;\n\t\t\t\tfor (var j = 0; j < il; j++) {\n\t\t\t\t\tremoveSWF(objIdArr[j]);\n\t\t\t\t}\n\t\t\t\t// cleanup library's main closures to avoid memory leaks\n\t\t\t\tfor (var k in ua) {\n\t\t\t\t\tua[k] = null;\n\t\t\t\t}\n\t\t\t\tua = null;\n\t\t\t\tfor (var l in swfobject) {\n\t\t\t\t\tswfobject[l] = null;\n\t\t\t\t}\n\t\t\t\tswfobject = null;\n// ... [truncated]",
+    "cluster_id": "cluster_chatroom_2026_10_14_01"
+  },
+  {
+    "id": "cam2cam_2026_06_01_mpviem65.min.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "cam2cam_2026_06_01_mpviem65.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/faq.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.92999995,
+    "summary": "Minified bundle slice invoking `/faq.php?a=view&id=51&language=en`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/faq.php?a=view&id=51&language=en')",
+    "code_excerpt": "t(\"WebrtcController\",\"errorHandler: name: \",e.error.name+\", message: \"+e.error.message+t),WebrtcController.isStarted){var r,n,i,o=!1,a=\"club\"===USER.sitekey?\"support\":\"support.php\",s=\"club\"===USER.sitekey?\"/faq#cam2cam\":\"/faq.php?a=view&id=51&language=en\";if(e&&e.error.name&&-1!==e.error.name.toLowerCase().indexOf(\"overconstrainederror\"))i=\"overconstrainederror: \"+e.error.constraint,\"facingMode\"===e.error.constraint?(\"cloud\"===WebrtcController.type&&delete CBWebrtcModel.constraints.video.facingMode,WebrtcController.noCamFlip=!0,WebrtcView.hideSwitchCamIcon(),n=!0):\"width\"===e.error.constraint||\"height\"===e.error.constraint?Webr",
+    "cluster_id": "cluster_cam2cam_2026_06_01_mpviem65"
+  },
+  {
+    "id": "cam2cam_2026_06_01_mpviem65.min.js:minified_api_caller_2",
+    "name": "minified_api_caller_2",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "cam2cam_2026_06_01_mpviem65.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/faq.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.92999995,
+    "summary": "Minified bundle slice invoking `/faq.php?a=view&id=51&language=en`",
+    "signature_or_pseudo": "bundle_slice(2) -> fetch('/faq.php?a=view&id=51&language=en')",
+    "code_excerpt": "NT.FINAL_RESET)},onInfoIconClicked:function(){Debug.print(\"WebrtcController\",\"onInfoIconClicked()\");var e='To learn when you can use the cam2cam feature, please go to the <a href=\"'+(\"club\"===USER.sitekey?\"/faq#cam2cam\":\"/faq.php?a=view&id=51&language=en\")+'\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ</a> section of the site.';\"computer\"===USER.platform_type?\"chrome\"===WebrtcController.UAParser.browser.name.toLowerCase()&&(e+=\" <br>If you are seeing a black/blank screen instead of your video stream, please check that your webcam and microphone are not in use in another program/browser.\"):\"android\"===WebrtcController.UAParser",
+    "cluster_id": "cluster_cam2cam_2026_06_01_mpviem65"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+    "name": "BillingPluginValidator",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 2,
+    "exported_symbols": [
+      "BillingPluginValidator"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Proprietary routine `BillingPluginValidator` (1 lines)",
+    "signature_or_pseudo": "function BillingPluginValidator(e)",
+    "code_excerpt": "{this.fields=e.fields,this.errorClassName=e.errorClassName||\"danger\",this.onValidateCb=[],this.declareFieldListeners()}",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/terms.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/terms.php`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/terms.php')",
+    "code_excerpt": "try:i,zip_code:n,ccnum:a,cvv:l,cc_exp:r,terms_accepted_text:d,email:s,require_email:o})},getDefaultTermsAndConditions:function(){var e=\"undefined\"==typeof USER||!USER.sitekey||\"club\"!==USER.sitekey&&\"asia\"!=USER.sitekey?\"/terms.php\":\"/terms\",t=\"undefined\"==typeof USER||!USER.sitekey||\"club\"!==USER.sitekey&&\"asia\"!=USER.sitekey?\"/privacy.php\":\"/privacy\",i=[{type:\"a\",attributes:{target:\"_blank\",rel:\"noreferrer noopener\",href:`${e}`}},{type:\"a\",attributes:{target:\"_blank\",rel:\"noreferrer noopener\",href:`${t}`}}],n=Translator.getTranslation(\"billingModal\",\"BILLING_MODAL_TERMS_CONDITIONS_AGREEMENT\");return Tra",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+    "name": "minified_api_caller_2",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/privacy.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/privacy.php`",
+    "signature_or_pseudo": "bundle_slice(2) -> fetch('/privacy.php')",
+    "code_excerpt": "nditions:function(){var e=\"undefined\"==typeof USER||!USER.sitekey||\"club\"!==USER.sitekey&&\"asia\"!=USER.sitekey?\"/terms.php\":\"/terms\",t=\"undefined\"==typeof USER||!USER.sitekey||\"club\"!==USER.sitekey&&\"asia\"!=USER.sitekey?\"/privacy.php\":\"/privacy\",i=[{type:\"a\",attributes:{target:\"_blank\",rel:\"noreferrer noopener\",href:`${e}`}},{type:\"a\",attributes:{target:\"_blank\",rel:\"noreferrer noopener\",href:`${t}`}}],n=Translator.getTranslation(\"billingModal\",\"BILLING_MODAL_TERMS_CONDITIONS_AGREEMENT\");return Translator.insertTags(n,i)||`By completing this transaction you certify that you have read and agree to the <a tar",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+    "name": "minified_api_caller_3",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/ws/rooms/relog.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/ws/rooms/relog.php?user_id=`",
+    "signature_or_pseudo": "bundle_slice(3) -> fetch('/ws/rooms/relog.php?user_id=')",
+    "code_excerpt": "lingModalClosed()\"),\"undefined\"!=typeof EVENT&&EVENT.VSP_EXTERNAL_EVENTS&&DOM.dispatchEvent(document,EVENT.VSP_EXTERNAL_EVENTS,{action:\"billing_modal_closed\",payload:{}});try{if(\"undefined\"!=typeof USER&&USER.idt){var t=\"/ws/rooms/relog.php?user_id=\"+USER.idt;\"undefined\"!=typeof AppController&&AppController.Room&&AppController.Room.config&&AppController.Room.config.performer&&AppController.Room.config.performer.id&&(t+=\"&model_id=\"+AppController.Room.config.performer.id),Ajax.fetch(t).then((function(e){return e.json()})).then((function(){})).catch((function(){}))}\"undefined\"!=typeof ShowModalView&&ShowModalView.removeRobot",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+    "name": "minified_api_caller_4",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/webservices/billing-interface.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/webservices/billing-interface.php`",
+    "signature_or_pseudo": "bundle_slice(4) -> fetch('/webservices/billing-interface.php')",
+    "code_excerpt": "llingPluginUtility.mergeObjects(n);return BillingPluginModel.fetchBillingAsync(a,t,i)},fetchBillingAsync:function(e,t){var i=this.shouldUseAbsolutePath(),n=i?`${window.location.origin}/webservices/billing-interface.php`:\"/webservices/billing-interface.php\";return window._billing_modal_webservice&&(n=i?`${window.location.origin}${window._billing_modal_webservice}`:window._billing_modal_webservice),e=void 0!==e?e:{},t=void 0!==t?t:3e4,new Promise((function(i,a){Ajax.fetch(n,e,t).then((function(e){return e.text()})).then((function(e){var t;try{var n=\"undefined\"!=typeof _billing_internal&&_billing_internal,l=\"undefined\"!=typeof _bil",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5",
+    "name": "minified_api_caller_5",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "end_line": 1,
+    "exported_symbols": [],
+    "called_apis": [
+      "/ws/chat/error.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [
+      "chatroom_2026_10_14_01.js:decode",
+      "chatroom_2026_10_14_01.js:parse"
+    ],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/ws/chat/error.php?code=`",
+    "signature_or_pseudo": "bundle_slice(5) -> fetch('/ws/chat/error.php?code=')",
+    "code_excerpt": "_billing_res);var r=base64.decode(e);t=JSON.parse(r),i(t)}catch(e){a(e)}})).catch((function(e){a(e)}))}))},reportError:function(e,t){var i=this.shouldUseAbsolutePath()?`${window.location.origin}/ws/chat/error.php?code=`:\"/ws/chat/error.php?code=\";i+=e+\"&nickname=\"+this.config.nickname+\"&token=&error_text=\"+t;var n=this.config.sitekey;i+=n?\"&sitekey=\"+n:\"\";Ajax.call(i,(function(){}),{timeout:5e3})},shouldUseAbsolutePath:function(){var{sitekey:e}=BillingPluginModel.config,t=window.location.origin.indexOf(\"-com.sandbox.\")>-1;return(\"flirt4free\"===e||\"whitelabel\"===e||\"xvc\"===e||\"xvt\"===e)&&t}};function BillingPluginValida",
+    "cluster_id": "cluster_billing_modal_2026_10_14_mv8duwhx"
+  },
+  {
+    "id": "user_notifications_2026_02_02_03.js:msToTime",
+    "name": "msToTime",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "user_notifications_2026_02_02_03.js",
+    "start_line": 8,
+    "end_line": 9,
+    "exported_symbols": [
+      "msToTime"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Proprietary routine `msToTime` (1 lines)",
+    "signature_or_pseudo": "function msToTime(duration)",
+    "code_excerpt": "{var minutes=Math.floor((duration/(1000*60))%60);var hours=Math.floor((duration/(1000*60*60))%24);return(\"<i>\"+`${hours} hours ${minutes} minutes ago`+\"</i>\")}",
+    "cluster_id": "cluster_user_notifications_2026_02_02_03"
+  },
+  {
+    "id": "user_notifications_2026_02_02_03.js:zeroCheck",
+    "name": "zeroCheck",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "user_notifications_2026_02_02_03.js",
+    "start_line": 9,
+    "end_line": 10,
+    "exported_symbols": [
+      "zeroCheck"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Proprietary routine `zeroCheck` (1 lines)",
+    "signature_or_pseudo": "function zeroCheck(number)",
+    "code_excerpt": "{return(number<=9)?('0'+number):number}",
+    "cluster_id": "cluster_user_notifications_2026_02_02_03"
+  },
+  {
+    "id": "user_notifications_2026_02_02_03.js:generate_data_object",
+    "name": "generate_data_object",
+    "category": "business_logic",
+    "language": "javascript",
+    "source_file": "user_notifications_2026_02_02_03.js",
+    "start_line": 10,
+    "end_line": 11,
+    "exported_symbols": [
+      "generate_data_object"
+    ],
+    "called_apis": [],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Proprietary routine `generate_data_object` (1 lines)",
+    "signature_or_pseudo": "function generate_data_object(class_names,icon)",
+    "code_excerpt": "{var data_object={};data_object.class_names=class_names;data_object.href_val=url;data_object.subtopic=subtopic;data_object.message_id=message_id;data_object.timestamp=timestamp;data_object.message=message;data_object.timestampToDisplay=timestampToDisplay;(icon.indexOf('.jpg')!==-1)?(data_object.model_image=icon):(data_object.model_image=icon);return data_object}",
+    "cluster_id": "cluster_user_notifications_2026_02_02_03"
+  },
+  {
+    "id": "user_notifications_2026_02_02_03.js:minified_api_caller_1",
+    "name": "minified_api_caller_1",
+    "category": "api_handler",
+    "language": "javascript",
+    "source_file": "user_notifications_2026_02_02_03.js",
+    "start_line": 12,
+    "end_line": 12,
+    "exported_symbols": [],
+    "called_apis": [
+      "/ws/notifications/client/notification-delete.php"
+    ],
+    "referenced_models": [],
+    "calls_slices": [],
+    "called_by_slices": [],
+    "proprietary_score": 0.86,
+    "summary": "Minified bundle slice invoking `/ws/notifications/client/notification-delete.php?`",
+    "signature_or_pseudo": "bundle_slice(1) -> fetch('/ws/notifications/client/notification-delete.php?')",
+    "code_excerpt": "ction(data){return resolve(data.json())}).catch(function(err){})}else{Ajax.fetch(url).then(function(data){return resolve(data.json())}).catch(function(err){})}})},removeNotificationFromServer:function(id,pubsub){var url='/ws/notifications/client/notification-delete.php?';url+='message_id='+encodeURIComponent(id);url+='&userinfo='+encodeURIComponent(pubsub);Ajax.call(url,function(res){})},removeTimestampFromLocalStorage:function(userID,timestamp){var timestamps=this.getTimeStampsFromLocalStorage(userID);var filteredTimestamps=timestamps.filter(function(currentTimestamp){if(currentTimestamp!=timestamp){return currentTimestamp}});try{VSLocalStora",
+    "cluster_id": "cluster_user_notifications_2026_02_02_03"
+  }
+]

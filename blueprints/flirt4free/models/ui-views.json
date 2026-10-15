@@ -1,0 +1,427 @@
+[
+  {
+    "id": "html_index_html",
+    "name": "Chat with Live Cam Girls for Free | Flirt4Free",
+    "kind": "dom_section",
+    "source_file": "index.html",
+    "start_line": 1,
+    "rendered_elements": [
+      "<header> (×2)",
+      "<nav> (×2)",
+      "<main> (×3)",
+      "<section> (×6)",
+      "<form> (×17)",
+      "<video> (×16)",
+      "<table> (×4)"
+    ],
+    "visible_labels_and_copy": [
+      "Are you sure you want to refresh the page?",
+      "BECOME A VIP MEMBER",
+      "BOOST AMOUNT:",
+      "BOOST ME!",
+      "BUY MORE CREDITS",
+      "Chrome on Android",
+      "Click the power button to launch.",
+      "Close",
+      "Complete Registration",
+      "Confirmation Required",
+      "Create Free Account",
+      "Dismiss Notice",
+      "EU Compliance",
+      "Firefox on Android",
+      "Generate QR Code",
+      "How to use Cam2Cam",
+      "I'M OVER 18",
+      "Live Cam Girls",
+      "Login",
+      "Member Login",
+      "Model Messages",
+      "Model of the Week",
+      "More",
+      "My Favorites"
+    ],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "HTML DOM entry `Chat with Live Cam Girls for Free | Flirt4Free` (index.html)"
+  },
+  {
+    "id": "ui_inline_1_js",
+    "name": "inline_1",
+    "kind": "component",
+    "source_file": "inline_1.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `inline_1` (inline_1.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_inline_2_js",
+    "name": "inline_2",
+    "kind": "component",
+    "source_file": "inline_2.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `inline_2` (inline_2.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_inline_48_js",
+    "name": "inline_48",
+    "kind": "component",
+    "source_file": "inline_48.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<input>"
+    ],
+    "visible_labels_and_copy": [
+      "Click a model name to go to their bio page",
+      "Matching Models"
+    ],
+    "child_components": [],
+    "bound_routes": [
+      "/models/bios/MODEL/bio.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `inline_48` (inline_48.js) — state keys: [stateless], renders: [<input>], labels/copy: [Click a model name to go to their bio page | Matching Models]"
+  },
+  {
+    "id": "ui_inline_58_js",
+    "name": "inline_58",
+    "kind": "component",
+    "source_file": "inline_58.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `inline_58` (inline_58.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_model_access_2026_09_29_01_js",
+    "name": "model_access_2026_09_29_01",
+    "kind": "component",
+    "source_file": "model_access_2026_09_29_01.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [
+      "Cannot connect to chat server",
+      "Insufficient Funds",
+      "Save",
+      "Search users",
+      "Upload"
+    ],
+    "child_components": [
+      "DMEmojiView",
+      "DM_PRICE_INFO"
+    ],
+    "bound_routes": [
+      "/dm-app/dm.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `model_access_2026_09_29_01` (model_access_2026_09_29_01.js) — state keys: [stateless], renders: [custom JSX], labels/copy: [Cannot connect to chat server | Insufficient Funds | Save | Search users | Upload]"
+  },
+  {
+    "id": "ui_registration_validation_2026_03_26_mn7vumkn_min_js",
+    "name": "registration_validation_2026_03_26_mn7vumkn.min",
+    "kind": "component",
+    "source_file": "registration_validation_2026_03_26_mn7vumkn.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [
+      "Address is not valid",
+      "This field is required"
+    ],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `registration_validation_2026_03_26_mn7vumkn.min` (registration_validation_2026_03_26_mn7vumkn.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: [Address is not valid | This field is required]"
+  },
+  {
+    "id": "ui_vsmplayer_2026_10_05_muvonapf_min_js",
+    "name": "vsmplayer_2026_10_05_muvonapf.min",
+    "kind": "component",
+    "source_file": "vsmplayer_2026_10_05_muvonapf.min.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<input>"
+    ],
+    "visible_labels_and_copy": [
+      "+i+",
+      "+l+"
+    ],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `vsmplayer_2026_10_05_muvonapf.min` (vsmplayer_2026_10_05_muvonapf.min.js) — state keys: [stateless], renders: [<input>], labels/copy: [+i+ | +l+]"
+  },
+  {
+    "id": "ui_vs_player_2026_10_13_mv7cakwh_min_js",
+    "name": "vs-player_2026_10_13_mv7cakwh.min",
+    "kind": "component",
+    "source_file": "vs-player_2026_10_13_mv7cakwh.min.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<input>"
+    ],
+    "visible_labels_and_copy": [
+      "Auto",
+      "Back to home page",
+      "Quality",
+      "Retry"
+    ],
+    "child_components": [
+      "VSPlayerHlsModel",
+      "VSPlayerLLHlsModel",
+      "VSPlayerWebRTCModel"
+    ],
+    "bound_routes": [
+      "/chat/error.php",
+      "/ws"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `vs-player_2026_10_13_mv7cakwh.min` (vs-player_2026_10_13_mv7cakwh.min.js) — state keys: [stateless], renders: [<input>], labels/copy: [Auto | Back to home page | Quality | Retry]"
+  },
+  {
+    "id": "ui_overlay_2026_10_14_mv8bx8qq_min_js",
+    "name": "overlay_2026_10_14_mv8bx8qq.min",
+    "kind": "component",
+    "source_file": "overlay_2026_10_14_mv8bx8qq.min.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<img>"
+    ],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `overlay_2026_10_14_mv8bx8qq.min` (overlay_2026_10_14_mv8bx8qq.min.js) — state keys: [stateless], renders: [<img>], labels/copy: []"
+  },
+  {
+    "id": "ui_hls_min_js",
+    "name": "hls.min",
+    "kind": "component",
+    "source_file": "hls.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [
+      "A",
+      "B",
+      "Challenge",
+      "E",
+      "F",
+      "H",
+      "Math",
+      "Number",
+      "Object",
+      "P",
+      "Pn",
+      "T",
+      "U",
+      "Ws",
+      "Z"
+    ],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `hls.min` (hls.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_freshchat_2025_08_22_men4v8rc_min_js",
+    "name": "freshchat_2025_08_22_men4v8rc.min",
+    "kind": "component",
+    "source_file": "freshchat_2025_08_22_men4v8rc.min.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<img>"
+    ],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `freshchat_2025_08_22_men4v8rc.min` (freshchat_2025_08_22_men4v8rc.min.js) — state keys: [stateless], renders: [<img>], labels/copy: []"
+  },
+  {
+    "id": "ui_user_account_2026_06_02_mpwto51z_min_js",
+    "name": "user_account_2026_06_02_mpwto51z.min",
+    "kind": "component",
+    "source_file": "user_account_2026_06_02_mpwto51z.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [
+      "/lookup-username.php",
+      "/lookup.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `user_account_2026_06_02_mpwto51z.min` (user_account_2026_06_02_mpwto51z.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_show_modal_2025_03_12_m86bqe2a_min_js",
+    "name": "show_modal_2025_03_12_m86bqe2a.min",
+    "kind": "component",
+    "source_file": "show_modal_2025_03_12_m86bqe2a.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `show_modal_2025_03_12_m86bqe2a.min` (show_modal_2025_03_12_m86bqe2a.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_vs_previewer_2025_08_11_me7goa16_min_js",
+    "name": "vs-previewer_2025_08_11_me7goa16.min",
+    "kind": "component",
+    "source_file": "vs-previewer_2025_08_11_me7goa16.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `vs-previewer_2025_08_11_me7goa16.min` (vs-previewer_2025_08_11_me7goa16.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_tracker_2026_07_28_ms4yeok9_min_js",
+    "name": "tracker_2026_07_28_ms4yeok9.min",
+    "kind": "component",
+    "source_file": "tracker_2026_07_28_ms4yeok9.min.js",
+    "start_line": 1,
+    "rendered_elements": [],
+    "visible_labels_and_copy": [],
+    "child_components": [],
+    "bound_routes": [
+      "/logout.php",
+      "/webservices/fe-feedback.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `tracker_2026_07_28_ms4yeok9.min` (tracker_2026_07_28_ms4yeok9.min.js) — state keys: [stateless], renders: [custom JSX], labels/copy: []"
+  },
+  {
+    "id": "ui_chatroom_2026_10_14_01_js",
+    "name": "chatroom_2026_10_14_01",
+    "kind": "component",
+    "source_file": "chatroom_2026_10_14_01.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<button>",
+      "<form>",
+      "<iframe>",
+      "<img>",
+      "<input>",
+      "<select>",
+      "<svg>",
+      "<textarea>"
+    ],
+    "visible_labels_and_copy": [
+      "2-Way Interactive -",
+      "A-Z",
+      "Add",
+      "Add to Home Screen",
+      "Adult Star",
+      "All",
+      "All Photos",
+      "Back to Homepage",
+      "Be the first to review this photo",
+      "Blocked Models",
+      "Cancel",
+      "Categories",
+      "Click here",
+      "Click here to add more credits",
+      "Click here to see other models",
+      "Confirm",
+      "Country Flags",
+      "Couples and Groups",
+      "Credits",
+      "Direct",
+      "Email Me",
+      "End Show",
+      "Enter Review Here...",
+      "Fanclub"
+    ],
+    "child_components": [
+      "BillingController",
+      "ConnectionController",
+      "EmojiView",
+      "HomePageController",
+      "Number",
+      "RouterController",
+      "WebsocketModel"
+    ],
+    "bound_routes": [
+      "/about.php",
+      "/chat/booted.php",
+      "/chat/error.php",
+      "/phone.php",
+      "/photos/index.php",
+      "/reviews.php",
+      "/vip/member-benefits.php",
+      "/webservices/fanclub-join.php",
+      "/webservices/live-chat.php",
+      "/webservices/notes.php",
+      "/webservices/one-click-chat.php",
+      "/webservices/power-boost.php",
+      "/webservices/rooms-list.php",
+      "/webservices/voting-contests.php",
+      "/ws",
+      "/ws/billing/customer.php",
+      "/ws/users/block-model.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `chatroom_2026_10_14_01` (chatroom_2026_10_14_01.js) — state keys: [stateless], renders: [<button>, <form>, <iframe>, <img>, <input>, <select>, <svg>, <textarea>], labels/copy: [2-Way Interactive - | A-Z | Add | Add to Home Screen | Adult Star | All | All Photos | Back to Homepage]"
+  },
+  {
+    "id": "ui_billing_modal_2026_10_14_mv8duwhx_min_js",
+    "name": "billing_modal_2026_10_14_mv8duwhx.min",
+    "kind": "component",
+    "source_file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+    "start_line": 1,
+    "rendered_elements": [
+      "<iframe>"
+    ],
+    "visible_labels_and_copy": [
+      "${Translator.getTranslation(",
+      "CREDITS",
+      "Change",
+      "Privacy Policy",
+      "Terms & Conditions"
+    ],
+    "child_components": [],
+    "bound_routes": [
+      "/privacy.php",
+      "/terms.php",
+      "/webservices/billing-interface.php",
+      "/ws/chat/error.php",
+      "/ws/rooms/relog.php"
+    ],
+    "bound_models": [],
+    "interactive_handlers": [],
+    "summary": "UI component `billing_modal_2026_10_14_mv8duwhx.min` (billing_modal_2026_10_14_mv8duwhx.min.js) — state keys: [stateless], renders: [<iframe>], labels/copy: [${Translator.getTranslation( | CREDITS | Change | Privacy Policy | Terms & Conditions]"
+  }
+]

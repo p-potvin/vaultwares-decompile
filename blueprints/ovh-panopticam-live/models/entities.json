@@ -1,0 +1,950 @@
+[
+  {
+    "id": "openapi_schema_actionbody",
+    "name": "ActionBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "name",
+        "field_type": "string",
+        "required": true,
+        "description": "Name"
+      },
+      {
+        "name": "visual",
+        "field_type": "string",
+        "required": true,
+        "description": "Visual"
+      },
+      {
+        "name": "sound",
+        "field_type": "string",
+        "required": true,
+        "description": "Sound"
+      }
+    ],
+    "description": "Live OpenAPI component schema `ActionBody`"
+  },
+  {
+    "id": "openapi_schema_batchbody",
+    "name": "BatchBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "pairs",
+        "field_type": "array",
+        "required": true,
+        "description": "Pairs"
+      },
+      {
+        "name": "label",
+        "field_type": "string",
+        "required": true,
+        "description": "Label"
+      }
+    ],
+    "description": "Live OpenAPI component schema `BatchBody`"
+  },
+  {
+    "id": "openapi_schema_batchpair",
+    "name": "BatchPair",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "keep",
+        "field_type": "string",
+        "required": true,
+        "description": "Keep"
+      },
+      {
+        "name": "gone",
+        "field_type": "string",
+        "required": true,
+        "description": "Gone"
+      },
+      {
+        "name": "score",
+        "field_type": "number",
+        "required": true,
+        "description": "Score"
+      },
+      {
+        "name": "photos_gone",
+        "field_type": "integer",
+        "required": true,
+        "description": "Photos Gone"
+      },
+      {
+        "name": "why",
+        "field_type": "string",
+        "required": true,
+        "description": "Why"
+      }
+    ],
+    "description": "Live OpenAPI component schema `BatchPair`"
+  },
+  {
+    "id": "openapi_schema_clipresult",
+    "name": "ClipResult",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "key",
+        "field_type": "string",
+        "required": true,
+        "description": "Key"
+      },
+      {
+        "name": "ts",
+        "field_type": "integer",
+        "required": true,
+        "description": "Ts"
+      },
+      {
+        "name": "v",
+        "field_type": "string",
+        "required": true,
+        "description": "V"
+      },
+      {
+        "name": "a",
+        "field_type": "any",
+        "required": true,
+        "description": "A"
+      },
+      {
+        "name": "motion",
+        "field_type": "number",
+        "required": true,
+        "description": "Motion"
+      },
+      {
+        "name": "loud",
+        "field_type": "number",
+        "required": true,
+        "description": "Loud"
+      }
+    ],
+    "description": "Live OpenAPI component schema `ClipResult`"
+  },
+  {
+    "id": "openapi_schema_datasetverdict",
+    "name": "DatasetVerdict",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "verdict",
+        "field_type": "any",
+        "required": true,
+        "description": "Verdict"
+      },
+      {
+        "name": "drop",
+        "field_type": "array",
+        "required": true,
+        "description": "Drop"
+      },
+      {
+        "name": "name",
+        "field_type": "any",
+        "required": true,
+        "description": "Name"
+      }
+    ],
+    "description": "Live OpenAPI component schema `DatasetVerdict`"
+  },
+  {
+    "id": "openapi_schema_dropbody",
+    "name": "DropBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "key",
+        "field_type": "string",
+        "required": true,
+        "description": "Key"
+      }
+    ],
+    "description": "Live OpenAPI component schema `DropBody`"
+  },
+  {
+    "id": "openapi_schema_favoritebody",
+    "name": "FavoriteBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "on",
+        "field_type": "boolean",
+        "required": true,
+        "description": "On"
+      },
+      {
+        "name": "note",
+        "field_type": "any",
+        "required": true,
+        "description": "Note"
+      },
+      {
+        "name": "auto_record",
+        "field_type": "any",
+        "required": true,
+        "description": "Auto Record"
+      }
+    ],
+    "description": "Live OpenAPI component schema `FavoriteBody`"
+  },
+  {
+    "id": "openapi_schema_gallerynames",
+    "name": "GalleryNames",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "names",
+        "field_type": "array",
+        "required": true,
+        "description": "Names"
+      }
+    ],
+    "description": "Live OpenAPI component schema `GalleryNames`"
+  },
+  {
+    "id": "openapi_schema_httpvalidationerror",
+    "name": "HTTPValidationError",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "detail",
+        "field_type": "array",
+        "required": true,
+        "description": "Detail"
+      }
+    ],
+    "description": "Live OpenAPI component schema `HTTPValidationError`"
+  },
+  {
+    "id": "openapi_schema_ingestreport",
+    "name": "IngestReport",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "file",
+        "field_type": "string",
+        "required": true,
+        "description": "File"
+      },
+      {
+        "name": "outcome",
+        "field_type": "string",
+        "required": true,
+        "description": "Outcome"
+      },
+      {
+        "name": "identity",
+        "field_type": "any",
+        "required": true,
+        "description": "Identity"
+      },
+      {
+        "name": "added",
+        "field_type": "integer",
+        "required": true,
+        "description": "Added"
+      },
+      {
+        "name": "total",
+        "field_type": "any",
+        "required": true,
+        "description": "Total"
+      },
+      {
+        "name": "detail",
+        "field_type": "string",
+        "required": true,
+        "description": "Detail"
+      }
+    ],
+    "description": "Live OpenAPI component schema `IngestReport`"
+  },
+  {
+    "id": "openapi_schema_labelbody",
+    "name": "LabelBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "key",
+        "field_type": "string",
+        "required": true,
+        "description": "Key"
+      },
+      {
+        "name": "ts",
+        "field_type": "integer",
+        "required": true,
+        "description": "Ts"
+      },
+      {
+        "name": "y",
+        "field_type": "integer",
+        "required": true,
+        "description": "Y"
+      }
+    ],
+    "description": "Live OpenAPI component schema `LabelBody`"
+  },
+  {
+    "id": "openapi_schema_labelverdict",
+    "name": "LabelVerdict",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "key",
+        "field_type": "string",
+        "required": true,
+        "description": "Key"
+      },
+      {
+        "name": "family",
+        "field_type": "string",
+        "required": true,
+        "description": "Family"
+      },
+      {
+        "name": "value",
+        "field_type": "string",
+        "required": true,
+        "description": "Value"
+      },
+      {
+        "name": "verdict",
+        "field_type": "string",
+        "required": true,
+        "description": "Verdict"
+      }
+    ],
+    "description": "Live OpenAPI component schema `LabelVerdict`"
+  },
+  {
+    "id": "openapi_schema_linkbody",
+    "name": "LinkBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "a",
+        "field_type": "string",
+        "required": true,
+        "description": "A"
+      },
+      {
+        "name": "b",
+        "field_type": "string",
+        "required": true,
+        "description": "B"
+      },
+      {
+        "name": "same",
+        "field_type": "any",
+        "required": true,
+        "description": "Same"
+      }
+    ],
+    "description": "Live OpenAPI component schema `LinkBody`"
+  },
+  {
+    "id": "openapi_schema_localarchivesbody",
+    "name": "LocalArchivesBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "items",
+        "field_type": "array",
+        "required": true,
+        "description": "Items"
+      }
+    ],
+    "description": "Live OpenAPI component schema `LocalArchivesBody`"
+  },
+  {
+    "id": "openapi_schema_mergebody",
+    "name": "MergeBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "keep",
+        "field_type": "string",
+        "required": true,
+        "description": "Keep"
+      },
+      {
+        "name": "gone",
+        "field_type": "string",
+        "required": true,
+        "description": "Gone"
+      },
+      {
+        "name": "rename",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Rename"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MergeBody`"
+  },
+  {
+    "id": "openapi_schema_momentkeep",
+    "name": "MomentKeep",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "kept",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Kept"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MomentKeep`"
+  },
+  {
+    "id": "openapi_schema_momentlife",
+    "name": "MomentLife",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "life",
+        "field_type": "number",
+        "required": true,
+        "description": "Life"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MomentLife`"
+  },
+  {
+    "id": "openapi_schema_momentrate",
+    "name": "MomentRate",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "rating",
+        "field_type": "any",
+        "required": true,
+        "description": "Rating"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MomentRate`"
+  },
+  {
+    "id": "openapi_schema_momentvec",
+    "name": "MomentVec",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "id",
+        "field_type": "integer",
+        "required": true,
+        "description": "Id"
+      },
+      {
+        "name": "v",
+        "field_type": "array",
+        "required": true,
+        "description": "V"
+      },
+      {
+        "name": "a",
+        "field_type": "any",
+        "required": true,
+        "description": "A"
+      },
+      {
+        "name": "p_toy",
+        "field_type": "any",
+        "required": true,
+        "description": "P Toy"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MomentVec`"
+  },
+  {
+    "id": "openapi_schema_momentvecs",
+    "name": "MomentVecs",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "items",
+        "field_type": "array",
+        "required": true,
+        "description": "Items"
+      }
+    ],
+    "description": "Live OpenAPI component schema `MomentVecs`"
+  },
+  {
+    "id": "openapi_schema_notifybody",
+    "name": "NotifyBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "text",
+        "field_type": "string",
+        "required": true,
+        "description": "Text"
+      }
+    ],
+    "description": "Live OpenAPI component schema `NotifyBody`"
+  },
+  {
+    "id": "openapi_schema_offloadbody",
+    "name": "OffloadBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "sizes",
+        "field_type": "object",
+        "required": true,
+        "description": "Sizes"
+      }
+    ],
+    "description": "Live OpenAPI component schema `OffloadBody`"
+  },
+  {
+    "id": "openapi_schema_pairbody",
+    "name": "PairBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "a",
+        "field_type": "string",
+        "required": true,
+        "description": "A"
+      },
+      {
+        "name": "b",
+        "field_type": "string",
+        "required": true,
+        "description": "B"
+      }
+    ],
+    "description": "Live OpenAPI component schema `PairBody`"
+  },
+  {
+    "id": "openapi_schema_pinbody",
+    "name": "PinBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "pinned",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Pinned"
+      }
+    ],
+    "description": "Live OpenAPI component schema `PinBody`"
+  },
+  {
+    "id": "openapi_schema_reconcilebody",
+    "name": "ReconcileBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "batch",
+        "field_type": "string",
+        "required": true,
+        "description": "Batch"
+      },
+      {
+        "name": "pairs",
+        "field_type": "array",
+        "required": true,
+        "description": "Pairs"
+      }
+    ],
+    "description": "Live OpenAPI component schema `ReconcileBody`"
+  },
+  {
+    "id": "openapi_schema_recordbody",
+    "name": "RecordBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "height",
+        "field_type": "any",
+        "required": true,
+        "description": "Height"
+      }
+    ],
+    "description": "Live OpenAPI component schema `RecordBody`"
+  },
+  {
+    "id": "openapi_schema_renamebody",
+    "name": "RenameBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "label",
+        "field_type": "any",
+        "required": true,
+        "description": "Label"
+      }
+    ],
+    "description": "Live OpenAPI component schema `RenameBody`"
+  },
+  {
+    "id": "openapi_schema_reviewedbody",
+    "name": "ReviewedBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "batch",
+        "field_type": "string",
+        "required": true,
+        "description": "Batch"
+      },
+      {
+        "name": "gone",
+        "field_type": "string",
+        "required": true,
+        "description": "Gone"
+      },
+      {
+        "name": "ok",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Ok"
+      }
+    ],
+    "description": "Live OpenAPI component schema `ReviewedBody`"
+  },
+  {
+    "id": "openapi_schema_speechresult",
+    "name": "SpeechResult",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "key",
+        "field_type": "string",
+        "required": true,
+        "description": "Key"
+      },
+      {
+        "name": "nospeech",
+        "field_type": "number",
+        "required": true,
+        "description": "Nospeech"
+      },
+      {
+        "name": "langs",
+        "field_type": "array",
+        "required": true,
+        "description": "Langs"
+      },
+      {
+        "name": "text",
+        "field_type": "any",
+        "required": true,
+        "description": "Text"
+      },
+      {
+        "name": "logprob",
+        "field_type": "any",
+        "required": true,
+        "description": "Logprob"
+      },
+      {
+        "name": "rep",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Rep"
+      }
+    ],
+    "description": "Live OpenAPI component schema `SpeechResult`"
+  },
+  {
+    "id": "openapi_schema_tastehead",
+    "name": "TasteHead",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "w",
+        "field_type": "array",
+        "required": true,
+        "description": "W"
+      },
+      {
+        "name": "b",
+        "field_type": "number",
+        "required": true,
+        "description": "B"
+      },
+      {
+        "name": "auc",
+        "field_type": "any",
+        "required": true,
+        "description": "Auc"
+      },
+      {
+        "name": "n",
+        "field_type": "integer",
+        "required": true,
+        "description": "N"
+      },
+      {
+        "name": "minutes",
+        "field_type": "integer",
+        "required": true,
+        "description": "Minutes"
+      },
+      {
+        "name": "liked",
+        "field_type": "integer",
+        "required": true,
+        "description": "Liked"
+      }
+    ],
+    "description": "Live OpenAPI component schema `TasteHead`"
+  },
+  {
+    "id": "openapi_schema_undobody",
+    "name": "UndoBody",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "id",
+        "field_type": "string",
+        "required": true,
+        "description": "Id"
+      }
+    ],
+    "description": "Live OpenAPI component schema `UndoBody`"
+  },
+  {
+    "id": "openapi_schema_validationerror",
+    "name": "ValidationError",
+    "kind": "openapi_schema",
+    "source_file": "openapi.json",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "loc",
+        "field_type": "array",
+        "required": true,
+        "description": "Location"
+      },
+      {
+        "name": "msg",
+        "field_type": "string",
+        "required": true,
+        "description": "Message"
+      },
+      {
+        "name": "type",
+        "field_type": "string",
+        "required": true,
+        "description": "Error Type"
+      },
+      {
+        "name": "input",
+        "field_type": "any",
+        "required": true,
+        "description": "Input"
+      },
+      {
+        "name": "ctx",
+        "field_type": "object",
+        "required": true,
+        "description": "Context"
+      }
+    ],
+    "description": "Live OpenAPI component schema `ValidationError`"
+  },
+  {
+    "id": "live_response_api_status",
+    "name": "LiveResponse_api_status",
+    "kind": "json_response",
+    "source_file": "/api/status",
+    "source_line": 1,
+    "fields": [
+      {
+        "name": "version",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "recording",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "telegram",
+        "field_type": "boolean",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "vision",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "clips",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "chat",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "health",
+        "field_type": "array",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "rss_mb",
+        "field_type": "number",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "loop",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "room_frames",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "toys",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "backup",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "moments",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "taste",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "habits",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "speech",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "labels",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "rooms",
+        "field_type": "integer",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "sites",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      },
+      {
+        "name": "net",
+        "field_type": "object",
+        "required": true,
+        "description": "Observed from live HTTP response"
+      }
+    ],
+    "description": "Live JSON response contract from `GET /api/status`"
+  }
+]

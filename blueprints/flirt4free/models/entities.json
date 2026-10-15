@@ -1,0 +1,336 @@
+[
+  {
+    "id": "json_entity_homepagedata_models",
+    "name": "homePageData_models",
+    "kind": "json_schema",
+    "source_file": "inline_16.js",
+    "source_line": 2,
+    "fields": [
+      {
+        "name": "hsas_badge",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "credit_tier_badge",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "sexy_selfie_badge",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "jumpstart_badge",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_hls",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "video_blocked",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "room_status_char",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "room_status",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "category_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "category_name",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "category_name_2",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "category_id_3",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "category_name_3",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "login_type_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "login_type_title",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "login_group_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "login_group_title",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "default_cpm",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "multi_user_private",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "wdm",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "pa_type",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "server_public_name",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "video_host",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "browser_port",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_high_quality",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "credit_tier",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "average_rating",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "eye_color",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "hair",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_model_of_week",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "interactive",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "interactive_name",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "studio",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "age",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "location",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "sample_image_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "languages",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "country_code",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "model_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_feature",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_scheduled",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_new",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_fetish",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "fetish_image_id",
+        "field_type": "integer",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "service",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "num_perf",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "display",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "model_name",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "model_seo_name",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "power_score_xvc",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "power_score_xvt",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_favorite",
+        "field_type": "integer",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "is_notify_subscribed",
+        "field_type": "integer",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      },
+      {
+        "name": "sample_long_id",
+        "field_type": "string",
+        "required": true,
+        "description": "Observed in window.__homePageData__.models[]"
+      }
+    ],
+    "description": "Hydrated JSON collection `window.__homePageData__.models` in inline_16.js"
+  }
+]

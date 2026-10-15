@@ -1,0 +1,161 @@
+{
+  "views_and_workers": [
+    "HTML Document: Chat with Live Cam Girls for Free | Flirt4Free (index.html)",
+    "UI View `inline_1` (inline_1.js)",
+    "UI View `inline_2` (inline_2.js)",
+    "UI View `inline_48` (inline_48.js)",
+    "UI View `inline_58` (inline_58.js)",
+    "UI View `model_access_2026_09_29_01` (model_access_2026_09_29_01.js)",
+    "UI View `registration_validation_2026_03_26_mn7vumkn.min` (registration_validation_2026_03_26_mn7vumkn.min.js)",
+    "UI View `vsmplayer_2026_10_05_muvonapf.min` (vsmplayer_2026_10_05_muvonapf.min.js)",
+    "UI View `vs-player_2026_10_13_mv7cakwh.min` (vs-player_2026_10_13_mv7cakwh.min.js)",
+    "UI View `overlay_2026_10_14_mv8bx8qq.min` (overlay_2026_10_14_mv8bx8qq.min.js)",
+    "UI View `hls.min` (hls.min.js)",
+    "UI View `freshchat_2025_08_22_men4v8rc.min` (freshchat_2025_08_22_men4v8rc.min.js)",
+    "UI View `user_account_2026_06_02_mpwto51z.min` (user_account_2026_06_02_mpwto51z.min.js)",
+    "UI View `show_modal_2025_03_12_m86bqe2a.min` (show_modal_2025_03_12_m86bqe2a.min.js)",
+    "UI View `vs-previewer_2025_08_11_me7goa16.min` (vs-previewer_2025_08_11_me7goa16.min.js)",
+    "UI View `tracker_2026_07_28_ms4yeok9.min` (tracker_2026_07_28_ms4yeok9.min.js)",
+    "UI View `chatroom_2026_10_14_01` (chatroom_2026_10_14_01.js)",
+    "UI View `billing_modal_2026_10_14_mv8duwhx.min` (billing_modal_2026_10_14_mv8duwhx.min.js)"
+  ],
+  "transitions": [
+    {
+      "id": "form_search",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /search/",
+      "target_api_or_state": "/search/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_register",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /register/",
+      "target_api_or_state": "/register/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to #",
+      "target_api_or_state": "#",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_my_account_secure_fan_clubs_php",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /my-account/secure/fan-clubs.php",
+      "target_api_or_state": "/my-account/secure/fan-clubs.php",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_my_account",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /my-account/",
+      "target_api_or_state": "/my-account/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_register",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /register/",
+      "target_api_or_state": "/register/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_root",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /",
+      "target_api_or_state": "/",
+      "source_file": "index.html"
+    },
+    {
+      "id": "form_register",
+      "from_state_or_view": "index.html",
+      "trigger": "form.submit",
+      "action": "Submit HTML form to /register/",
+      "target_api_or_state": "/register/",
+      "source_file": "index.html"
+    }
+  ],
+  "data_flows": []
+}

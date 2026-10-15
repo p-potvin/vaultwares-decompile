@@ -1,0 +1,221 @@
+[
+  {
+    "id": "window_store_homepagegridconfig",
+    "name": "window.__homePageGridConfig__",
+    "kind": "window_global_store",
+    "source_file": "inline_4.js",
+    "state_keys": [
+      "col",
+      "class_name",
+      "sample_size",
+      "sample_size_hd",
+      "spotlight_col",
+      "spotlight_row",
+      "spotlight_sample_size",
+      "spotlight_sample_size_hd",
+      "default",
+      "girls",
+      "guys",
+      "trans"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.__homePageGridConfig__` in inline_4.js"
+  },
+  {
+    "id": "window_store_homepageconfig",
+    "name": "window.__homePageConfig__",
+    "kind": "window_global_store",
+    "source_file": "inline_12.js",
+    "state_keys": [
+      "Exoclick",
+      "retargeting",
+      "advertiser_id",
+      "config",
+      "cookie",
+      "Login",
+      "Registration"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.__homePageConfig__` in inline_12.js"
+  },
+  {
+    "id": "window_store_homepagedata",
+    "name": "window.__homePageData__",
+    "kind": "window_global_store",
+    "source_file": "inline_16.js",
+    "state_keys": [
+      "models",
+      "hsas_badge",
+      "credit_tier_badge",
+      "sexy_selfie_badge",
+      "jumpstart_badge",
+      "is_hls",
+      "video_blocked",
+      "room_status_char",
+      "room_status",
+      "category_id",
+      "category_name",
+      "category_name_2",
+      "category_id_3",
+      "category_name_3",
+      "login_type_id",
+      "login_type_title"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.__homePageData__` in inline_16.js"
+  },
+  {
+    "id": "window_store_chat_server_commands_raw",
+    "name": "window.CHAT_SERVER_COMMANDS_RAW",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.CHAT_SERVER_COMMANDS_RAW` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_chat_events_to_commands",
+    "name": "window.CHAT_EVENTS_TO_COMMANDS",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.CHAT_EVENTS_TO_COMMANDS` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_chat_commands_to_events",
+    "name": "window.CHAT_COMMANDS_TO_EVENTS",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.CHAT_COMMANDS_TO_EVENTS` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_chat_connection_events",
+    "name": "window.CHAT_CONNECTION_EVENTS",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.CHAT_CONNECTION_EVENTS` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dm_messenger_event",
+    "name": "window.DM_MESSENGER_EVENT",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [
+      "NO_ERROR",
+      "GENERAL_SYSTEM_ERROR",
+      "INSUFFICIENT_CREDITS",
+      "NOT_FOUND",
+      "ALREADY_REPORTED",
+      "INVALID_COMMAND",
+      "INVALID_ARGUEMENTS"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DM_MESSENGER_EVENT` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dm_view_event",
+    "name": "window.DM_VIEW_EVENT",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [
+      "NO_ERROR",
+      "GENERAL_SYSTEM_ERROR",
+      "INSUFFICIENT_CREDITS",
+      "NOT_FOUND",
+      "ALREADY_REPORTED",
+      "INVALID_COMMAND",
+      "INVALID_ARGUEMENTS",
+      "INACTIVE_RECIPIENT",
+      "BLOCKED_RECIPIENT",
+      "GENERIC_MISC_ERRORS",
+      "FAILED_TO_CREATE_CONVO",
+      "FAILED_TO_CREATE_MEMBER_DATA",
+      "FAILED_TO_MAKE_WS_CONNECTION",
+      "ERROR_PARSING_MESSAGES",
+      "WEBSOCKET_ERROR",
+      "ERROR_PROCESSING_NODE_SEQUENCE"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DM_VIEW_EVENT` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dmdebug",
+    "name": "window.DMDebug",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DMDebug` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dmmessenger",
+    "name": "window.DMMessenger",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [
+      "model"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DMMessenger` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dmconversationcontroller",
+    "name": "window.DMConversationController",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [
+      "open"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DMConversationController` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dmconversationmodel",
+    "name": "window.DMConversationModel",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [
+      "value"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DMConversationModel` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_dmupsellcontroller",
+    "name": "window.DMUpsellController",
+    "kind": "window_global_store",
+    "source_file": "model_access_2026_09_29_01.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.DMUpsellController` in model_access_2026_09_29_01.js"
+  },
+  {
+    "id": "window_store_vsmp",
+    "name": "window.VSMP",
+    "kind": "window_global_store",
+    "source_file": "vsmplayer_2026_10_05_muvonapf.min.js",
+    "state_keys": [],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "Embedded global state object `window.VSMP` in vsmplayer_2026_10_05_muvonapf.min.js"
+  }
+]

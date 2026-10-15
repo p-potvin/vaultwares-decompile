@@ -42,7 +42,15 @@ static PATH_BRANCH_ROUTE_RE: LazyLock<Regex> = LazyLock::new(|| {
 });
 
 static GENERIC_API_LITERAL_RE: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r#"["'`](/(?:api/[a-zA-Z0-9_./${}:-]+|health|embed|status|metrics|ws|stream))["'`]"#).unwrap()
+    Regex::new(r#"["'`](/(?:(?:api|ws|webservices|ajax|graphql|v1|v2)/[a-zA-Z0-9_./?=&${}:-]+|[a-zA-Z0-9_./-]+\.(?:php|json|m3u8)(?:\?[a-zA-Z0-9_=&${}:-]+)?|health|embed|status|metrics|ws|stream))["'`]"#).unwrap()
+});
+
+static WINDOW_STATE_ASSIGN_RE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"window\.(__[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]{2,})\s*=\s*\{").unwrap()
+});
+
+static NAMED_ARRAY_KEY_RE: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r#"["']([a-zA-Z_][a-zA-Z0-9_]{2,28})["']\s*:\s*\[\s*\{"#).unwrap()
 });
 
 static FETCH_CALL_RE: LazyLock<Regex> = LazyLock::new(|| {
@@ -256,12 +264,98 @@ pub fn analyze_harvested_web_bundle(bundle: &HarvestedWebBundle) -> Result<Analy
             source_line: 1,
             handler_name: None,
             request_fields: Vec::new(),
-            response_fields: resp_fields,
+            response_fields: resp_fields.clone(),
             sample_request: None,
             sample_response: probed.sample_body.clone(),
             cdp_initiator: None,
             related_slices: Vec::new(),
         });
+
+        // If the live endpoint is an OpenAPI 3.x / Swagger spec (`/openapi.json`), ingest its paths & schemas
+        if probed.path.ends_with("openapi.json") {
+            if let Some(serde_json::Value::Object(root_obj)) = &probed.sample_body {
+                if let Some(serde_json::Value::Object(paths_obj)) = root_obj.get("paths") {
+                    for (path_key, methods_val) in paths_obj {
+                        if let serde_json::Value::Object(methods_map) = methods_val {
+                            for (method_key, op_val) in methods_map {
+                                let m_upper = method_key.to_uppercase();
+                                if !matches!(m_upper.as_str(), "GET" | "POST" | "PUT" | "DELETE" | "PATCH") {
+                                    continue;
+                                }
+                                let summary = op_val
+                                    .get("summary")
+                                    .and_then(|v| v.as_str())
+                                    .unwrap_or("Live OpenAPI route")
+                                    .to_string();
+                                let pattern = normalise_route_pattern(path_key);
+                                out.routes.push(ApiRoute {
+                                    id: format!("openapi_{}_{}", method_key.to_lowercase(), sanitise_id(&pattern)),
+                                    method: m_upper,
+                                    path: path_key.clone(),
+                                    pattern: pattern.clone(),
+                                    path_params: extract_path_params(&pattern),
+                                    query_params: Vec::new(),
+                                    summary,
+                                    source_file: "openapi.json".into(),
+                                    source_line: 1,
+                                    handler_name: op_val.get("operationId").and_then(|v| v.as_str()).map(|s| s.to_string()),
+                                    request_fields: Vec::new(),
+                                    response_fields: Vec::new(),
+                                    sample_request: None,
+                                    sample_response: None,
+                                    cdp_initiator: None,
+                                    related_slices: Vec::new(),
+                                });
+                            }
+                        }
+                    }
+                }
+                if let Some(serde_json::Value::Object(schemas_obj)) = root_obj
+                    .get("components")
+                    .and_then(|c| c.get("schemas"))
+                {
+                    for (schema_name, schema_val) in schemas_obj {
+                        let mut fields = Vec::new();
+                        if let Some(serde_json::Value::Object(props)) = schema_val.get("properties") {
+                            for (prop_name, prop_val) in props {
+                                let ftype = prop_val
+                                    .get("type")
+                                    .and_then(|v| v.as_str())
+                                    .unwrap_or("any")
+                                    .to_string();
+                                fields.push(FieldSpec {
+                                    name: prop_name.clone(),
+                                    field_type: ftype,
+                                    required: true,
+                                    description: prop_val.get("title").and_then(|v| v.as_str()).map(|s| s.to_string()),
+                                });
+                            }
+                        }
+                        if !fields.is_empty() {
+                            out.entities.push(EntityModel {
+                                id: format!("openapi_schema_{}", sanitise_id(schema_name)),
+                                name: schema_name.clone(),
+                                kind: "openapi_schema".into(),
+                                source_file: "openapi.json".into(),
+                                source_line: 1,
+                                fields,
+                                description: format!("Live OpenAPI component schema `{}`", schema_name),
+                            });
+                        }
+                    }
+                }
+            }
+        } else if !resp_fields.is_empty() {
+            out.entities.push(EntityModel {
+                id: format!("live_response_{}", sanitise_id(&probed.path)),
+                name: format!("LiveResponse_{}", sanitise_id(&probed.path)),
+                kind: "json_response".into(),
+                source_file: probed.path.clone(),
+                source_line: 1,
+                fields: resp_fields,
+                description: format!("Live JSON response contract from `{} {}`", probed.method, probed.path),
+            });
+        }
     }
 
     for script in &bundle.scripts {
@@ -715,6 +809,94 @@ fn analyze_js_ts_file(
                 cdp_initiator: None,
                 related_slices: Vec::new(),
             });
+        }
+
+        // 2b. Extract client XHR / AJAX / API endpoint literals in JS bundles
+        for cap in GENERIC_API_LITERAL_RE.captures_iter(code) {
+            let full_m = cap.get(0).unwrap();
+            let raw_url = cap.get(1).unwrap().as_str();
+            if raw_url.len() < 4 || raw_url.ends_with(".js") || raw_url.ends_with(".css") || raw_url.contains(".tpl.php") {
+                continue;
+            }
+            let line = module.start_line
+                + code[..full_m.start()].bytes().filter(|&b| b == b'\n').count();
+            let pattern = normalise_route_pattern(raw_url);
+            out.routes.push(ApiRoute {
+                id: format!("js_api_get_{}", sanitise_id(&pattern)),
+                method: "GET".into(),
+                path: raw_url.into(),
+                pattern: pattern.clone(),
+                path_params: extract_path_params(&pattern),
+                query_params: extract_query_params(raw_url),
+                summary: format!("Client API/endpoint literal in {}", rel),
+                source_file: rel.to_string(),
+                source_line: line,
+                handler_name: Some(module.id.clone()),
+                request_fields: Vec::new(),
+                response_fields: Vec::new(),
+                sample_request: None,
+                sample_response: None,
+                cdp_initiator: Some(format!("{}:{}", rel, line)),
+                related_slices: Vec::new(),
+            });
+        }
+
+        // 2c. Extract embedded window.__STATE__ stores and JSON entity schemas
+        for cap in WINDOW_STATE_ASSIGN_RE.captures_iter(code) {
+            let var_name = cap.get(1).unwrap().as_str().to_string();
+            let full = cap.get(0).unwrap();
+            let start_line = 1 + code[..full.start()].bytes().filter(|&b| b == b'\n').count();
+            let window_end = (full.end() + 45_000).min(code.len());
+            let snippet = &code[full.end() - 1..window_end];
+
+            let mut top_keys = Vec::new();
+            for kcap in JSON_KEY_RE.captures_iter(&snippet[..snippet.len().min(3000)]) {
+                let k = kcap.get(1).unwrap().as_str().to_string();
+                if !top_keys.contains(&k) && top_keys.len() < 16 {
+                    top_keys.push(k);
+                }
+            }
+
+            out.stores.push(StateStore {
+                id: format!("window_store_{}", sanitise_id(&var_name)),
+                name: format!("window.{}", var_name),
+                kind: "window_global_store".into(),
+                source_file: rel.to_string(),
+                state_keys: top_keys,
+                actions_or_mutators: Vec::new(),
+                persists_to: None,
+                description: format!("Embedded global state object `window.{}` in {}", var_name, rel),
+            });
+
+            for acap in NAMED_ARRAY_KEY_RE.captures_iter(snippet) {
+                let arr_name = acap.get(1).unwrap().as_str().to_string();
+                let brace_pos = acap.get(0).unwrap().end() - 1;
+                if let Some(first_obj) = crate::unpacker::extract_balanced_braces(snippet, brace_pos) {
+                    if let Ok(serde_json::Value::Object(map)) = serde_json::from_str::<serde_json::Value>(&first_obj) {
+                        let fields: Vec<FieldSpec> = map
+                            .into_iter()
+                            .take(64)
+                            .map(|(k, v)| FieldSpec {
+                                name: k,
+                                field_type: json_value_type(&v),
+                                required: true,
+                                description: Some(format!("Observed in window.{}.{}[]", var_name, arr_name)),
+                            })
+                            .collect();
+                        if !fields.is_empty() {
+                            out.entities.push(EntityModel {
+                                id: format!("json_entity_{}_{}", sanitise_id(&var_name), sanitise_id(&arr_name)),
+                                name: format!("{}_{}", var_name.trim_matches('_'), arr_name),
+                                kind: "json_schema".into(),
+                                source_file: rel.to_string(),
+                                source_line: start_line,
+                                fields,
+                                description: format!("Hydrated JSON collection `window.{}.{}` in {}", var_name, arr_name, rel),
+                            });
+                        }
+                    }
+                }
+            }
         }
 
         // 3. Extract TypeScript interfaces
@@ -1308,8 +1490,8 @@ fn extract_js_slices(rel: &str, code: &str, prop_score: f32, out: &mut AnalysisO
 
     // Fallback for heavily minified SPA bundles where functions are 1-2 chars (`function a(e,t)`):
     // Slice around any API literal or state dispatch in the bundle!
-    if found_named == 0 && code.len() > 120 {
-        for (idx, cap) in GENERIC_API_LITERAL_RE.captures_iter(code).take(20).enumerate() {
+    if found_named <= 3 && code.len() > 1500 {
+        for (idx, cap) in GENERIC_API_LITERAL_RE.captures_iter(code).take(32).enumerate() {
             let m = cap.get(0).unwrap();
             let api_path = cap.get(1).unwrap().as_str();
             let start = m.start().saturating_sub(220);

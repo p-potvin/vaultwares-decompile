@@ -1,0 +1,1415 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Chat with Live Cam Girls for Free | Flirt4Free — Decompiled Blueprint API",
+    "version": "0.2.0",
+    "description": "Clean-room OpenAPI 3.1 contract extracted by VaultWares Decompile from https://www.flirt4free.com/?service=girls"
+  },
+  "paths": {
+    "/models/bios/MODEL/bio.php": {
+      "get": {
+        "operationId": "js_api_get_models_bios_model_bio_php",
+        "summary": "Client API/endpoint literal in inline_48.js",
+        "x-vw-source": {
+          "file": "inline_48.js",
+          "line": 233,
+          "handler": "inline_48.js",
+          "cdpInitiator": "inline_48.js:233",
+          "relatedSlices": [
+            "inline_48.js:minified_api_caller_1",
+            "inline_57.js:minified_api_caller_1",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/save-iovation-blackbox.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_save_iovation_blackbox_php",
+        "summary": "Client API/endpoint literal in inline_57.js",
+        "x-vw-source": {
+          "file": "inline_57.js",
+          "line": 24,
+          "handler": "inline_57.js",
+          "cdpInitiator": "inline_57.js:24",
+          "relatedSlices": [
+            "inline_57.js:minified_api_caller_1",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dm-app/dm.php": {
+      "get": {
+        "operationId": "js_api_get_dm_app_dm_php",
+        "summary": "Client API/endpoint literal in model_access_2026_09_29_01.js",
+        "x-vw-source": {
+          "file": "model_access_2026_09_29_01.js",
+          "line": 456,
+          "handler": "model_access_2026_09_29_01.js",
+          "cdpInitiator": "model_access_2026_09_29_01.js:456",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "model_access_2026_09_29_01.js:buildLightbox",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/error.php": {
+      "get": {
+        "operationId": "js_api_get_chat_error_php",
+        "summary": "Client API/endpoint literal in vs-player_2026_10_13_mv7cakwh.min.js",
+        "x-vw-source": {
+          "file": "vs-player_2026_10_13_mv7cakwh.min.js",
+          "line": 1,
+          "handler": "vs-player_2026_10_13_mv7cakwh.min.js",
+          "cdpInitiator": "vs-player_2026_10_13_mv7cakwh.min.js:1",
+          "relatedSlices": [
+            "vs-player_2026_10_13_mv7cakwh.min.js:decorateObserver",
+            "vs-player_2026_10_13_mv7cakwh.min.js:StreamSignalling",
+            "vs-player_2026_10_13_mv7cakwh.min.js:WebRtcConnectionManager",
+            "vs-player_2026_10_13_mv7cakwh.min.js:PlaybackSignalling",
+            "vs-player_2026_10_13_mv7cakwh.min.js:WebRTCMonitor",
+            "vs-player_2026_10_13_mv7cakwh.min.js:WebRTCMonitorV2"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup.php": {
+      "get": {
+        "operationId": "js_api_get_lookup_php",
+        "summary": "Client API/endpoint literal in user_account_2026_06_02_mpwto51z.min.js",
+        "x-vw-source": {
+          "file": "user_account_2026_06_02_mpwto51z.min.js",
+          "line": 1,
+          "handler": "user_account_2026_06_02_mpwto51z.min.js",
+          "cdpInitiator": "user_account_2026_06_02_mpwto51z.min.js:1",
+          "relatedSlices": [
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_1",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_2",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_3",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_4"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup-username.php": {
+      "get": {
+        "operationId": "js_api_get_lookup_username_php",
+        "summary": "Client API/endpoint literal in user_account_2026_06_02_mpwto51z.min.js",
+        "x-vw-source": {
+          "file": "user_account_2026_06_02_mpwto51z.min.js",
+          "line": 1,
+          "handler": "user_account_2026_06_02_mpwto51z.min.js",
+          "cdpInitiator": "user_account_2026_06_02_mpwto51z.min.js:1",
+          "relatedSlices": [
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_1",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_2",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_3",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_4"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/fe-feedback.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_fe_feedback_php",
+        "summary": "Client API/endpoint literal in tracker_2026_07_28_ms4yeok9.min.js",
+        "x-vw-source": {
+          "file": "tracker_2026_07_28_ms4yeok9.min.js",
+          "line": 1,
+          "handler": "tracker_2026_07_28_ms4yeok9.min.js",
+          "cdpInitiator": "tracker_2026_07_28_ms4yeok9.min.js:1",
+          "relatedSlices": [
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2",
+            "chatroom_2026_10_14_01.js:dataHandler"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logout.php": {
+      "get": {
+        "operationId": "js_api_get_logout_php",
+        "summary": "Client API/endpoint literal in tracker_2026_07_28_ms4yeok9.min.js",
+        "x-vw-source": {
+          "file": "tracker_2026_07_28_ms4yeok9.min.js",
+          "line": 1,
+          "handler": "tracker_2026_07_28_ms4yeok9.min.js",
+          "cdpInitiator": "tracker_2026_07_28_ms4yeok9.min.js:1",
+          "relatedSlices": [
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2",
+            "user_account_2026_06_02_mpwto51z.min.js:minified_api_caller_4"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ws/billing/customer.php": {
+      "get": {
+        "operationId": "js_api_get_ws_billing_customer_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 253,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:253",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5",
+            "chatroom_2026_10_14_01.js:dataHandler"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "method",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vip/member-benefits.php": {
+      "get": {
+        "operationId": "js_api_get_vip_member_benefits_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 277,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:277",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "source_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/one-click-chat.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_one_click_chat_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 301,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:301",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:zipCodeListener",
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+            "chatroom_2026_10_14_01.js:handleInput"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/live-chat.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_live_chat_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 313,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:313",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/booted.php": {
+      "get": {
+        "operationId": "js_api_get_chat_booted_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 377,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:377",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:attemptLogin"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ws/users/block-model.php": {
+      "get": {
+        "operationId": "js_api_get_ws_users_block_model_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 703,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:703",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about.php": {
+      "get": {
+        "operationId": "js_api_get_about_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 846,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:846",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:handleInput"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/phone.php": {
+      "get": {
+        "operationId": "js_api_get_phone_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 848,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:848",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/rooms-list.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_rooms_list_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1346,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1346",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:unmuteAudioOnRoomClick",
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+            "chatroom_2026_10_14_01.js:evlist"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "response_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "s",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/notes.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_notes_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1464,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1464",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/power-boost.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_power_boost_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1509,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1509",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:displayMessage",
+            "chatroom_2026_10_14_01.js:handleInput",
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/voting-contests.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_voting_contests_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1602,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1602",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/fanclub-join.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_fanclub_join_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1876,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1876",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:testPlayerVersion",
+            "chatroom_2026_10_14_01.js:handleInput"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "model_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews.php": {
+      "get": {
+        "operationId": "js_api_get_reviews_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 1985,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:1985",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:listenForClickOnRoom",
+            "chatroom_2026_10_14_01.js:evlist"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photos/index.php": {
+      "get": {
+        "operationId": "js_api_get_photos_index_php",
+        "summary": "Client API/endpoint literal in chatroom_2026_10_14_01.js",
+        "x-vw-source": {
+          "file": "chatroom_2026_10_14_01.js",
+          "line": 2013,
+          "handler": "chatroom_2026_10_14_01.js",
+          "cdpInitiator": "chatroom_2026_10_14_01.js:2013",
+          "relatedSlices": [
+            "chatroom_2026_10_14_01.js:dataHandler",
+            "chatroom_2026_10_14_01.js:loadModelImages",
+            "chatroom_2026_10_14_01.js:handleInput"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/faq.php": {
+      "get": {
+        "operationId": "js_api_get_faq_php",
+        "summary": "Client API/endpoint literal in cam2cam_2026_06_01_mpviem65.min.js",
+        "x-vw-source": {
+          "file": "cam2cam_2026_06_01_mpviem65.min.js",
+          "line": 1,
+          "handler": "cam2cam_2026_06_01_mpviem65.min.js",
+          "cdpInitiator": "cam2cam_2026_06_01_mpviem65.min.js:1",
+          "relatedSlices": [
+            "cam2cam_2026_06_01_mpviem65.min.js:minified_api_caller_1",
+            "cam2cam_2026_06_01_mpviem65.min.js:minified_api_caller_2",
+            "tracker_2026_07_28_ms4yeok9.min.js:minified_api_caller_1"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "a",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/terms.php": {
+      "get": {
+        "operationId": "js_api_get_terms_php",
+        "summary": "Client API/endpoint literal in billing_modal_2026_10_14_mv8duwhx.min.js",
+        "x-vw-source": {
+          "file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "line": 1,
+          "handler": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "cdpInitiator": "billing_modal_2026_10_14_mv8duwhx.min.js:1",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/privacy.php": {
+      "get": {
+        "operationId": "js_api_get_privacy_php",
+        "summary": "Client API/endpoint literal in billing_modal_2026_10_14_mv8duwhx.min.js",
+        "x-vw-source": {
+          "file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "line": 1,
+          "handler": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "cdpInitiator": "billing_modal_2026_10_14_mv8duwhx.min.js:1",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ws/rooms/relog.php": {
+      "get": {
+        "operationId": "js_api_get_ws_rooms_relog_php",
+        "summary": "Client API/endpoint literal in billing_modal_2026_10_14_mv8duwhx.min.js",
+        "x-vw-source": {
+          "file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "line": 1,
+          "handler": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "cdpInitiator": "billing_modal_2026_10_14_mv8duwhx.min.js:1",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webservices/billing-interface.php": {
+      "get": {
+        "operationId": "js_api_get_webservices_billing_interface_php",
+        "summary": "Client API/endpoint literal in billing_modal_2026_10_14_mv8duwhx.min.js",
+        "x-vw-source": {
+          "file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "line": 1,
+          "handler": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "cdpInitiator": "billing_modal_2026_10_14_mv8duwhx.min.js:1",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ws/chat/error.php": {
+      "get": {
+        "operationId": "js_api_get_ws_chat_error_php",
+        "summary": "Client API/endpoint literal in billing_modal_2026_10_14_mv8duwhx.min.js",
+        "x-vw-source": {
+          "file": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "line": 1,
+          "handler": "billing_modal_2026_10_14_mv8duwhx.min.js",
+          "cdpInitiator": "billing_modal_2026_10_14_mv8duwhx.min.js:1",
+          "relatedSlices": [
+            "billing_modal_2026_10_14_mv8duwhx.min.js:BillingPluginValidator",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_2",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_4",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ws/notifications/client/notification-delete.php": {
+      "get": {
+        "operationId": "js_api_get_ws_notifications_client_notification_delete_php",
+        "summary": "Client API/endpoint literal in user_notifications_2026_02_02_03.js",
+        "x-vw-source": {
+          "file": "user_notifications_2026_02_02_03.js",
+          "line": 12,
+          "handler": "user_notifications_2026_02_02_03.js",
+          "cdpInitiator": "user_notifications_2026_02_02_03.js:12",
+          "relatedSlices": [
+            "user_notifications_2026_02_02_03.js:minified_api_caller_1",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_5",
+            "billing_modal_2026_10_14_mv8duwhx.min.js:minified_api_caller_3"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "homePageData_models": {
+        "type": "object",
+        "description": "Hydrated JSON collection `window.__homePageData__.models` in inline_16.js (inline_16.js:2)",
+        "properties": {
+          "hsas_badge": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "credit_tier_badge": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "sexy_selfie_badge": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "jumpstart_badge": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_hls": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "video_blocked": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "room_status_char": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "room_status": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "category_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "category_name": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "category_name_2": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "category_id_3": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "category_name_3": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "login_type_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "login_type_title": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "login_group_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "login_group_title": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "default_cpm": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "multi_user_private": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "wdm": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "pa_type": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "server_public_name": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "video_host": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "browser_port": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_high_quality": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "credit_tier": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "average_rating": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "eye_color": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "hair": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_model_of_week": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "interactive": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "interactive_name": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "studio": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "age": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "location": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "sample_image_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "languages": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "model_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_feature": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_scheduled": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_new": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_fetish": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "fetish_image_id": {
+            "type": "integer",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "service": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "num_perf": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "display": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "model_name": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "model_seo_name": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "power_score_xvc": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "power_score_xvt": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_favorite": {
+            "type": "integer",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "is_notify_subscribed": {
+            "type": "integer",
+            "description": "Observed in window.__homePageData__.models[]"
+          },
+          "sample_long_id": {
+            "type": "string",
+            "description": "Observed in window.__homePageData__.models[]"
+          }
+        },
+        "required": [
+          "hsas_badge",
+          "credit_tier_badge",
+          "sexy_selfie_badge",
+          "jumpstart_badge",
+          "is_hls",
+          "video_blocked",
+          "room_status_char",
+          "room_status",
+          "category_id",
+          "category_name",
+          "category_name_2",
+          "category_id_3",
+          "category_name_3",
+          "login_type_id",
+          "login_type_title",
+          "login_group_id",
+          "login_group_title",
+          "default_cpm",
+          "multi_user_private",
+          "wdm",
+          "pa_type",
+          "server_public_name",
+          "video_host",
+          "browser_port",
+          "is_high_quality",
+          "credit_tier",
+          "average_rating",
+          "eye_color",
+          "hair",
+          "is_model_of_week",
+          "interactive",
+          "interactive_name",
+          "studio",
+          "age",
+          "location",
+          "sample_image_id",
+          "languages",
+          "country_code",
+          "model_id",
+          "is_feature",
+          "is_scheduled",
+          "is_new",
+          "is_fetish",
+          "fetish_image_id",
+          "service",
+          "num_perf",
+          "display",
+          "model_name",
+          "model_seo_name",
+          "power_score_xvc",
+          "power_score_xvt",
+          "is_favorite",
+          "is_notify_subscribed",
+          "sample_long_id"
+        ]
+      }
+    }
+  }
+}
