@@ -1,7 +1,9 @@
 # Decompile — by VaultWares
 
 > **A security research tool for Web Apps owners testing the robustness of their obfuscation algorithms.**
-## Quick step-by-step:
+>
+## Quick step-by-step
+
 1. API mapping: initial crawling of the domain leading into path reconstruction and standard OpenAPI docs generation. **Allows for a deep understanding of the product without ever accessing internal systems**
 2. JS de-obfuscation: reconstructing Webpack chunks, reversing common encoding patterns, beautifying/un-minifying scripts. **Reproduces the product's front-facing assets to allow for easier vulnerability discovery**
 JIT semantic code generation. The *magic* step. **Converts logic into clear natural language, broadening your audit horizon by bringing non-technical team members directly into the security review process.**
@@ -29,7 +31,7 @@ Given a target URL, VaultWares Decompile will:
 ## VaultWares Philosophy
 
 | Principle | What It Means Here |
-|---|---|
+| --- | --- |
 | 🔒 **Privacy First** | All crawling, analysis, and AI inference run locally. Nothing leaves your machine. |
 | 🛡️ **Security Second** | Encryption is applied where necessary; it does not slow down the primary workflow. |
 | ⚛️ **Post-Quantum Cryptography** | Sensitive data (session tokens, local vault keys) use KEM-based key encapsulation — ready for a post-quantum world. |
@@ -108,7 +110,7 @@ npm start
 ### Requirements
 
 | Dependency | Version | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | Node.js | ≥ 20 | Runtime |
 | Electron | ≥ 30 | Desktop GUI framework |
 | Crawlee | ≥ 3 | Web crawler / route mapper |
@@ -130,7 +132,7 @@ npm start
 ## Submodules
 
 | Submodule | Purpose |
-|---|---|
+| --- | --- |
 | [`vaultwares-themes`](https://github.com/p-potvin/vaultwares-themes) | VaultWare theme tokens, contrast checker, and Figma-to-code rules |
 | [`vaultwares-adk`](https://github.com/p-potvin/vaultwares-adk) | Multi-agent coordination via Redis — heartbeat, status, task dispatch |
 

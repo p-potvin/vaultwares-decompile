@@ -1,0 +1,35 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/decompile-core",
+    "crates/decompile-cli",
+]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+authors = ["VaultWares"]
+
+[workspace.dependencies]
+anyhow = "1"
+axum = "0.8"
+chrono = { version = "0.4", features = ["serde"] }
+dom_query = "0.27"
+futures-util = "0.3"
+glob = "0.3"
+hex = "0.4"
+indexmap = { version = "2", features = ["serde"] }
+rayon = "1.10"
+regex = "1.10"
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.6", features = ["cors", "fs"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2.5"
+uuid = { version = "1", features = ["v4", "serde"] }

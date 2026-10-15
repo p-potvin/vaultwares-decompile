@@ -1,0 +1,444 @@
+[
+  {
+    "id": "py_worker_handler",
+    "name": "Handler",
+    "kind": "worker_queue",
+    "source_file": "embed/server.py",
+    "state_keys": [],
+    "actions_or_mutators": [
+      "log_message",
+      "_json",
+      "do_GET",
+      "do_POST"
+    ],
+    "persists_to": null,
+    "description": "Stateful Python service/worker class `Handler` in embed/server.py"
+  },
+  {
+    "id": "py_worker_clipworker",
+    "name": "ClipWorker",
+    "kind": "worker_queue",
+    "source_file": "vision/clipwork.py",
+    "state_keys": [
+      "sound",
+      "api",
+      "frames_embedded",
+      "embed",
+      "done",
+      "t0"
+    ],
+    "actions_or_mutators": [
+      "__init__",
+      "one",
+      "run"
+    ],
+    "persists_to": null,
+    "description": "Stateful Python service/worker class `ClipWorker` in vision/clipwork.py"
+  },
+  {
+    "id": "py_worker_speechworker",
+    "name": "SpeechWorker",
+    "kind": "worker_queue",
+    "source_file": "vision/speech.py",
+    "state_keys": [
+      "api",
+      "speech",
+      "every",
+      "done"
+    ],
+    "actions_or_mutators": [
+      "__init__",
+      "run",
+      "start"
+    ],
+    "persists_to": null,
+    "description": "Stateful Python service/worker class `SpeechWorker` in vision/speech.py"
+  },
+  {
+    "id": "react_state_web_src_app_tsx",
+    "name": "ComponentState(web/src/app.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/app.tsx",
+    "state_keys": [
+      "connected",
+      "open"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/app.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_actions_tsx",
+    "name": "ComponentState(web/src/components/Actions.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Actions.tsx",
+    "state_keys": [
+      "ready",
+      "shown",
+      "name",
+      "visual",
+      "sound",
+      "busy",
+      "queue",
+      "skipped",
+      "busy",
+      "sound",
+      "loaded",
+      "readyId",
+      "rooms",
+      "data",
+      "editing",
+      "tab"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Actions.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_alerts_tsx",
+    "name": "ComponentState(web/src/components/Alerts.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Alerts.tsx",
+    "state_keys": [
+      "list",
+      "list",
+      "r",
+      "tags",
+      "keys",
+      "busy",
+      "p",
+      "rules",
+      "editing",
+      "feed"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Alerts.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_browse_tsx",
+    "name": "ComponentState(web/src/components/Browse.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Browse.tsx",
+    "state_keys": [
+      "v",
+      "q",
+      "vq",
+      "tags",
+      "langs",
+      "hairs",
+      "open",
+      "list",
+      "rooms",
+      "total",
+      "folded",
+      "loading",
+      "error",
+      "stale"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": "localStorage",
+    "description": "UI component state hooks in web/src/components/Browse.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_charts_tsx",
+    "name": "ComponentState(web/src/components/Charts.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Charts.tsx",
+    "state_keys": [
+      "hover"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Charts.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_datasets_tsx",
+    "name": "ComponentState(web/src/components/Datasets.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Datasets.tsx",
+    "state_keys": [
+      "drop",
+      "name",
+      "data",
+      "tab",
+      "skipped",
+      "busy",
+      "history",
+      "front",
+      "done"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Datasets.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_director_tsx",
+    "name": "ComponentState(web/src/components/Director.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Director.tsx",
+    "state_keys": [
+      "women",
+      "favs",
+      "sound",
+      "held",
+      "picks",
+      "error",
+      "cut",
+      "log",
+      "pstate",
+      "nowS"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": "localStorage",
+    "description": "UI component state hooks in web/src/components/Director.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_favorites_tsx",
+    "name": "ComponentState(web/src/components/Favorites.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Favorites.tsx",
+    "state_keys": [
+      "rows"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Favorites.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_heard_tsx",
+    "name": "ComponentState(web/src/components/Heard.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Heard.tsx",
+    "state_keys": [
+      "q",
+      "lang",
+      "live",
+      "lines",
+      "more",
+      "total",
+      "langs",
+      "err"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Heard.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_merge_tsx",
+    "name": "ComponentState(web/src/components/Merge.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Merge.tsx",
+    "state_keys": [
+      "busy",
+      "batches",
+      "open",
+      "pairs",
+      "meta",
+      "keeper",
+      "skipped",
+      "busy",
+      "inFlight",
+      "history",
+      "err"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Merge.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_moments_tsx",
+    "name": "ComponentState(web/src/components/Moments.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Moments.tsx",
+    "state_keys": [
+      "frame",
+      "view",
+      "order",
+      "sound",
+      "data",
+      "error",
+      "cur",
+      "like",
+      "sims",
+      "ownToo"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": "localStorage",
+    "description": "UI component state hooks in web/src/components/Moments.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_performers_tsx",
+    "name": "ComponentState(web/src/components/Performers.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Performers.tsx",
+    "state_keys": [
+      "q",
+      "scope",
+      "live",
+      "limit",
+      "data",
+      "gone",
+      "d",
+      "err",
+      "name"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Performers.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_player_tsx",
+    "name": "ComponentState(web/src/components/Player.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Player.tsx",
+    "state_keys": [
+      "state"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Player.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_recordings_tsx",
+    "name": "ComponentState(web/src/components/Recordings.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Recordings.tsx",
+    "state_keys": [
+      "data",
+      "playing",
+      "videoError"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Recordings.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_review_tsx",
+    "name": "ComponentState(web/src/components/Review.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Review.tsx",
+    "state_keys": [
+      "queue",
+      "skipped",
+      "done"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Review.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_roomcard_tsx",
+    "name": "ComponentState(web/src/components/RoomCard.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/RoomCard.tsx",
+    "state_keys": [
+      "src",
+      "hover",
+      "playing"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/RoomCard.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_roompanel_tsx",
+    "name": "ComponentState(web/src/components/RoomPanel.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/RoomPanel.tsx",
+    "state_keys": [
+      "lines",
+      "tips",
+      "live",
+      "open",
+      "found",
+      "detail",
+      "stream",
+      "pstate",
+      "muted",
+      "height",
+      "hours",
+      "nonce",
+      "recording"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/RoomPanel.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_top_tsx",
+    "name": "ComponentState(web/src/components/Top.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Top.tsx",
+    "state_keys": [
+      "span",
+      "by",
+      "site",
+      "gender",
+      "q",
+      "limit",
+      "sort",
+      "favs",
+      "data",
+      "soon",
+      "busy",
+      "tipHours",
+      "tips",
+      "trait",
+      "habits",
+      "acts",
+      "c"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Top.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_wall_tsx",
+    "name": "ComponentState(web/src/components/Wall.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Wall.tsx",
+    "state_keys": [
+      "state",
+      "levels",
+      "nonce",
+      "over",
+      "state",
+      "source",
+      "cands",
+      "error",
+      "page",
+      "dead",
+      "bigKey",
+      "sound",
+      "started",
+      "live",
+      "nonce",
+      "stage",
+      "focus",
+      "fit",
+      "editing",
+      "live"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": "localStorage",
+    "description": "UI component state hooks in web/src/components/Wall.tsx"
+  },
+  {
+    "id": "react_state_web_src_components_whois_tsx",
+    "name": "ComponentState(web/src/components/Whois.tsx)",
+    "kind": "react_state",
+    "source_file": "web/src/components/Whois.tsx",
+    "state_keys": [
+      "photo",
+      "res",
+      "pick",
+      "busy",
+      "err",
+      "over"
+    ],
+    "actions_or_mutators": [],
+    "persists_to": null,
+    "description": "UI component state hooks in web/src/components/Whois.tsx"
+  }
+]

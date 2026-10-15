@@ -1,0 +1,100 @@
+{
+  "views_and_workers": [
+    "Handler (embed/server.py)",
+    "HTML View: OnlyFans to follow (onlyfans-to-follow.html)",
+    "ClipWorker (vision/clipwork.py)",
+    "SpeechWorker (vision/speech.py)",
+    "HTML View: Panopticam (web/index.html)"
+  ],
+  "transitions": [
+    {
+      "id": "tr_handler_merge",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_handler(lib: Library, token: str)",
+      "action": "`_handler` — executes HTTP network I/O",
+      "target_api_or_state": "/merge",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_do_post_merge",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "do_POST(self)",
+      "action": "`do_POST` — executes HTTP network I/O",
+      "target_api_or_state": "/merge",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_merge_merge_undo",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_merge(self, path: str)",
+      "action": "Proprietary routine `_merge` (23 lines)",
+      "target_api_or_state": "/merge/undo",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_merge_merge_batch",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_merge(self, path: str)",
+      "action": "Proprietary routine `_merge` (23 lines)",
+      "target_api_or_state": "/merge/batch",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_do_delete_rec",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "do_DELETE(self)",
+      "action": "`do_DELETE` — executes HTTP network I/O",
+      "target_api_or_state": "/rec/",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_serve_index",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_serve(self, head: bool)",
+      "action": "`_serve` — executes HTTP network I/O",
+      "target_api_or_state": "/index",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_serve_merge_candidates",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_serve(self, head: bool)",
+      "action": "`_serve` — executes HTTP network I/O",
+      "target_api_or_state": "/merge/candidates",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_serve_merge_candidates",
+      "from_state_or_view": "vision/recordings.py",
+      "trigger": "_serve(self, head: bool)",
+      "action": "`_serve` — executes HTTP network I/O",
+      "target_api_or_state": "/merge/candidates",
+      "source_file": "vision/recordings.py"
+    },
+    {
+      "id": "tr_test_sends_vectors_the_server_still_has_api_vision_moments_vecs",
+      "from_state_or_view": "vision/test_moments_embed.py",
+      "trigger": "test_sends_vectors_the_server_still_has(tmp_path)",
+      "action": "`test_sends_vectors_the_server_still_has` — queries/mutates SQLite storage",
+      "target_api_or_state": "/api/vision/moments/vecs",
+      "source_file": "vision/test_moments_embed.py"
+    },
+    {
+      "id": "tr_api_api_vision_moments_vecs",
+      "from_state_or_view": "vision/test_moments_embed.py",
+      "trigger": "api(method, path, body)",
+      "action": "Proprietary routine `api` (4 lines)",
+      "target_api_or_state": "/api/vision/moments/vecs",
+      "source_file": "vision/test_moments_embed.py"
+    },
+    {
+      "id": "jstr_useevents_api_events",
+      "from_state_or_view": "web/src/app.tsx",
+      "trigger": "useEvents()",
+      "action": "Proprietary routine `useEvents` (28 lines)",
+      "target_api_or_state": "/api/events",
+      "source_file": "web/src/app.tsx"
+    }
+  ],
+  "data_flows": []
+}
