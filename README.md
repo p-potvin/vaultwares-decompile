@@ -1,6 +1,6 @@
 # Decompile — by VaultWares
 
-> **A tool to rebuild any App, code-agnosticly, with only publicly available information.**
+> **A tool to rebuild any App, code-agnostically, with only publicly available information.**
 
 ## Quick step-by-step:
 1. Build front-end code, extract business logic, infer some things left or right, voilà.
